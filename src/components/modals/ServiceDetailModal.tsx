@@ -28,7 +28,6 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             src={service.image}
             alt={service.title}
             className="w-full h-full"
-            imageClassName="grayscale"
             imageRounded="rounded-none"
             containerRounded="rounded-none"
           >

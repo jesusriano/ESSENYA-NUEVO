@@ -60,7 +60,7 @@ export const ExperienceSection: React.FC = () => {
                   src={feat.image}
                   alt={feat.title}
                   className="w-full h-full"
-                  imageClassName="grayscale transition-all duration-500 group-hover:grayscale-0"
+                  imageClassName="transition-all duration-500"
                   imageRounded="rounded-none"
                   containerRounded="rounded-none"
                 >

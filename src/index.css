@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #FDFBF7;
+    color: #2D2926;
+  }
+
+  body {
+    background-color: #FDFBF7;
+    color: #2D2926;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@utility font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+@utility font-sans {
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@utility border-subtle {
+  border-color: rgba(45, 41, 38, 0.1);
+}
+
+@utility tracking-widest-xl {
+  letter-spacing: 0.25em;
+}
+
+/* Custom subtle scrollbar in Geometric Balance theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FDFBF7;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2D2926;
+}
+
+/* Continuous Moving Gold Border Line Animations */
+@keyframes borderClockwise {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes borderCounterClockwise {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 100;
+  }
+}
+
+@keyframes borderOffsetPhase {
+  0% {
+    stroke-dashoffset: 60;
+  }
+  100% {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-gold-border-cw {
+  animation: borderClockwise 4s linear infinite;
+}
+
+.animate-gold-border-ccw {
+  animation: borderCounterClockwise 4s linear infinite;
+}
+
+.animate-gold-border-offset {
+  animation: borderOffsetPhase 4s linear infinite;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "ESSENYA - Masajes a Domicilio",
+  "description": "Servicio exclusivo de masajes y spa de lujo a domicilio en Ciudad de México.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

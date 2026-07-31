@@ -32,7 +32,7 @@ export const GiftCardSection: React.FC = () => {
             </h2>
 
             <p className="text-sm text-gray-300 leading-relaxed">
-              El regalo perfecto para cumpleaños, aniversarios, reconocimientos corporativos o simplemente para consentir a quien más quieres en la privacidad de su espacio.
+              El regalo perfecto para cumpleaños, aniversarios, reconocimientos corporativos o simplemente para consentir a quien más quieres en su espacio.
             </p>
 
             <div className="space-y-3 text-xs text-gray-300">

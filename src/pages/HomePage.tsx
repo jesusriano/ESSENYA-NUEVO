@@ -145,7 +145,7 @@ export const HomePage: React.FC = () => {
               <div className="relative z-10 space-y-2">
                 <h3 className="font-serif text-lg font-light text-white group-hover:text-[#C5A059] transition-colors">Camilla Portátil de Masaje</h3>
                 <p className="text-xs text-gray-300 leading-relaxed">
-                  Mesa de masaje profesional acolchada y ergonómica, fácil de instalar en cualquier espacio para tu máxima comodidad.
+                  Mesa de masaje profesional acolchada, fácil de instalar en cualquier espacio para tu máxima comodidad.
                 </p>
               </div>
             </div>

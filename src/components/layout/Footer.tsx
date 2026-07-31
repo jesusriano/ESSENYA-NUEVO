@@ -8,7 +8,7 @@ import essenyaLogo from '../../assets/images/regenerated_image_1785444805870.png
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#2D2926] text-[#FDFBF7] pt-16 pb-0 border-t border-[#C5A059]/30">
+    <footer className="bg-[#1A1B1E] text-[#FDFBF7] pt-16 pb-0 border-t border-[#C5A059]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           
@@ -30,14 +30,14 @@ export const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-xs text-gray-400 leading-relaxed max-w-md">
-              Llevamos la serenidad y la excelencia de un spa de primer nivel directamente a la privacidad de tu residencia en la Ciudad de México. Terapeutas certificadas, camilla ergonómica y aceites de primera calidad.
+              Llevamos la serenidad y la excelencia de un spa de primer nivel directamente a tu residencia en la Ciudad de México. Terapeutas certificadas, camilla y aceites de primera calidad.
             </p>
             <div className="flex flex-wrap items-center gap-3 pt-2 text-[10px] uppercase tracking-widest text-[#C5A059]">
               <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 border border-white/10">
                 <Shield className="w-3.5 h-3.5 text-[#C5A059]" /> Terapeutas Verificadas
               </span>
               <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 border border-white/10">
-                <Clock className="w-3.5 h-3.5 text-[#C5A059]" /> Lunes a Domingo 8am - 10pm
+                <Clock className="w-3.5 h-3.5 text-[#C5A059]" /> Lunes a Domingo 9am - 8pm
               </span>
             </div>
           </div>
@@ -122,7 +122,7 @@ export const Footer: React.FC = () => {
                 <Clock className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-gray-200 uppercase tracking-wider text-[10px]">Horario de Citas:</p>
-                  <p>Lunes a Domingo: 8:00 – 22:00 hrs</p>
+                  <p>Lunes a Domingo: 9:00 – 20:00 hrs</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 text-xs text-gray-400">
@@ -136,9 +136,9 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Geometric Bar */}
-      <div className="bg-[#1E1B18] text-gray-400 py-4 px-8 border-t border-white/10 mt-8">
+      <div className="bg-[#FDFBF7] text-gray-600 py-4 px-8 border-t border-[#C5A059]/30 mt-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] uppercase tracking-[0.3em]">
-          <span>Ciudad de México — Wellness Concierge</span>
+          <span className="font-bold text-[#2D2926]">Ciudad de México — Wellness Concierge</span>
           <div className="flex gap-6 text-[#C5A059] font-bold">
             <a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="hover:underline">WhatsApp</a>
             <span>•</span>
@@ -146,7 +146,7 @@ export const Footer: React.FC = () => {
             <span>•</span>
             <Link to="/cobertura" className="hover:underline">CDMX</Link>
           </div>
-          <span>© {new Date().getFullYear()} ESSENYA SPA</span>
+          <span className="font-bold text-[#2D2926]">© {new Date().getFullYear()} ESSENYA SPA</span>
         </div>
       </div>
     </footer>

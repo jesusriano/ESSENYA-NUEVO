@@ -28,7 +28,7 @@ const CAROUSEL_SLIDES: SlideItem[] = [
     image: slide1,
     tagline: 'BIENESTAR EXCLUSIVO · A DOMICILIO',
     headlineHighlight: 'Lujo y Confort en Tu Hogar',
-    caption: 'Creamos una atmósfera de spa de alto nivel en la privacidad de tu hogar con todo el equipo profesional incluido.',
+    caption: 'Creamos una atmósfera de spa de alto nivel en tu hogar con todo el equipo profesional incluido.',
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ const CAROUSEL_SLIDES: SlideItem[] = [
     image: slide3,
     tagline: 'EQUIPO COMPLETO E HIGIÉNICO',
     headlineHighlight: 'Camilla y Blancos Sterilizados',
-    caption: 'Llevamos camilla ergonómica portátil, sábanas de algodón y toallas impecables listas para tu sesión.',
+    caption: 'Llevamos camilla portátil, sábanas de algodón y toallas impecables listas para tu sesión.',
   },
   {
     id: 4,
@@ -103,9 +103,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               alt={slide.headlineHighlight}
               className="w-full h-full object-cover object-center transform transition-transform duration-10000 ease-linear scale-105"
             />
-            {/* Lighter overlays (50% lighter) so background is bright, crystal clear, and warm */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#120E0D] via-[#120E0D]/40 to-black/10"></div>
-            <div className="absolute inset-0 bg-black/15"></div>
+            {/* Overlays adjusted to be 20% lighter per user request */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#120E0D] via-[#120E0D]/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-black/5"></div>
           </div>
         ))}
       </div>

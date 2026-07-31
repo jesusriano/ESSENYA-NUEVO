@@ -398,7 +398,7 @@ export const FAQS: FAQItem[] = [
     id: 'faq-3',
     category: 'Reserva',
     question: '¿Con cuánto tiempo de anticipación debo agendar mi servicio?',
-    answer: 'Recomendamos agendar con 2 a 4 horas de anticipación para asegurar tu horario preferido. Sin embargo, también contamos con servicio exprés sujeto a disponibilidad en zonas como Polanco, Lomas, Roma, Condesa y Santa Fe. Puedes solicitar tu cita desde las 8:00 AM hasta las 10:00 PM los 7 días de la semana.'
+    answer: 'Recomendamos agendar con 2 a 4 horas de anticipación para asegurar tu horario preferido. Sin embargo, también contamos con servicio exprés sujeto a disponibilidad en zonas como Polanco, Lomas, Roma, Condesa y Santa Fe. Puedes solicitar tu cita desde las 9:00 AM hasta las 8:00 PM los 7 días de la semana.'
   },
   {
     id: 'faq-4',

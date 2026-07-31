@@ -59,40 +59,40 @@ export const AboutPage: React.FC = () => {
             Nuestros 4 Pilares de <i className="font-normal text-[#C5A059]">Excelencia</i>
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="flex items-start gap-3 bg-[#FAF3E0] p-4 border border-[#E5D2A0]">
-              <ShieldCheck className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 bg-[#FAF3E0] p-4 border border-[#E5D2A0] group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#C5A059] cursor-default">
+              <ShieldCheck className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
               <div>
-                <h4 className="font-bold text-xs uppercase tracking-wider text-[#2D2926]">Filtros de Seguridad Estrictos</h4>
+                <h4 className="font-bold text-xs uppercase tracking-wider text-[#2D2926] group-hover:text-[#C5A059] transition-colors">Filtros de Seguridad Estrictos</h4>
                 <p className="text-xs text-gray-700 mt-1">
                   Revisión exhaustiva de antecedentes, verificación de documentos oficiales e investigación psicométrica.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 bg-[#FAF3E0] p-4 border border-[#E5D2A0]">
-              <Award className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 bg-[#FAF3E0] p-4 border border-[#E5D2A0] group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#C5A059] cursor-default">
+              <Award className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
               <div>
-                <h4 className="font-bold text-xs uppercase tracking-wider text-[#2D2926]">Formación Técnica Certificada</h4>
+                <h4 className="font-bold text-xs uppercase tracking-wider text-[#2D2926] group-hover:text-[#C5A059] transition-colors">Formación Técnica Certificada</h4>
                 <p className="text-xs text-gray-700 mt-1">
                   Terapeutas graduadas en anatomía corporal, masoterapia y atención al cliente.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 bg-[#FAF3E0] p-4 border border-[#E5D2A0]">
-              <Sparkles className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 bg-[#FAF3E0] p-4 border border-[#E5D2A0] group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#C5A059] cursor-default">
+              <Sparkles className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
               <div>
-                <h4 className="font-bold text-xs uppercase tracking-wider text-[#2D2926]">Insumos Terapéuticos Certificados</h4>
+                <h4 className="font-bold text-xs uppercase tracking-wider text-[#2D2926] group-hover:text-[#C5A059] transition-colors">Insumos Terapéuticos Certificados</h4>
                 <p className="text-xs text-gray-700 mt-1">
                   Blancos esterilizados de alta densidad, aceites botánicos puros y difusores ultrasónicos.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 bg-[#FAF3E0] p-4 border border-[#E5D2A0]">
-              <Heart className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 bg-[#FAF3E0] p-4 border border-[#E5D2A0] group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#C5A059] cursor-default">
+              <Heart className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
               <div>
-                <h4 className="font-bold text-xs uppercase tracking-wider text-[#2D2926]">Trato Respetuoso & Humano</h4>
+                <h4 className="font-bold text-xs uppercase tracking-wider text-[#2D2926] group-hover:text-[#C5A059] transition-colors">Trato Respetuoso & Humano</h4>
                 <p className="text-xs text-gray-700 mt-1">
                   Atención delicada, personalizada, discreta y enfocada en tus objetivos de bienestar.
                 </p>

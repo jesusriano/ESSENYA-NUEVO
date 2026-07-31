@@ -10,7 +10,7 @@ export const ExperienceSection: React.FC = () => {
   const equipmentFeatures = [
     {
       title: 'Camilla Portátil de Masaje',
-      description: 'Mesa de masaje profesional acolchada y ergonómica, fácil de instalar en cualquier espacio para tu máxima comodidad.',
+      description: 'Mesa de masaje profesional acolchada, fácil de instalar en cualquier espacio para tu máxima comodidad.',
       image: massageTableImg
     },
     {

@@ -69,7 +69,7 @@ export const ContactPage: React.FC = () => {
                   <Clock className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold uppercase tracking-wider text-[10px] text-[#2D2926] block">Horario de Atención:</span>
-                    <span className="text-[11px] text-gray-600">Lunes a Domingo: 8:00 AM – 10:00 PM</span>
+                    <span className="text-[11px] text-gray-600">Lunes a Domingo: 9:00 AM – 8:00 PM</span>
                   </div>
                 </div>
 

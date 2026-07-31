@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
           <img
             src={essenyaLogo}
             alt="ESSENYA"
-            className="h-12 sm:h-14 w-auto object-contain border-2 border-[#C5A059] rounded-sm transition-transform group-hover:scale-105 shadow-md"
+            className="h-12 sm:h-14 w-auto object-contain rounded-sm transition-transform group-hover:scale-105 shadow-md"
           />
           <div className="hidden sm:flex flex-col">
             <span className="font-serif text-[#C5A059] text-base font-bold tracking-widest leading-none">
@@ -134,16 +134,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
             href={buildWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3.5 py-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-2 rounded-sm shadow-md transition-all transform hover:scale-105"
+            className="px-3.5 py-1.5 bg-[#120E0D]/80 hover:bg-[#25D366]/20 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-2 rounded-full border border-[#25D366] shadow-md transition-all transform hover:scale-105 backdrop-blur-sm"
             title="Contacto por WhatsApp"
           >
-            <WhatsAppIcon className="w-4 h-4 text-white" />
+            <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
             <span className="hidden sm:inline">WhatsApp</span>
           </a>
 
           <button
             onClick={onOpenBookingModal}
-            className="px-5 py-2 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] text-[10px] font-bold uppercase tracking-[0.18em] rounded-sm shadow-md transition-all cursor-pointer transform hover:scale-105"
+            className="px-5 py-2 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] text-[10px] font-bold uppercase tracking-[0.18em] rounded-full shadow-md transition-all cursor-pointer transform hover:scale-105"
           >
             RESERVAR AHORA
           </button>
@@ -208,9 +208,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               href={buildWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full mt-3 py-3 bg-[#25D366] text-white font-bold text-xs uppercase tracking-widest text-center flex items-center justify-center gap-2 rounded-sm shadow-md"
+              className="w-full mt-3 py-2.5 bg-[#120E0D]/80 hover:bg-[#25D366]/20 text-white font-bold text-xs uppercase tracking-widest text-center flex items-center justify-center gap-2 rounded-full border border-[#25D366] shadow-md transition-all"
             >
-              <WhatsAppIcon className="w-4 h-4 text-white" />
+              <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
               <span>RESERVAR POR WHATSAPP</span>
             </a>
             <button
@@ -218,7 +218,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 setMobileMenuOpen(false);
                 onOpenBookingModal();
               }}
-              className="w-full mt-2 py-3 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] text-[#120E0D] font-bold text-xs uppercase tracking-widest text-center shadow-md rounded-sm"
+              className="w-full mt-2 py-3 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] text-[#120E0D] font-bold text-xs uppercase tracking-widest text-center shadow-md rounded-full"
             >
               FORMULARIO DE RESERVA
             </button>

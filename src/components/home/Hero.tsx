@@ -158,32 +158,32 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
         </div>
 
         {/* CTA Buttons Row with Real WhatsApp Icon */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2 w-full sm:w-auto">
-          {/* Primary WhatsApp Green Button with Official Icon */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4 w-full sm:w-auto">
+          {/* WhatsApp Button - Refined & Smaller */}
           <a
             href={buildWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-7 py-3.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs sm:text-sm tracking-wide transition-all shadow-2xl flex items-center justify-center gap-3 rounded-md transform hover:-translate-y-0.5 border border-white/20"
+            className="w-full sm:w-auto px-6 py-2.5 bg-[#120E0D]/80 hover:bg-[#25D366]/20 text-white font-semibold text-[11px] sm:text-xs tracking-widest uppercase transition-all shadow-lg flex items-center justify-center gap-2 rounded-full border border-[#25D366] backdrop-blur-md"
           >
-            <WhatsAppIcon className="w-5 h-5 text-white" />
-            <span>Reservar por WhatsApp</span>
+            <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
+            <span>WhatsApp</span>
           </a>
 
           {/* Secondary Action: Reservar en Formulario */}
           <button
             onClick={onOpenBookingModal}
             type="button"
-            className="w-full sm:w-auto px-7 py-3.5 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] font-bold text-xs uppercase tracking-[0.2em] transition-all shadow-xl flex items-center justify-center gap-2 rounded-md"
+            className="w-full sm:w-auto px-6 py-2.5 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] font-bold text-[11px] sm:text-xs tracking-widest uppercase transition-all shadow-lg flex items-center justify-center gap-2 rounded-full"
           >
-            <Calendar className="w-4 h-4 text-[#120E0D]" />
+            <Calendar className="w-3.5 h-3.5 text-[#120E0D]" />
             <span>Reserva en Línea</span>
           </button>
 
           {/* Secondary Outlined Link */}
           <Link
             to="/servicios"
-            className="w-full sm:w-auto px-7 py-3.5 bg-black/40 hover:bg-white/15 text-white border border-[#C5A059] font-bold text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center backdrop-blur-sm"
+            className="w-full sm:w-auto px-6 py-2.5 bg-transparent hover:bg-white/5 text-white border border-white/40 hover:border-white font-semibold text-[11px] sm:text-xs uppercase tracking-widest transition-all flex items-center justify-center rounded-full backdrop-blur-sm"
           >
             Ver Servicios
           </Link>

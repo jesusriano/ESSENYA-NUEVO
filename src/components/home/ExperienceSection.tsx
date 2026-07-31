@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, ShieldCheck, Heart, Droplets, Volume2, ShieldAlert, CheckCircle2 } from 'lucide-react';
+import { AnimatedImage } from "../common/AnimatedImage";
 import { GUARANTEES } from '../../constants/data';
 import massageTableImg from '../../assets/images/portable_massage_table_1_1785444270806.jpg';
 import towelsSheetsImg from '../../assets/images/towels_and_sheets_1_1785444281810.jpg';
@@ -54,13 +55,17 @@ export const ExperienceSection: React.FC = () => {
               key={idx}
               className="bg-[#23201D] border border-white/10 hover:border-[#C5A059]/50 transition-all duration-300 flex flex-col justify-between group"
             >
-              <div className="h-44 overflow-hidden relative">
-                <img
+              <div className="h-44 relative">
+                <AnimatedImage
                   src={feat.image}
                   alt={feat.title}
-                  className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#23201D] via-transparent to-transparent"></div>
+                  className="w-full h-full"
+                  imageClassName="grayscale transition-all duration-500 group-hover:grayscale-0"
+                  imageRounded="rounded-none"
+                  containerRounded="rounded-none"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#23201D] via-transparent to-transparent"></div>
+                </AnimatedImage>
               </div>
 
               <div className="p-6 space-y-2 flex-1">

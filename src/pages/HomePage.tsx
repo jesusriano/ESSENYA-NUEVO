@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, ShieldCheck, CheckCircle2, Clock, MapPin, Heart, HelpCircle, Gift } from 'lucide-react';
+import { AnimatedImage } from "../components/common/AnimatedImage";
 import { Hero } from '../components/home/Hero';
 import { Testimonials } from '../components/home/Testimonials';
 import { BookingModal } from '../components/modals/BookingModal';
@@ -60,16 +61,19 @@ export const HomePage: React.FC = () => {
               className="bg-gradient-to-b from-[#1A1614] via-[#120F0D] to-[#0A0807] border-2 border-[#C5A059]/80 hover:border-[#C5A059] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.7)] transition-all flex flex-col group relative"
             >
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent z-10" />
-              <div className="relative h-64 overflow-hidden bg-black">
-                <img
+              <div className="relative h-64 bg-black">
+                <AnimatedImage
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0807] via-transparent to-transparent"></div>
-                <span className="absolute top-4 left-4 bg-black/90 backdrop-blur-sm text-[#C5A059] border border-[#C5A059] text-[9px] uppercase tracking-widest font-bold px-3 py-1 shadow-md">
-                  {service.tag}
-                </span>
+                  className="w-full h-full"
+                  imageRounded="rounded-none"
+                  containerRounded="rounded-none"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0807] via-transparent to-transparent"></div>
+                  <span className="absolute top-4 left-4 bg-black/90 backdrop-blur-sm text-[#C5A059] border border-[#C5A059] text-[9px] uppercase tracking-widest font-bold px-3 py-1 shadow-md">
+                    {service.tag}
+                  </span>
+                </AnimatedImage>
               </div>
 
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -130,43 +134,52 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/70 hover:border-[#C5A059] shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group">
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent"></div>
-              <img
+            <div className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/30 hover:border-[#C5A059]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent z-10" />
+              <AnimatedImage
                 src={massageTableImg}
                 alt="Camilla Portátil de Masaje"
-                className="w-full h-48 object-cover border border-[#C5A059]/30 rounded-sm group-hover:scale-102 transition-transform"
+                className="w-full h-48"
+                imageClassName="opacity-90 group-hover:opacity-100"
               />
-              <h3 className="font-serif text-lg font-light text-white group-hover:text-[#C5A059] transition-colors">Camilla Portátil de Masaje</h3>
-              <p className="text-xs text-gray-300 leading-relaxed">
-                Mesa de masaje profesional acolchada y ergonómica, fácil de instalar en cualquier espacio para tu máxima comodidad.
-              </p>
+              <div className="relative z-10 space-y-2">
+                <h3 className="font-serif text-lg font-light text-white group-hover:text-[#C5A059] transition-colors">Camilla Portátil de Masaje</h3>
+                <p className="text-xs text-gray-300 leading-relaxed">
+                  Mesa de masaje profesional acolchada y ergonómica, fácil de instalar en cualquier espacio para tu máxima comodidad.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/70 hover:border-[#C5A059] shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group">
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent"></div>
-              <img
+            <div className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/30 hover:border-[#C5A059]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent z-10" />
+              <AnimatedImage
                 src={towelsSheetsImg}
                 alt="Toallas y Sábanas"
-                className="w-full h-48 object-cover border border-[#C5A059]/30 rounded-sm group-hover:scale-102 transition-transform"
+                className="w-full h-48"
+                imageClassName="opacity-90 group-hover:opacity-100"
               />
-              <h3 className="font-serif text-lg font-light text-white group-hover:text-[#C5A059] transition-colors">Toallas y Sábanas</h3>
-              <p className="text-xs text-gray-300 leading-relaxed">
-                Sábanas y toallas impecables, suaves al tacto y totalmente esterilizadas para una experiencia higiénica y confortable.
-              </p>
+              <div className="relative z-10 space-y-2">
+                <h3 className="font-serif text-lg font-light text-white group-hover:text-[#C5A059] transition-colors">Toallas y Sábanas</h3>
+                <p className="text-xs text-gray-300 leading-relaxed">
+                  Sábanas y toallas impecables, suaves al tacto y totalmente esterilizadas para una experiencia higiénica y confortable.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/70 hover:border-[#C5A059] shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group">
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent"></div>
-              <img
+            <div className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/30 hover:border-[#C5A059]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent z-10" />
+              <AnimatedImage
                 src={oilsImg}
                 alt="Aceites Neutros y de Olor"
-                className="w-full h-48 object-cover border border-[#C5A059]/30 rounded-sm group-hover:scale-102 transition-transform"
+                className="w-full h-48"
+                imageClassName="opacity-90 group-hover:opacity-100"
               />
-              <h3 className="font-serif text-lg font-light text-white group-hover:text-[#C5A059] transition-colors">Aceites Neutros y de Olor</h3>
-              <p className="text-xs text-gray-300 leading-relaxed">
-                Selección de aceites neutros e hipoalergénicos para pieles delicadas, así como esencias aromáticas para aromaterapia.
-              </p>
+              <div className="relative z-10 space-y-2">
+                <h3 className="font-serif text-lg font-light text-white group-hover:text-[#C5A059] transition-colors">Aceites Neutros y de Olor</h3>
+                <p className="text-xs text-gray-300 leading-relaxed">
+                  Selección de aceites neutros e hipoalergénicos para pieles delicadas, así como esencias aromáticas para aromaterapia.
+                </p>
+              </div>
             </div>
           </div>
 

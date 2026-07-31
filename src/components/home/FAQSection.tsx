@@ -96,9 +96,9 @@ export const FAQSection: React.FC = () => {
             href={buildWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#2D2926] hover:bg-[#C5A059] text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-colors shadow-sm mt-2"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-colors shadow-md mt-2 border border-[#25D366]/40 rounded-sm"
           >
-            <Phone className="w-4 h-4 text-[#C5A059]" />
+            <Phone className="w-4 h-4 text-[#25D366]" />
             Contactar por WhatsApp
           </a>
         </div>

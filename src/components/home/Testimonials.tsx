@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, Quote, CheckCircle2, MapPin, Sparkles } from 'lucide-react';
+import { AnimatedImage } from "../common/AnimatedImage";
 import { REVIEWS } from '../../constants/data';
 
 export const Testimonials: React.FC = () => {
@@ -55,10 +56,12 @@ export const Testimonials: React.FC = () => {
               <div className="pt-6 mt-6 border-t border-[#C5A059]/30 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   {rev.avatarImage ? (
-                    <img
+                    <AnimatedImage
                       src={rev.avatarImage}
                       alt={rev.author}
-                      className="w-10 h-10 object-cover border border-[#C5A059]/60 rounded-full"
+                      className="w-10 h-10"
+                      containerRounded="rounded-full"
+                      imageRounded="rounded-full"
                     />
                   ) : (
                     <div className="w-10 h-10 bg-black text-[#C5A059] font-light font-serif flex items-center justify-center text-sm border border-[#C5A059]/60 rounded-full">

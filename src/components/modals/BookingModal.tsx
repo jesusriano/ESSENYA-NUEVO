@@ -420,9 +420,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <button
                 type="button"
                 onClick={handleSendToWhatsApp}
-                className="px-6 py-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-[10px] font-bold uppercase tracking-[0.15em] transition-all shadow-md flex items-center gap-2 transform active:scale-95 rounded-sm"
+                className="px-6 py-3 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white text-[10px] font-bold uppercase tracking-[0.15em] transition-all shadow-md flex items-center gap-2 transform active:scale-95 rounded-sm border border-[#25D366]/40"
               >
-                <WhatsAppIcon className="w-4 h-4 text-white" /> Confirmar en WhatsApp
+                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" /> Confirmar en WhatsApp
               </button>
             )}
           </div>

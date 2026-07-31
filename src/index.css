@@ -50,41 +50,25 @@
 }
 
 /* Continuous Moving Gold Border Line Animations */
-@keyframes borderClockwise {
-  0% {
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dashoffset: -100;
-  }
+@keyframes spin-normal {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-@keyframes borderCounterClockwise {
-  0% {
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dashoffset: 100;
-  }
+@keyframes spin-reverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
 }
 
-@keyframes borderOffsetPhase {
-  0% {
-    stroke-dashoffset: 60;
-  }
-  100% {
-    stroke-dashoffset: -40;
-  }
+.animate-border-spin-1 {
+  animation: spin-normal 6s linear infinite;
 }
 
-.animate-gold-border-cw {
-  animation: borderClockwise 4s linear infinite;
+.animate-border-spin-2 {
+  animation: spin-reverse 6s linear infinite;
 }
 
-.animate-gold-border-ccw {
-  animation: borderCounterClockwise 4s linear infinite;
-}
-
-.animate-gold-border-offset {
-  animation: borderOffsetPhase 4s linear infinite;
+.animate-border-spin-3 {
+  animation: spin-normal 6s linear infinite;
+  animation-delay: -3s;
 }

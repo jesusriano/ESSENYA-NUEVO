@@ -89,9 +89,9 @@ export const CoverageSection: React.FC = () => {
                   href={buildWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#2D2926] text-white text-[10px] font-bold uppercase tracking-widest"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white text-[10px] font-bold uppercase tracking-widest border border-[#25D366]/40 rounded-sm shadow-sm transition-colors"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#C5A059]" />
+                  <Phone className="w-3.5 h-3.5 text-[#25D366]" />
                   WhatsApp Directo
                 </a>
               </div>
@@ -159,9 +159,9 @@ export const CoverageSection: React.FC = () => {
                 href={buildWhatsAppUrl({ zoneName: activeZone.name })}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 bg-[#2D2926] hover:bg-[#C5A059] text-white font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2"
+                className="w-full py-3.5 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 border border-[#25D366]/40 rounded-sm"
               >
-                <Phone className="w-4 h-4 text-[#C5A059]" />
+                <Phone className="w-4 h-4 text-[#25D366]" />
                 Reservar en {activeZone.name}
               </a>
             </div>

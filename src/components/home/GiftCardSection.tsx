@@ -107,9 +107,9 @@ export const GiftCardSection: React.FC = () => {
 
             <button
               onClick={handleSendGiftWhatsApp}
-              className="w-full py-3.5 px-6 bg-[#2D2926] hover:bg-[#C5A059] text-white font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2"
+              className="w-full py-3.5 px-6 bg-[#120E0D] hover:bg-[#120E0D]/90 border border-[#25D366]/40 text-white font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 rounded-sm"
             >
-              <Send className="w-4 h-4 text-[#C5A059]" />
+              <Send className="w-4 h-4 text-[#25D366]" />
               Solicitar por WhatsApp
             </button>
           </div>

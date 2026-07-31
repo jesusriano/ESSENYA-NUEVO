@@ -2,6 +2,7 @@ import React from 'react';
 import { X, CheckCircle2, Sparkles, Clock, Flame, Shield, Calendar, Droplets } from 'lucide-react';
 import { MassageService } from '../../types';
 import { buildWhatsAppUrl } from '../../utils/whatsapp';
+import { AnimatedImage } from "../common/AnimatedImage";
 import { WhatsAppIcon } from '../common/WhatsAppIcon';
 
 interface ServiceDetailModalProps {
@@ -23,12 +24,16 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
         
         {/* Banner Image & Close */}
         <div className="relative h-64 sm:h-72 w-full shrink-0">
-          <img
+          <AnimatedImage
             src={service.image}
             alt={service.title}
-            className="w-full h-full object-cover grayscale"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#2D2926] via-[#2D2926]/40 to-transparent"></div>
+            className="w-full h-full"
+            imageClassName="grayscale"
+            imageRounded="rounded-none"
+            containerRounded="rounded-none"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-[#2D2926] via-[#2D2926]/40 to-transparent"></div>
+          </AnimatedImage>
           
           <button
             onClick={onClose}
@@ -160,9 +165,9 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
               href={buildWhatsAppUrl({ serviceName: service.title })}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-5 py-2.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-[10px] font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 rounded-sm"
+              className="w-full sm:w-auto px-5 py-2.5 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white text-[10px] font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 rounded-sm border border-[#25D366]/40"
             >
-              <WhatsAppIcon className="w-4 h-4 text-white" />
+              <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
               <span>Reservar por WhatsApp</span>
             </a>
 

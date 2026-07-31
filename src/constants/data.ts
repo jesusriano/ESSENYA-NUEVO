@@ -421,8 +421,8 @@ export const GUARANTEES = [
     icon: 'ShieldCheck'
   },
   {
-    title: 'Equipo & Lencería de Lujo',
-    description: 'Camilla portátil de masaje, toallas y sábanas esterilizadas, y aceites neutros y de olor de calidad profesional.',
+    title: 'Equipo de Lujo',
+    description: 'Camilla portátil de masaje, toallas y sábanas esterilizadas, y aceites de primera calidad.',
     icon: 'Sparkles'
   },
   {

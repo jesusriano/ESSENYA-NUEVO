@@ -62,7 +62,7 @@ export const MassageFinder: React.FC<MassageFinderProps> = ({
           </h2>
           <div className="w-12 h-[1px] bg-[#C5A059] mx-auto my-3"></div>
           <p className="text-sm text-gray-600 leading-relaxed max-w-xl mx-auto">
-            Sin tarifas ocultas ni cargos sorpresa. Todo nuestro equipamiento, lencería de lujo y transporte dentro de CDMX ya están incluidos.
+            Sin tarifas ocultas ni cargos sorpresa. Todo nuestro equipamiento de lujo y transporte dentro de CDMX ya están incluidos.
           </p>
         </div>
 
@@ -236,7 +236,7 @@ export const MassageFinder: React.FC<MassageFinderProps> = ({
                 </div>
 
                 <div className="flex justify-between items-center text-gray-400">
-                  <span>Camilla, Lencería & Aromaterapia:</span>
+                  <span>Camilla & Aromaterapia:</span>
                   <span className="text-[#C5A059] font-bold uppercase tracking-wider text-[10px]">¡INCLUIDO!</span>
                 </div>
               </div>
@@ -267,9 +267,9 @@ export const MassageFinder: React.FC<MassageFinderProps> = ({
 
               <button
                 onClick={handleDirectWhatsApp}
-                className="w-full py-3 px-6 bg-white/10 hover:bg-white/20 text-white font-semibold text-[10px] uppercase tracking-widest transition-colors flex items-center justify-center gap-2 border border-white/10"
+                className="w-full py-3 px-6 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white font-bold text-[10px] uppercase tracking-[0.2em] transition-colors flex items-center justify-center gap-2 border border-[#25D366]/40 rounded-sm shadow-md"
               >
-                <Send className="w-3.5 h-3.5 text-[#C5A059]" />
+                <Send className="w-3.5 h-3.5 text-[#25D366]" />
                 WhatsApp Directo
               </button>
             </div>

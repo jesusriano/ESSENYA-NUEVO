@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Award, Heart, CheckCircle2, Sparkles, Users } from 'lucide-react';
 import { ExperienceSection } from '../components/home/ExperienceSection';
+import { AnimatedImage } from "../components/common/AnimatedImage";
 
 export const AboutPage: React.FC = () => {
   return (
@@ -40,11 +41,14 @@ export const AboutPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="border border-[#E5D2A0] overflow-hidden shadow-lg bg-[#FFFDF9] p-2">
-            <img
+          <div className="relative h-80 shadow-lg">
+            <AnimatedImage
               src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80"
               alt="Terapeuta Essenya"
-              className="w-full h-80 object-cover"
+              className="w-full h-full"
+              imageRounded="rounded-none"
+              containerRounded="rounded-none"
+              maskClassName="bg-[#FFFDF9]"
             />
           </div>
         </div>

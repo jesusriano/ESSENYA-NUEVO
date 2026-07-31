@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Phone, Mail, Clock, MapPin, Send, ShieldCheck, Check } from 'lucide-react';
-import { WHATSAPP_DISPLAY } from '../constants/data';
 import { buildWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from '../components/common/WhatsAppIcon';
 
@@ -55,12 +54,14 @@ export const ContactPage: React.FC = () => {
                   href={buildWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-4 bg-[#25D366] text-white hover:bg-[#1EBE5D] transition-colors rounded-sm shadow-md"
+                  className="flex items-center gap-3 p-4 bg-[#120E0D] hover:bg-[#120E0D]/90 transition-colors rounded-sm shadow-md border border-[#25D366]/40 group"
                 >
-                  <WhatsAppIcon className="w-6 h-6 text-white shrink-0" />
+                  <div className="w-10 h-10 rounded-full bg-[#25D366]/20 flex items-center justify-center group-hover:bg-[#25D366]/30 transition-colors">
+                    <WhatsAppIcon className="w-5 h-5 text-[#25D366] shrink-0" />
+                  </div>
                   <div>
-                    <span className="block text-[9px] text-white/90 uppercase tracking-widest font-bold">WhatsApp Oficial Hotline</span>
-                    <span className="font-bold text-sm tracking-wide">{WHATSAPP_DISPLAY}</span>
+                    <span className="block text-[9px] text-gray-400 uppercase tracking-widest font-bold">WhatsApp Oficial</span>
+                    <span className="font-bold text-sm tracking-wide text-white">Reservar por WhatsApp</span>
                   </div>
                 </a>
 

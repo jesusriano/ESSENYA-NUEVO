@@ -13,14 +13,11 @@ export const FloatingWhatsApp: React.FC = () => {
       className="fixed bottom-6 right-6 z-50 group flex items-center justify-center"
     >
       {/* Onda 1: Expanding Radar Ping */}
-      <span className="absolute inline-flex h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-[#25D366] opacity-75 animate-ping" />
+      <span className="absolute inline-flex h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-[#25D366] opacity-30 animate-ping" />
 
-      {/* Onda 2: Outer Soft Glow Wave */}
-      <span className="absolute inline-flex h-20 w-20 sm:h-24 sm:w-24 rounded-full bg-[#25D366]/30 animate-pulse" />
-
-      {/* Botón Circular con Únicamente el Logo de WhatsApp Crisp & Parpadeando */}
-      <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 transform group-hover:scale-110 border-2 border-white/40">
-        <WhatsAppIcon className="w-8 h-8 sm:w-9 sm:h-9 text-white drop-shadow-md animate-pulse" />
+      {/* Botón Circular Elegante */}
+      <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-[#120E0D]/90 hover:bg-[#25D366]/20 text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.3)] transition-all duration-300 transform group-hover:scale-110 border border-[#25D366] backdrop-blur-md">
+        <WhatsAppIcon className="w-7 h-7 sm:w-8 sm:h-8 text-[#25D366] drop-shadow-md" />
       </div>
     </a>
   );

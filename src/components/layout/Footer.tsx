@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, Shield, Sparkles, Heart, CheckCircle2 } from 'lucide-react';
-import { WHATSAPP_DISPLAY, COVERAGE_ZONES } from '../../constants/data';
+import { COVERAGE_ZONES } from '../../constants/data';
 import { buildWhatsAppUrl } from '../../utils/whatsapp';
 import { WhatsAppIcon } from '../common/WhatsAppIcon';
 import essenyaLogo from '../../assets/images/regenerated_image_1785444805870.png';
@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-xs text-gray-400 leading-relaxed max-w-md">
-              Llevamos la serenidad y la excelencia de un spa de primer nivel directamente a la privacidad de tu residencia en la Ciudad de México. Terapeutas certificadas, camilla ergonómica, lencería esterilizada y aceites botánicos orgánicos.
+              Llevamos la serenidad y la excelencia de un spa de primer nivel directamente a la privacidad de tu residencia en la Ciudad de México. Terapeutas certificadas, camilla ergonómica y aceites de primera calidad.
             </p>
             <div className="flex flex-wrap items-center gap-3 pt-2 text-[10px] uppercase tracking-widest text-[#C5A059]">
               <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 border border-white/10">
@@ -111,10 +111,12 @@ export const Footer: React.FC = () => {
                 href={buildWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-[#25D366] hover:text-white transition-colors font-bold bg-[#1E1B18] p-3.5 border border-white/10 rounded-sm shadow-md"
+                className="flex items-center gap-2.5 text-white hover:text-[#25D366] transition-colors font-bold bg-[#120E0D] hover:bg-[#120E0D]/90 p-3.5 border border-[#25D366]/40 rounded-sm shadow-md group"
               >
-                <WhatsAppIcon className="w-5 h-5 text-[#25D366] shrink-0" />
-                <span>WhatsApp: {WHATSAPP_DISPLAY}</span>
+                <div className="w-8 h-8 rounded-full bg-[#25D366]/20 flex items-center justify-center group-hover:bg-[#25D366]/30 transition-colors">
+                  <WhatsAppIcon className="w-4 h-4 text-[#25D366] shrink-0" />
+                </div>
+                <span>Reservar por WhatsApp</span>
               </a>
               <div className="flex items-start gap-2 text-xs text-gray-400 pt-1">
                 <Clock className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />

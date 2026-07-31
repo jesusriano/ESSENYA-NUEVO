@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Sparkles, Clock, Flame, ArrowRight, Eye, Calendar, Heart } from 'lucide-react';
+import { AnimatedImage } from "../common/AnimatedImage";
 import { MASSAGE_SERVICES } from '../../constants/data';
 import { MassageService } from '../../types';
 
@@ -73,28 +74,33 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({
               >
                 <div>
                   {/* Image Container */}
-                  <div className="relative h-56 overflow-hidden">
-                    <img
+                  <div className="relative h-56">
+                    <AnimatedImage
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#2D2926]/70 via-transparent to-transparent"></div>
-                    
-                    {service.tag && (
-                      <span className="absolute top-4 left-4 bg-[#C5A059] text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1">
-                        {service.tag}
-                      </span>
-                    )}
+                      className="w-full h-full"
+                      imageClassName="grayscale transition-all duration-500 group-hover:grayscale-0"
+                      imageRounded="rounded-none"
+                      containerRounded="rounded-none"
+                      maskClassName="bg-[#FDFBF7]"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#2D2926]/70 via-transparent to-transparent"></div>
+                      
+                      {service.tag && (
+                        <span className="absolute top-4 left-4 bg-[#C5A059] text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1">
+                          {service.tag}
+                        </span>
+                      )}
 
-                    <div className="absolute bottom-3 left-4 right-4 flex justify-between items-center text-white text-xs">
-                      <span className="flex items-center gap-1 bg-black/60 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[#FDFBF7]">
-                        <Clock className="w-3 h-3 text-[#C5A059]" /> 60 / 90 / 120 min
-                      </span>
-                      <span className="bg-[#C5A059]/90 text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-1">
-                        A Domicilio
-                      </span>
-                    </div>
+                      <div className="absolute bottom-3 left-4 right-4 flex justify-between items-center text-white text-xs">
+                        <span className="flex items-center gap-1 bg-black/60 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[#FDFBF7]">
+                          <Clock className="w-3 h-3 text-[#C5A059]" /> 60 / 90 / 120 min
+                        </span>
+                        <span className="bg-[#C5A059]/90 text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-1">
+                          A Domicilio
+                        </span>
+                      </div>
+                    </AnimatedImage>
                   </div>
 
                   {/* Content */}

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Gift, Sparkles, Send, CheckCircle2, Heart } from 'lucide-react';
-import { buildWhatsAppUrl } from '../../utils/whatsapp';
+import { Gift, Sparkles, CheckCircle2, Heart, User } from 'lucide-react';
 
 export const GiftCardSection: React.FC = () => {
   const [selectedAmount, setSelectedAmount] = useState<number>(2000);
@@ -8,12 +7,6 @@ export const GiftCardSection: React.FC = () => {
   const [message, setMessage] = useState('');
 
   const amounts = [1500, 2000, 3000, 5000];
-
-  const handleSendGiftWhatsApp = () => {
-    const text = `🎁 *TARJETA DE REGALO ESSENYA SPA* 🎁\n\n*Monto:* $${selectedAmount.toLocaleString('es-MX')} MXN\n*Para:* ${recipientName || 'Alguien especial'}\n*Mensaje personalizado:* ${message || '¡Disfruta un relajante masaje a domicilio!'}\n\nPor favor apoyenme a generar el certificado digital.`;
-    const url = `https://wa.me/5215589012345?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank');
-  };
 
   return (
     <section id="regalos" className="py-20 bg-[#FDFBF7] relative border-b border-subtle">
@@ -105,13 +98,15 @@ export const GiftCardSection: React.FC = () => {
               />
             </div>
 
-            <button
-              onClick={handleSendGiftWhatsApp}
-              className="w-full py-3.5 px-6 bg-[#120E0D] hover:bg-[#120E0D]/90 border border-[#25D366]/40 text-white font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 rounded-sm"
+            <a
+              href="https://www.essenya.app/cliente"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3.5 px-6 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 rounded-sm"
             >
-              <Send className="w-4 h-4 text-[#25D366]" />
-              Solicitar por WhatsApp
-            </button>
+              <User className="w-4 h-4 text-[#120E0D]" />
+              Portal Cliente (Solicitar Regalo)
+            </a>
           </div>
 
         </div>

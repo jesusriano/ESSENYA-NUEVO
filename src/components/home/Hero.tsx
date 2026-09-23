@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, Calendar, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Calendar, Sparkles, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { buildWhatsAppUrl } from '../../utils/whatsapp';
-import { WhatsAppIcon } from '../common/WhatsAppIcon';
 
 import slide1 from '../../assets/images/hero_spa_slide_bright1_1785445052332.jpg';
 import slide2 from '../../assets/images/hero_spa_slide_bright2_1785445064253.jpg';
@@ -157,28 +155,29 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
           </p>
         </div>
 
-        {/* CTA Buttons Row with Real WhatsApp Icon */}
+        {/* CTA Buttons Row */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4 w-full sm:w-auto">
-          {/* WhatsApp Button - Refined & Smaller */}
+          {/* Portal Cliente Button */}
           <a
-            href={buildWhatsAppUrl()}
+            href="https://www.essenya.app/cliente"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-6 py-2.5 bg-[#120E0D]/80 hover:bg-[#25D366]/20 text-white font-semibold text-[11px] sm:text-xs tracking-widest uppercase transition-all shadow-lg flex items-center justify-center gap-2 rounded-full border border-[#25D366] backdrop-blur-md"
+            className="w-full sm:w-auto px-6 py-2.5 bg-[#120E0D]/80 hover:bg-[#C5A059]/20 text-white hover:text-[#C5A059] font-semibold text-[11px] sm:text-xs tracking-widest uppercase transition-all shadow-lg flex items-center justify-center gap-2 rounded-full border border-[#C5A059]/60 hover:border-[#C5A059] backdrop-blur-md"
           >
-            <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-            <span>WhatsApp</span>
+            <User className="w-4 h-4 text-[#C5A059]" />
+            <span>Portal Cliente</span>
           </a>
 
-          {/* Secondary Action: Reservar en Formulario */}
-          <button
-            onClick={onOpenBookingModal}
-            type="button"
+          {/* Reservar Ahora Button */}
+          <a
+            href="https://www.essenya.app/cliente"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto px-6 py-2.5 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] font-bold text-[11px] sm:text-xs tracking-widest uppercase transition-all shadow-lg flex items-center justify-center gap-2 rounded-full"
           >
             <Calendar className="w-3.5 h-3.5 text-[#120E0D]" />
-            <span>Reserva en Línea</span>
-          </button>
+            <span>Reservar Ahora</span>
+          </a>
 
           {/* Secondary Outlined Link */}
           <Link

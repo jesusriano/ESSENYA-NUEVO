@@ -1,9 +1,7 @@
 import React from 'react';
-import { X, CheckCircle2, Sparkles, Clock, Flame, Shield, Calendar, Droplets } from 'lucide-react';
+import { X, CheckCircle2, Sparkles, Clock, Flame, Shield, Calendar, Droplets, User } from 'lucide-react';
 import { MassageService } from '../../types';
-import { buildWhatsAppUrl } from '../../utils/whatsapp';
 import { AnimatedImage } from "../common/AnimatedImage";
-import { WhatsAppIcon } from '../common/WhatsAppIcon';
 
 interface ServiceDetailModalProps {
   service: MassageService | null;
@@ -161,25 +159,24 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
 
           <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
             <a
-              href={buildWhatsAppUrl({ serviceName: service.title })}
+              href="https://www.essenya.app/cliente"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-5 py-2.5 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white text-[10px] font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 rounded-sm border border-[#25D366]/40"
+              className="w-full sm:w-auto px-5 py-2.5 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white hover:text-[#C5A059] text-[10px] font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 rounded-sm border border-[#C5A059]/40"
             >
-              <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-              <span>Reservar por WhatsApp</span>
+              <User className="w-4 h-4 text-[#C5A059]" />
+              <span>Portal Cliente</span>
             </a>
 
-            <button
-              onClick={() => {
-                onClose();
-                onSelectBooking(service.id);
-              }}
-              className="w-full sm:w-auto px-5 py-2.5 bg-[#2D2926] hover:bg-[#C5A059] text-white text-[10px] font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2"
+            <a
+              href="https://www.essenya.app/cliente"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] text-[10px] font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 rounded-sm"
             >
-              <Calendar className="w-4 h-4 text-[#C5A059]" />
-              <span>Formulario</span>
-            </button>
+              <Calendar className="w-4 h-4 text-[#120E0D]" />
+              <span>Reservar Ahora</span>
+            </a>
           </div>
         </div>
 

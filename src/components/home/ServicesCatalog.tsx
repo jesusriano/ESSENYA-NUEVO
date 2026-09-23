@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Sparkles, Clock, Flame, ArrowRight, Eye, Calendar, Heart } from 'lucide-react';
+import { motion } from 'motion/react';
 import { AnimatedImage } from "../common/AnimatedImage";
 import { MASSAGE_SERVICES } from '../../constants/data';
 import { MassageService } from '../../types';
@@ -33,7 +34,13 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-12 space-y-3"
+        >
           <span className="text-[#C5A059] text-[11px] uppercase tracking-widest-xl font-bold block">
             Catálogo Exclusivo ESSENYA
           </span>
@@ -44,10 +51,16 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({
           <p className="text-sm text-gray-600 leading-relaxed max-w-xl mx-auto">
             Cada sesión es ejecutada por terapeutas certificadas con aceites orgánicos tibios, música personalizada y técnicas comprobadas de alivio y relajación.
           </p>
-        </div>
+        </motion.div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex flex-wrap items-center justify-center gap-2 mb-12"
+        >
           {categories.map((cat) => (
             <button
               key={cat.id}
@@ -61,15 +74,19 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({
               {cat.label}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredServices.map((service, index) => {
             const formatIndex = (index + 1).toString().padStart(2, '0');
             return (
-              <div
-                key={service.id}
+              <motion.div
+                key={`${service.id}-${activeTab}`} // Unique key per tab for exit/entry animations
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: (index % 3) * 0.1 }}
                 className="bg-white border border-subtle overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
@@ -144,17 +161,19 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({
                       <Eye className="w-3.5 h-3.5 text-[#C5A059]" />
                       Detalle
                     </button>
-                    <button
-                      onClick={() => onOpenBookingModalWithService(service.id)}
+                    <a
+                      href="https://www.essenya.app/cliente"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full py-2.5 px-3 bg-[#2D2926] hover:bg-[#C5A059] text-white text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-1.5 shadow-xs"
                     >
                       <Calendar className="w-3.5 h-3.5 text-[#C5A059]" />
                       Reservar
-                    </button>
+                    </a>
                   </div>
                 </div>
 
-              </div>
+              </motion.div>
             );
           })}
         </div>

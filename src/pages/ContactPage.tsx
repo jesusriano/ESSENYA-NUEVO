@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, Clock, MapPin, Send, ShieldCheck, Check } from 'lucide-react';
-import { buildWhatsAppUrl } from '../utils/whatsapp';
-import { WhatsAppIcon } from '../components/common/WhatsAppIcon';
+import { Phone, Mail, Clock, MapPin, Send, ShieldCheck, Check, User, Calendar } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   const [name, setName] = useState('');
@@ -12,12 +10,6 @@ export const ContactPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const url = buildWhatsAppUrl({
-      clientName: name,
-      neighborhood,
-      notes: message
-    });
-    window.open(url, '_blank');
     setSubmitted(true);
   };
 
@@ -51,17 +43,17 @@ export const ContactPage: React.FC = () => {
 
               <div className="space-y-4 text-xs text-[#2D2926]">
                 <a
-                  href={buildWhatsAppUrl()}
+                  href="https://www.essenya.app/cliente"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-4 bg-[#120E0D] hover:bg-[#120E0D]/90 transition-colors rounded-sm shadow-md border border-[#25D366]/40 group"
+                  className="flex items-center gap-3 p-4 bg-[#120E0D] hover:bg-[#120E0D]/90 transition-colors rounded-sm shadow-md border border-[#C5A059]/40 group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-[#25D366]/20 flex items-center justify-center group-hover:bg-[#25D366]/30 transition-colors">
-                    <WhatsAppIcon className="w-5 h-5 text-[#25D366] shrink-0" />
+                  <div className="w-10 h-10 rounded-full bg-[#C5A059]/20 flex items-center justify-center group-hover:bg-[#C5A059]/30 transition-colors">
+                    <User className="w-5 h-5 text-[#C5A059] shrink-0" />
                   </div>
                   <div>
-                    <span className="block text-[9px] text-gray-400 uppercase tracking-widest font-bold">WhatsApp Oficial</span>
-                    <span className="font-bold text-sm tracking-wide text-white">Reservar por WhatsApp</span>
+                    <span className="block text-[9px] text-[#C5A059] uppercase tracking-widest font-bold">Reserva Directa</span>
+                    <span className="font-bold text-sm tracking-wide text-white">Portal Cliente</span>
                   </div>
                 </a>
 
@@ -99,18 +91,29 @@ export const ContactPage: React.FC = () => {
             </h3>
 
             {submitted ? (
-              <div className="bg-[#F9F6F2] p-6 border border-subtle text-center space-y-3">
+              <div className="bg-[#F9F6F2] p-6 border border-subtle text-center space-y-4">
                 <Check className="w-8 h-8 text-[#C5A059] mx-auto" />
-                <h4 className="font-serif font-light text-lg text-[#2D2926]">¡Mensaje Preparado!</h4>
+                <h4 className="font-serif font-light text-lg text-[#2D2926]">¡Mensaje Recibido!</h4>
                 <p className="text-xs text-gray-600">
-                  Te hemos redirigido a WhatsApp con tus datos para responderte inmediatamente.
+                  Hemos registrado tus datos. También puedes agendar o gestionar tu cita directamente en nuestro Portal Cliente.
                 </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="px-6 py-2 bg-[#2D2926] text-white text-[10px] font-bold uppercase tracking-[0.2em]"
-                >
-                  Enviar otro mensaje
-                </button>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                  <a
+                    href="https://www.essenya.app/cliente"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto px-6 py-2.5 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] text-[10px] font-bold uppercase tracking-[0.2em] inline-flex items-center justify-center gap-2"
+                  >
+                    <User className="w-4 h-4 text-[#120E0D]" />
+                    Ir al Portal Cliente
+                  </a>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="w-full sm:w-auto px-6 py-2.5 bg-[#2D2926] text-white text-[10px] font-bold uppercase tracking-[0.2em]"
+                  >
+                    Enviar otro mensaje
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -130,7 +133,7 @@ export const ContactPage: React.FC = () => {
 
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[#C5A059] mb-1">
-                    Teléfono / WhatsApp:
+                    Teléfono de Contacto:
                   </label>
                   <input
                     type="tel"
@@ -169,13 +172,25 @@ export const ContactPage: React.FC = () => {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full py-3.5 px-6 bg-[#2D2926] hover:bg-[#C5A059] text-white font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2"
-                >
-                  <Send className="w-4 h-4 text-[#C5A059]" />
-                  Enviar Consulta vía WhatsApp
-                </button>
+                <div className="space-y-3 pt-2">
+                  <button
+                    type="submit"
+                    className="w-full py-3.5 px-6 bg-[#2D2926] hover:bg-[#C5A059] text-white font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <Send className="w-4 h-4 text-[#C5A059]" />
+                    Enviar Consulta
+                  </button>
+
+                  <a
+                    href="https://www.essenya.app/cliente"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 px-6 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 rounded-sm"
+                  >
+                    <User className="w-4 h-4 text-[#120E0D]" />
+                    Portal Cliente (Reservar Cita)
+                  </a>
+                </div>
               </form>
             )}
 

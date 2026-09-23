@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, Sparkles, Phone } from 'lucide-react';
+import { HelpCircle, ChevronDown, Sparkles, User } from 'lucide-react';
 import { FAQS } from '../../constants/data';
-import { buildWhatsAppUrl } from '../../utils/whatsapp';
 
 export const FAQSection: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>(FAQS[0].id);
@@ -90,16 +89,16 @@ export const FAQSection: React.FC = () => {
             ¿Tienes alguna otra duda o requerimiento especial?
           </p>
           <p className="text-xs text-gray-600 leading-relaxed max-w-lg mx-auto">
-            Nuestra coordinadora está disponible en tiempo real en WhatsApp para orientarte sobre la mejor técnica para tu condición.
+            Accede a nuestro portal de clientes para consultar detalles, disponibilidad y gestionar tus citas fácilmente.
           </p>
           <a
-            href={buildWhatsAppUrl()}
+            href="https://www.essenya.app/cliente"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-colors shadow-md mt-2 border border-[#25D366]/40 rounded-sm"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white hover:text-[#C5A059] text-[10px] font-bold uppercase tracking-[0.2em] transition-colors shadow-md mt-2 border border-[#C5A059]/40 rounded-sm"
           >
-            <Phone className="w-4 h-4 text-[#25D366]" />
-            Contactar por WhatsApp
+            <User className="w-4 h-4 text-[#C5A059]" />
+            Portal Cliente
           </a>
         </div>
 

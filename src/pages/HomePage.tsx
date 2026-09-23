@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, ShieldCheck, CheckCircle2, Clock, MapPin, Heart, HelpCircle, Gift } from 'lucide-react';
+import { motion } from 'motion/react';
 import { AnimatedImage } from "../components/common/AnimatedImage";
 import { Hero } from '../components/home/Hero';
 import { Testimonials } from '../components/home/Testimonials';
@@ -40,7 +41,13 @@ export const HomePage: React.FC = () => {
 
       {/* 2. Featured Services Preview Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto space-y-3 mb-12"
+        >
           <span className="text-[#C5A059] text-[11px] uppercase tracking-widest-xl font-bold block">
             Experiencia Terapéutica
           </span>
@@ -51,13 +58,17 @@ export const HomePage: React.FC = () => {
           <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
             Llevamos todo el equipo profesional hasta tu residencia. Descubre una selección de nuestras terapias más solicitadas en la Ciudad de México.
           </p>
-        </div>
+        </motion.div>
 
         {/* 3 Featured Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {featuredServices.map((service) => (
-            <div
+          {featuredServices.map((service, index) => (
+            <motion.div
               key={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-gradient-to-b from-[#1A1614] via-[#120F0D] to-[#0A0807] border-2 border-[#C5A059]/80 hover:border-[#C5A059] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.7)] transition-all flex flex-col group relative"
             >
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent z-10" />
@@ -93,20 +104,28 @@ export const HomePage: React.FC = () => {
                   >
                     Ver detalles <ArrowRight className="w-3 h-3" />
                   </button>
-                  <button
-                    onClick={() => handleOpenBookingModalWithService(service.id)}
-                    className="px-4 py-2 bg-[#C5A059] text-black hover:bg-[#D8B46E] text-[10px] uppercase font-bold tracking-widest transition-colors rounded-sm"
+                  <a
+                    href="https://www.essenya.app/cliente"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-[#C5A059] text-black hover:bg-[#D8B46E] text-[10px] uppercase font-bold tracking-widest transition-colors rounded-sm inline-block"
                   >
                     Reservar
-                  </button>
+                  </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* View All Services CTA */}
-        <div className="mt-12 text-center">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-12 text-center"
+        >
           <Link
             to="/servicios"
             className="inline-flex items-center gap-3 px-8 py-4 bg-[#2D2926] hover:bg-[#C5A059] text-white font-bold text-xs uppercase tracking-[0.2em] transition-all shadow-md group"
@@ -114,13 +133,19 @@ export const HomePage: React.FC = () => {
             <span>Ver Menú Completo de Servicios (8 Opciónes)</span>
             <ArrowRight className="w-4 h-4 text-[#C5A059] group-hover:text-white transition-colors" />
           </Link>
-        </div>
+        </motion.div>
       </section>
 
       {/* 3. The Experience Preview / Equipment */}
       <section className="bg-[#2D2926] text-[#FDFBF7] py-20 px-4 sm:px-6 lg:px-8 border-y border-white/10">
         <div className="max-w-7xl mx-auto space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto space-y-3"
+          >
             <span className="text-[#C5A059] text-[11px] uppercase tracking-widest-xl font-bold block">
               Tu Espacio Convertido en Spa
             </span>
@@ -131,10 +156,16 @@ export const HomePage: React.FC = () => {
             <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
               Tú no necesitas preparar nada. Nuestras terapeutas llegan a tu domicilio con camilla profesional, blancos esterilizados y aceites de primera calidad.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/30 hover:border-[#C5A059]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/30 hover:border-[#C5A059]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group"
+            >
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent z-10" />
               <AnimatedImage
                 src={massageTableImg}
@@ -148,9 +179,15 @@ export const HomePage: React.FC = () => {
                   Mesa de masaje profesional acolchada, fácil de instalar en cualquier espacio para tu máxima comodidad.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/30 hover:border-[#C5A059]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/30 hover:border-[#C5A059]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group"
+            >
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent z-10" />
               <AnimatedImage
                 src={towelsSheetsImg}
@@ -164,9 +201,15 @@ export const HomePage: React.FC = () => {
                   Sábanas y toallas impecables, suaves al tacto y totalmente esterilizadas para una experiencia higiénica y confortable.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/30 hover:border-[#C5A059]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/30 hover:border-[#C5A059]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group"
+            >
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent z-10" />
               <AnimatedImage
                 src={oilsImg}
@@ -180,10 +223,16 @@ export const HomePage: React.FC = () => {
                   Selección de aceites neutros e hipoalergénicos para pieles delicadas, así como esencias aromáticas para aromaterapia.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="text-center pt-4">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center pt-4"
+          >
             <Link
               to="/nosotros"
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] text-xs font-bold uppercase tracking-[0.2em] transition-all shadow-md"
@@ -191,14 +240,20 @@ export const HomePage: React.FC = () => {
               <ShieldCheck className="w-4 h-4" />
               <span>Conoce Más Sobre Terapeutas & Protocolos</span>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 4. Coverage Summary Preview */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
             <span className="text-[#C5A059] text-[11px] uppercase tracking-widest-xl font-bold block">
               Zonas de Cobertura CDMX
             </span>
@@ -210,11 +265,18 @@ export const HomePage: React.FC = () => {
             </p>
 
             <div className="grid grid-cols-2 gap-3 text-xs text-[#2D2926]">
-              {COVERAGE_ZONES.map((zone) => (
-                <div key={zone.id} className="flex items-center gap-2 bg-white p-3 border border-[#E5D2A0]">
+              {COVERAGE_ZONES.map((zone, idx) => (
+                <motion.div 
+                  key={zone.id} 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  className="flex items-center gap-2 bg-white p-3 border border-[#E5D2A0]"
+                >
                   <MapPin className="w-4 h-4 text-[#C5A059] shrink-0" />
                   <span className="font-semibold text-[11px] uppercase tracking-wider">{zone.name}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
 
@@ -227,9 +289,15 @@ export const HomePage: React.FC = () => {
                 <ArrowRight className="w-3.5 h-3.5 text-[#C5A059]" />
               </Link>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="bg-gradient-to-b from-[#1A1614] via-[#120F0D] to-[#0A0807] p-8 border-2 border-[#C5A059]/80 shadow-[0_0_25px_rgba(197,160,89,0.15)] text-white space-y-6 relative overflow-hidden">
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-b from-[#1A1614] via-[#120F0D] to-[#0A0807] p-8 border-2 border-[#C5A059]/80 shadow-[0_0_25px_rgba(197,160,89,0.15)] text-white space-y-6 relative overflow-hidden"
+          >
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent"></div>
             <h3 className="font-serif text-2xl font-light text-[#C5A059]">
               Horarios & Reserva Fácil
@@ -247,18 +315,20 @@ export const HomePage: React.FC = () => {
                 <CheckCircle2 className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
                 <div>
                   <p className="font-bold text-white uppercase tracking-wider">Confirmación Inmediata:</p>
-                  <p className="text-gray-300">Coordinación directa por WhatsApp con asignación de terapeuta confirmada.</p>
+                  <p className="text-gray-300">Coordinación directa a través de nuestro portal de clientes con asignación de terapeuta confirmada.</p>
                 </div>
               </div>
             </div>
 
-            <button
-              onClick={handleOpenBookingModal}
-              className="w-full py-3.5 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] text-[11px] font-bold uppercase tracking-[0.2em] transition-all shadow-lg rounded-sm cursor-pointer"
+            <a
+              href="https://www.essenya.app/cliente"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3.5 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] text-[11px] font-bold uppercase tracking-[0.2em] transition-all shadow-lg rounded-sm cursor-pointer text-center inline-block"
             >
               Agendar Cita en Mi Colonia
-            </button>
-          </div>
+            </a>
+          </motion.div>
         </div>
       </section>
 
@@ -270,7 +340,13 @@ export const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* FAQ Card */}
-          <div className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-8 border-2 border-[#C5A059] shadow-[0_0_25px_rgba(197,160,89,0.25)] space-y-4 hover:border-[#E3C27E] transition-all flex flex-col justify-between relative overflow-hidden group rounded-sm">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-8 border-2 border-[#C5A059] shadow-[0_0_25px_rgba(197,160,89,0.25)] space-y-4 hover:border-[#E3C27E] transition-all flex flex-col justify-between relative overflow-hidden group rounded-sm"
+          >
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#C5A059]/20 via-[#C5A059] to-[#C5A059]/20"></div>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-[#C5A059] text-[10px] uppercase font-bold tracking-widest">
@@ -293,10 +369,16 @@ export const HomePage: React.FC = () => {
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Gift Card */}
-          <div className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-8 border-2 border-[#C5A059] shadow-[0_0_25px_rgba(197,160,89,0.25)] space-y-4 hover:border-[#E3C27E] transition-all flex flex-col justify-between relative overflow-hidden group rounded-sm">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-8 border-2 border-[#C5A059] shadow-[0_0_25px_rgba(197,160,89,0.25)] space-y-4 hover:border-[#E3C27E] transition-all flex flex-col justify-between relative overflow-hidden group rounded-sm"
+          >
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#C5A059]/20 via-[#C5A059] to-[#C5A059]/20"></div>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-[#C5A059] text-[10px] uppercase font-bold tracking-widest">
@@ -319,7 +401,7 @@ export const HomePage: React.FC = () => {
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </section>

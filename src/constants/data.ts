@@ -374,7 +374,7 @@ export const REVIEWS: Review[] = [
     neighborhood: 'Roma Norte',
     rating: 5,
     date: 'Hace 3 semanas',
-    comment: 'Servicio ultra discreto, seguro y fácil de pedir por WhatsApp. Traen absolutamente todo, incluso la música. Tú solo pones el espacio de 2x2 metros.',
+    comment: 'Servicio ultra discreto, seguro y fácil de agendar en su portal de clientes. Traen absolutamente todo, incluso la música. Tú solo pones el espacio de 2x2 metros.',
     serviceUsed: 'Masaje Deportivo 90 min',
     verified: true,
     avatarImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80'

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { X, Calendar, Clock, MapPin, User, Check, Sparkles, Send, ShieldCheck, ArrowRight, ArrowLeft } from 'lucide-react';
 import { MASSAGE_SERVICES, ADD_ONS, COVERAGE_ZONES } from '../../constants/data';
-import { buildWhatsAppUrl } from '../../utils/whatsapp';
-import { WhatsAppIcon } from '../common/WhatsAppIcon';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -55,27 +53,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     }
   };
 
-  const handleSendToWhatsApp = () => {
-    const zoneObj = COVERAGE_ZONES.find((z) => z.id === selectedZoneId);
-    const addOnNames = selectedAddOns.map((id) => ADD_ONS.find((a) => a.id === id)?.name || id);
-
-    const url = buildWhatsAppUrl({
-      serviceName: currentService.title,
-      durationMinutes: selectedDuration,
-      addOnNames,
-      totalPriceMXN: grandTotal,
-      date,
-      timeSlot,
-      zoneName: zoneObj?.name,
-      neighborhood,
-      clientName,
-      notes
-    });
-
-    window.open(url, '_blank');
-    setIsSuccess(true);
-  };
-
   const timeOptions = [
     '09:00 AM', '10:30 AM', '12:00 PM', '01:30 PM', '03:00 PM', '04:30 PM', '06:00 PM', '07:30 PM', '08:00 PM'
   ];
@@ -115,20 +92,31 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <Check className="w-8 h-8" />
               </div>
               <h4 className="font-serif text-2xl font-light text-[#2D2926]">
-                ¡Solicitud Enviada a <i className="font-normal text-[#C5A059]">WhatsApp</i>!
+                ¡Acceso al <i className="font-normal text-[#C5A059]">Portal Cliente</i>!
               </h4>
               <p className="text-xs text-gray-600 max-w-md mx-auto leading-relaxed">
-                Hemos pre-llenado los detalles de tu cita. Nuestra coordinadora te responderá en menos de 5 minutos para confirmar la terapeuta asignada.
+                Hemos preparado la información para tu servicio. Puedes continuar o gestionar tu reserva directamente en nuestro Portal Cliente.
               </p>
-              <button
-                onClick={() => {
-                  setIsSuccess(false);
-                  onClose();
-                }}
-                className="mt-4 px-8 py-3 bg-[#2D2926] text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#C5A059] transition-colors"
-              >
-                Cerrar Ventana
-              </button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4">
+                <a
+                  href="https://www.essenya.app/cliente"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-8 py-3 bg-[#C5A059] text-[#120E0D] text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#D8B46E] transition-colors inline-flex items-center justify-center gap-2"
+                >
+                  <User className="w-4 h-4" />
+                  Ir al Portal Cliente
+                </a>
+                <button
+                  onClick={() => {
+                    setIsSuccess(false);
+                    onClose();
+                  }}
+                  className="w-full sm:w-auto px-6 py-3 bg-[#2D2926] text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#C5A059] transition-colors"
+                >
+                  Cerrar
+                </button>
+              </div>
             </div>
           ) : (
             <>
@@ -312,7 +300,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     </div>
                     <div>
                       <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[#C5A059] mb-1.5">
-                        Teléfono / WhatsApp:
+                        Teléfono de Contacto:
                       </label>
                       <input
                         type="tel"
@@ -417,13 +405,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 Siguiente <ArrowRight className="w-4 h-4" />
               </button>
             ) : (
-              <button
-                type="button"
-                onClick={handleSendToWhatsApp}
-                className="px-6 py-3 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white text-[10px] font-bold uppercase tracking-[0.15em] transition-all shadow-md flex items-center gap-2 transform active:scale-95 rounded-sm border border-[#25D366]/40"
+              <a
+                href="https://www.essenya.app/cliente"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsSuccess(true)}
+                className="px-6 py-3 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] text-[10px] font-bold uppercase tracking-[0.15em] transition-all shadow-md flex items-center gap-2 transform active:scale-95 rounded-sm"
               >
-                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" /> Confirmar en WhatsApp
-              </button>
+                <User className="w-4 h-4 text-[#120E0D]" /> Portal Cliente (Completar Cita)
+              </a>
             )}
           </div>
         )}

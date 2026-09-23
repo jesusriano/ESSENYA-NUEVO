@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { MapPin, Search, CheckCircle2, Clock, ShieldCheck, Phone, ArrowRight } from 'lucide-react';
+import { MapPin, Search, CheckCircle2, Clock, ShieldCheck, ArrowRight, User, Calendar } from 'lucide-react';
 import { COVERAGE_ZONES } from '../../constants/data';
-import { buildWhatsAppUrl } from '../../utils/whatsapp';
 
 export const CoverageSection: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -86,13 +85,13 @@ export const CoverageSection: React.FC = () => {
                   ¿No encuentras tu colonia en la lista? Probablemente sí llegamos.
                 </p>
                 <a
-                  href={buildWhatsAppUrl()}
+                  href="https://www.essenya.app/cliente"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white text-[10px] font-bold uppercase tracking-widest border border-[#25D366]/40 rounded-sm shadow-sm transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white text-[10px] font-bold uppercase tracking-widest border border-[#C5A059]/40 rounded-sm shadow-sm transition-colors"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#25D366]" />
-                  WhatsApp Directo
+                  <User className="w-3.5 h-3.5 text-[#C5A059]" />
+                  Portal Cliente
                 </a>
               </div>
             )}
@@ -156,12 +155,12 @@ export const CoverageSection: React.FC = () => {
 
             <div className="pt-2">
               <a
-                href={buildWhatsAppUrl({ zoneName: activeZone.name })}
+                href="https://www.essenya.app/cliente"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 border border-[#25D366]/40 rounded-sm"
+                className="w-full py-3.5 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 rounded-sm"
               >
-                <Phone className="w-4 h-4 text-[#25D366]" />
+                <Calendar className="w-4 h-4 text-[#120E0D]" />
                 Reservar en {activeZone.name}
               </a>
             </div>

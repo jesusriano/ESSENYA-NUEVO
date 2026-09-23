@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
-import { FloatingWhatsApp } from './components/layout/FloatingWhatsApp';
 import { BookingModal } from './components/modals/BookingModal';
 
 import { HomePage } from './pages/HomePage';
@@ -54,7 +53,6 @@ export default function App() {
         </div>
 
         <Footer />
-        <FloatingWhatsApp />
 
         {/* Global Quick Booking Modal */}
         <BookingModal

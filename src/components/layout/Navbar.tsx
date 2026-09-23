@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { buildWhatsAppUrl } from '../../utils/whatsapp';
-import { WhatsAppIcon } from '../common/WhatsAppIcon';
+import { Menu, X, ChevronDown, User } from 'lucide-react';
 import essenyaLogo from '../../assets/images/regenerated_image_1785444805870.png';
 
 interface NavbarProps {
-  onOpenBookingModal: () => void;
+  onOpenBookingModal?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
@@ -131,22 +129,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
         {/* Action Buttons */}
         <div className="flex items-center gap-3">
           <a
-            href={buildWhatsAppUrl()}
+            href="https://www.essenya.app/cliente"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3.5 py-1.5 bg-[#120E0D]/80 hover:bg-[#25D366]/20 text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-2 rounded-full border border-[#25D366] shadow-md transition-all transform hover:scale-105 backdrop-blur-sm"
-            title="Contacto por WhatsApp"
+            className="px-3.5 py-1.5 bg-[#120E0D]/80 hover:bg-[#C5A059]/20 text-white hover:text-[#C5A059] text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 rounded-full border border-[#C5A059]/60 hover:border-[#C5A059] shadow-md transition-all transform hover:scale-105 backdrop-blur-sm"
+            title="Portal de Clientes ESSENYA"
           >
-            <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-            <span className="hidden sm:inline">WhatsApp</span>
+            <User className="w-3.5 h-3.5 text-[#C5A059]" />
+            <span className="hidden sm:inline">PORTAL CLIENTE</span>
+            <span className="sm:hidden">CLIENTE</span>
           </a>
 
-          <button
-            onClick={onOpenBookingModal}
-            className="px-5 py-2 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] text-[10px] font-bold uppercase tracking-[0.18em] rounded-full shadow-md transition-all cursor-pointer transform hover:scale-105"
+          <a
+            href="https://www.essenya.app/cliente"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] text-[10px] font-bold uppercase tracking-[0.18em] rounded-full shadow-md transition-all cursor-pointer transform hover:scale-105 inline-flex items-center justify-center font-bold"
           >
             RESERVAR AHORA
-          </button>
+          </a>
 
           {/* Mobile Hamburguer Toggle */}
           <button
@@ -205,23 +206,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               CONTACTO
             </Link>
             <a
-              href={buildWhatsAppUrl()}
+              href="https://www.essenya.app/cliente"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full mt-3 py-2.5 bg-[#120E0D]/80 hover:bg-[#25D366]/20 text-white font-bold text-xs uppercase tracking-widest text-center flex items-center justify-center gap-2 rounded-full border border-[#25D366] shadow-md transition-all"
+              className="w-full mt-3 py-2.5 bg-[#120E0D]/80 hover:bg-[#C5A059]/20 text-[#C5A059] font-bold text-xs uppercase tracking-widest text-center flex items-center justify-center gap-2 rounded-full border border-[#C5A059]/60 shadow-md transition-all"
             >
-              <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-              <span>RESERVAR POR WHATSAPP</span>
+              <User className="w-4 h-4 text-[#C5A059]" />
+              <span>PORTAL CLIENTE</span>
             </a>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBookingModal();
-              }}
-              className="w-full mt-2 py-3 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] text-[#120E0D] font-bold text-xs uppercase tracking-widest text-center shadow-md rounded-full"
+            <a
+              href="https://www.essenya.app/cliente"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full mt-2 py-3 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] text-[#120E0D] font-bold text-xs uppercase tracking-widest text-center shadow-md rounded-full inline-block"
             >
-              FORMULARIO DE RESERVA
-            </button>
+              RESERVAR AHORA
+            </a>
           </div>
         </div>
       )}

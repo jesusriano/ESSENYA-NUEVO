@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, Shield, Sparkles, Heart, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Shield, Sparkles, Heart, CheckCircle2, User } from 'lucide-react';
 import { COVERAGE_ZONES } from '../../constants/data';
-import { buildWhatsAppUrl } from '../../utils/whatsapp';
-import { WhatsAppIcon } from '../common/WhatsAppIcon';
 import essenyaLogo from '../../assets/images/regenerated_image_1785444805870.png';
 
 export const Footer: React.FC = () => {
@@ -108,15 +106,15 @@ export const Footer: React.FC = () => {
             </h4>
             <div className="space-y-3 text-xs">
               <a
-                href={buildWhatsAppUrl()}
+                href="https://www.essenya.app/cliente"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-white hover:text-[#25D366] transition-colors font-bold bg-[#120E0D] hover:bg-[#120E0D]/90 p-3.5 border border-[#25D366]/40 rounded-sm shadow-md group"
+                className="flex items-center gap-2.5 text-white hover:text-[#C5A059] transition-colors font-bold bg-[#120E0D] hover:bg-[#120E0D]/90 p-3.5 border border-[#C5A059]/40 rounded-sm shadow-md group"
               >
-                <div className="w-8 h-8 rounded-full bg-[#25D366]/20 flex items-center justify-center group-hover:bg-[#25D366]/30 transition-colors">
-                  <WhatsAppIcon className="w-4 h-4 text-[#25D366] shrink-0" />
+                <div className="w-8 h-8 rounded-full bg-[#C5A059]/20 flex items-center justify-center group-hover:bg-[#C5A059]/30 transition-colors">
+                  <User className="w-4 h-4 text-[#C5A059] shrink-0" />
                 </div>
-                <span>Reservar por WhatsApp</span>
+                <span>Portal Cliente</span>
               </a>
               <div className="flex items-start gap-2 text-xs text-gray-400 pt-1">
                 <Clock className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
@@ -140,7 +138,7 @@ export const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] uppercase tracking-[0.3em]">
           <span className="font-bold text-[#2D2926]">Ciudad de México — Wellness Concierge</span>
           <div className="flex gap-6 text-[#C5A059] font-bold">
-            <a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="hover:underline">WhatsApp</a>
+            <a href="https://www.essenya.app/cliente" target="_blank" rel="noopener noreferrer" className="hover:underline">Portal Cliente</a>
             <span>•</span>
             <Link to="/servicios" className="hover:underline">Servicios</Link>
             <span>•</span>

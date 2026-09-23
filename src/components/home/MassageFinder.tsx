@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Calculator, Clock, Sparkles, Check, Send, Calendar, ShieldCheck, Flame } from 'lucide-react';
+import { Calculator, Clock, Sparkles, Check, Calendar, ShieldCheck, Flame, User } from 'lucide-react';
 import { MASSAGE_SERVICES, ADD_ONS, COVERAGE_ZONES } from '../../constants/data';
-import { buildWhatsAppUrl } from '../../utils/whatsapp';
 
 interface MassageFinderProps {
   onOpenBookingModalWithService: (serviceId: string, duration: number) => void;
@@ -31,21 +30,6 @@ export const MassageFinder: React.FC<MassageFinderProps> = ({
     } else {
       setSelectedAddOns([...selectedAddOns, id]);
     }
-  };
-
-  const handleDirectWhatsApp = () => {
-    const zoneObj = COVERAGE_ZONES.find((z) => z.id === selectedZoneId);
-    const addOnNames = selectedAddOns.map((id) => ADD_ONS.find((a) => a.id === id)?.name || id);
-
-    const url = buildWhatsAppUrl({
-      serviceName: currentService.title,
-      durationMinutes: selectedDuration,
-      addOnNames,
-      totalPriceMXN: grandTotal,
-      zoneName: zoneObj?.name
-    });
-
-    window.open(url, '_blank');
   };
 
   return (
@@ -257,21 +241,25 @@ export const MassageFinder: React.FC<MassageFinderProps> = ({
 
             {/* Actions */}
             <div className="pt-6 space-y-3">
-              <button
-                onClick={() => onOpenBookingModalWithService(selectedServiceId, selectedDuration)}
-                className="w-full py-3.5 px-6 bg-[#C5A059] hover:bg-white hover:text-[#2D2926] text-white font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2"
+              <a
+                href="https://www.essenya.app/cliente"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3.5 px-6 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 rounded-sm"
               >
                 <Calendar className="w-4 h-4" />
                 Reservar Configuración
-              </button>
+              </a>
 
-              <button
-                onClick={handleDirectWhatsApp}
-                className="w-full py-3 px-6 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white font-bold text-[10px] uppercase tracking-[0.2em] transition-colors flex items-center justify-center gap-2 border border-[#25D366]/40 rounded-sm shadow-md"
+              <a
+                href="https://www.essenya.app/cliente"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 px-6 bg-[#120E0D] hover:bg-[#120E0D]/90 text-white hover:text-[#C5A059] font-bold text-[10px] uppercase tracking-[0.2em] transition-colors flex items-center justify-center gap-2 border border-[#C5A059]/40 rounded-sm shadow-md"
               >
-                <Send className="w-3.5 h-3.5 text-[#25D366]" />
-                WhatsApp Directo
-              </button>
+                <User className="w-3.5 h-3.5 text-[#C5A059]" />
+                Portal Cliente
+              </a>
             </div>
 
           </div>

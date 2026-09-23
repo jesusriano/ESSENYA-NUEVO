@@ -116,6 +116,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <span>Portal Cliente</span>
               </a>
+
               <div className="flex items-start gap-2 text-xs text-gray-400 pt-1">
                 <Clock className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
                 <div>
@@ -125,7 +126,9 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-2 text-xs text-gray-400">
                 <Mail className="w-4 h-4 text-[#C5A059] shrink-0" />
-                <span>contacto@essenya.mx</span>
+                <a href="mailto:essenya222@gmail.com" className="hover:text-white transition-colors">
+                  essenya222@gmail.com
+                </a>
               </div>
             </div>
           </div>

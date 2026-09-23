@@ -77,7 +77,9 @@ export const ContactPage: React.FC = () => {
                   <Mail className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold uppercase tracking-wider text-[10px] text-[#2D2926] block">Correo Electrónico:</span>
-                    <span className="text-[11px] text-gray-600">contacto@essenya.mx</span>
+                    <a href="mailto:essenya222@gmail.com" className="text-[11px] text-gray-600 hover:text-[#C5A059] transition-colors">
+                      essenya222@gmail.com
+                    </a>
                   </div>
                 </div>
               </div>

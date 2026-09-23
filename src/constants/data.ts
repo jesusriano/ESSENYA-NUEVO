@@ -398,13 +398,13 @@ export const FAQS: FAQItem[] = [
     id: 'faq-3',
     category: 'Reserva',
     question: '¿Con cuánto tiempo de anticipación debo agendar mi servicio?',
-    answer: 'Recomendamos agendar con 2 a 4 horas de anticipación para asegurar tu horario preferido. Sin embargo, también contamos con servicio exprés sujeto a disponibilidad en zonas como Polanco, Lomas, Roma, Condesa y Santa Fe. Puedes solicitar tu cita desde las 9:00 AM hasta las 8:00 PM los 7 días de la semana.'
+    answer: 'Las reservas deben realizarse con un mínimo de 5 horas de anticipación para asegurar la asignación de tu terapeuta y equipamiento profesional a domicilio. Puedes solicitar tu cita desde las 9:00 AM hasta las 8:00 PM los 7 días de la semana.'
   },
   {
     id: 'faq-4',
     category: 'Pagos y Cancelaciones',
     question: '¿Qué métodos de pago aceptan y cuál es la política de cancelación?',
-    answer: 'Aceptamos transferencias SPEI instantáneas, pagos seguros en línea con tarjeta de crédito/débito (Visa, Mastercard, AMEX) y cobro con terminal inalámbrica al finalizar tu sesión. Puedes cancelar o reprogramar tu cita sin penalización con al menos 3 horas de anticipación.'
+    answer: 'Aceptamos transferencias SPEI instantáneas, pagos seguros en línea con tarjeta de crédito/débito (Visa, Mastercard, AMEX) y cobro con terminal inalámbrica al finalizar tu sesión. Puedes cancelar o reprogramar tu cita sin penalización con al menos 4 horas de anticipación.'
   },
   {
     id: 'faq-5',

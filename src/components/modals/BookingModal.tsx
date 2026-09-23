@@ -34,6 +34,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [clientPhone, setClientPhone] = useState<string>('');
   const [notes, setNotes] = useState<string>('');
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const [errorMsg, setErrorMsg] = useState<string>('');
 
   const currentService = MASSAGE_SERVICES.find((s) => s.id === selectedServiceId) || MASSAGE_SERVICES[0];
   const priceObj = currentService.prices.find((p) => p.durationMinutes === selectedDuration) || currentService.prices[0];
@@ -225,6 +226,22 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               {/* STEP 2: DATE, TIME & LOCATION */}
               {step === 2 && (
                 <div className="space-y-5">
+                  <div className="bg-[#C5A059]/10 border border-[#C5A059]/30 p-3 text-xs text-[#2D2926] space-y-1 rounded">
+                    <p className="font-bold uppercase tracking-wider text-[10px] text-[#C5A059] flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5" /> Política de Reserva & Cancelación
+                    </p>
+                    <p className="text-[11px] leading-relaxed">
+                      • <strong>Reserva:</strong> Mínimo con 5 horas de anticipación.<br />
+                      • <strong>Cancelación:</strong> Sin costo hasta 4 horas antes de tu sesión.
+                    </p>
+                  </div>
+
+                  {errorMsg && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 text-xs flex items-center justify-between">
+                      <span>{errorMsg}</span>
+                      <button onClick={() => setErrorMsg('')} className="text-red-900 font-bold">×</button>
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[#C5A059] mb-1.5 flex items-center gap-1">
@@ -399,7 +416,31 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             {step < 3 ? (
               <button
                 type="button"
-                onClick={() => setStep((step + 1) as 2 | 3)}
+                onClick={() => {
+                  if (step === 2) {
+                    if (!clientName.trim() || !clientPhone.trim() || !neighborhood.trim()) {
+                      setErrorMsg('Por favor ingresa tu Nombre, Teléfono y Colonia para continuar.');
+                      return;
+                    }
+                    // Validate 5 hours minimum in advance
+                    const [time, modifier] = timeSlot.split(' ');
+                    let [hours, minutes] = time.split(':').map(Number);
+                    if (modifier === 'PM' && hours < 12) hours += 12;
+                    if (modifier === 'AM' && hours === 12) hours = 0;
+
+                    const [year, month, day] = date.split('-').map(Number);
+                    const targetDate = new Date(year, month - 1, day, hours, minutes);
+                    const now = new Date();
+                    const diffHours = (targetDate.getTime() - now.getTime()) / (1000 * 60 * 60);
+
+                    if (diffHours < 5) {
+                      setErrorMsg('Las reservas deben realizarse con un mínimo de 5 horas de anticipación. Por favor selecciona un horario posterior.');
+                      return;
+                    }
+                  }
+                  setErrorMsg('');
+                  setStep((step + 1) as 2 | 3);
+                }}
                 className="px-6 py-2.5 bg-[#2D2926] hover:bg-[#C5A059] text-white text-[10px] font-bold uppercase tracking-[0.2em] transition-colors flex items-center gap-1.5 shadow-md"
               >
                 Siguiente <ArrowRight className="w-4 h-4" />

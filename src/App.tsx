@@ -11,6 +11,7 @@ import { AboutPage } from './pages/AboutPage';
 import { GiftCardsPage } from './pages/GiftCardsPage';
 import { FAQPage } from './pages/FAQPage';
 import { ContactPage } from './pages/ContactPage';
+import { AdminPortalPage } from './pages/AdminPortalPage';
 
 // Scroll to top helper on navigation
 function ScrollToTop() {
@@ -48,6 +49,7 @@ export default function App() {
             <Route path="/regalos" element={<GiftCardsPage />} />
             <Route path="/preguntas" element={<FAQPage />} />
             <Route path="/contacto" element={<ContactPage />} />
+            <Route path="/admin" element={<AdminPortalPage />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
         </div>

@@ -72,3 +72,135 @@
   animation: spin-normal 6s linear infinite;
   animation-delay: -3s;
 }
+
+/* ==========================================================================
+   Hero · Luxury Motion
+   Solo animaciones del Hero (prefijo hero-). El estado base de cada elemento es
+   siempre visible: los estados iniciales ocultos existen únicamente dentro de los
+   @keyframes con "animation-fill-mode: backwards", así que si una animación no
+   se ejecuta, el contenido sigue a la vista. Solo se anima transform y opacity.
+   ========================================================================== */
+
+.hero-root {
+  --hero-speed: 1;
+  --hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --hero-settle-from: 1.05;
+}
+
+@media (max-width: 639px) {
+  .hero-root {
+    --hero-speed: 0.8;
+    --hero-settle-from: 1.03;
+  }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(var(--hero-dy, 12px)); }
+}
+@keyframes hero-fade {
+  from { opacity: 0; }
+}
+@keyframes hero-line-up {
+  from { transform: translateY(135%); }
+}
+@keyframes hero-veil-out {
+  from { opacity: 1; }
+}
+@keyframes hero-settle {
+  from { transform: scale(var(--hero-settle-from)); }
+}
+@keyframes hero-layer-in {
+  from { opacity: 0; }
+}
+@keyframes hero-glint {
+  from { opacity: 0.45; }
+}
+@keyframes hero-text-out {
+  to { opacity: 0; transform: translateY(-6px); }
+}
+@keyframes hero-text-fade-out {
+  to { opacity: 0; }
+}
+@keyframes hero-text-in {
+  from { opacity: 0; transform: translateY(8px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rise {
+    animation: hero-rise calc(var(--hero-dur, 450ms) * var(--hero-speed)) var(--hero-ease)
+      calc(var(--hero-delay, 0ms) * var(--hero-speed)) backwards;
+  }
+  .hero-fade {
+    animation: hero-fade calc(var(--hero-dur, 300ms) * var(--hero-speed)) ease-out
+      calc(var(--hero-delay, 0ms) * var(--hero-speed)) backwards;
+  }
+  .hero-line-up {
+    animation: hero-line-up calc(600ms * var(--hero-speed)) var(--hero-ease)
+      calc(var(--hero-delay, 0ms) * var(--hero-speed)) backwards;
+  }
+  .hero-veil {
+    animation: hero-veil-out 700ms ease-out backwards;
+  }
+  /* Asentamiento: la foto llega un poco más grande y se relaja hasta su encuadre actual (scale-105). */
+  .hero-settle {
+    animation: hero-settle 8400ms var(--hero-ease) backwards;
+  }
+  .hero-layer-in {
+    animation: hero-layer-in 1200ms ease-in-out backwards;
+  }
+  .hero-glint {
+    animation: hero-glint 1200ms ease-out 1000ms backwards;
+  }
+  .hero-text-out {
+    animation: hero-text-out 250ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  .hero-text-in {
+    animation: hero-text-in 500ms var(--hero-ease) var(--hero-delay, 0ms) backwards;
+  }
+  /* Pausa explícita del usuario: la foto se queda quieta. */
+  .hero-root[data-frozen='true'] .hero-settle {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (max-width: 639px) {
+  .hero-glint {
+    animation: none;
+  }
+}
+
+/* Reducir movimiento: sin desplazamientos ni zoom; solo fundidos cortos. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-layer-in {
+    animation: hero-layer-in 200ms linear backwards;
+  }
+  .hero-text-out {
+    animation: hero-text-fade-out 100ms linear forwards;
+  }
+  .hero-text-in {
+    animation: hero-fade 160ms linear backwards;
+  }
+}
+
+/* Destello champagne del botón "Reservar Ahora": gradiente de fondo (sin elementos extra
+   ni posicionamiento, para no alterar el orden de pintado). Una sola pasada al pasar el mouse. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .hero-cta {
+    background-size: 280% 100%;
+    background-repeat: no-repeat;
+    background-position: 125% 0;
+    transition-property: background-color, border-color, color, translate, scale, background-position;
+    transition-duration: 150ms, 150ms, 150ms, 150ms, 150ms, 0s;
+  }
+  /* El gradiente existe solo durante el hover: en reposo el botón es exactamente el original. */
+  .hero-cta:hover {
+    background-image: linear-gradient(
+      105deg,
+      rgba(240, 213, 151, 0) 36%,
+      rgba(240, 213, 151, 0.38) 50%,
+      rgba(240, 213, 151, 0) 64%
+    );
+    background-position: -25% 0;
+    transition-duration: 150ms, 150ms, 150ms, 150ms, 150ms, 700ms;
+  }
+}

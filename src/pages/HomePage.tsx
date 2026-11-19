@@ -5,6 +5,7 @@ import { motion } from 'motion/react';
 import { AnimatedImage } from "../components/common/AnimatedImage";
 import { ScrollExpandImage } from '../components/common/ScrollExpandImage';
 import marcaEssenyaImg from '../assets/images/marca_essenya_expansion.webp';
+import { PriceTable } from '../components/home/PriceTable';
 import { Hero } from '../components/home/Hero';
 import { BookingModal } from '../components/modals/BookingModal';
 import { ServiceDetailModal } from '../components/modals/ServiceDetailModal';
@@ -42,6 +43,9 @@ export const HomePage: React.FC = () => {
 
       {/* 1b. Marca: imagen que se expande con el scroll (GSAP) */}
       <ScrollExpandImage src={marcaEssenyaImg} alt="ESSENYA: Tu bienestar merece tiempo. Masaje de espalda a domicilio." width={941} height={1672} fit="contain" background="#1A1310" parallax={5} />
+
+      {/* 1c. Precios y complementos */}
+      <PriceTable />
 
       {/* 2. Featured Services Preview Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">

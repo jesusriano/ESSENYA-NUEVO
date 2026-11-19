@@ -129,7 +129,7 @@ export const HomePage: React.FC = () => {
             to="/servicios"
             className="inline-flex items-center gap-3 px-8 py-4 bg-[#2D2926] hover:bg-[#C5A059] text-white font-bold text-xs uppercase tracking-[0.2em] transition-all shadow-md group"
           >
-            <span>Ver Menú Completo de Servicios (8 Opciónes)</span>
+            <span>Ver Menú Completo de Servicios ({MASSAGE_SERVICES.length} Opciones)</span>
             <ArrowRight className="w-4 h-4 text-[#C5A059] group-hover:text-white transition-colors" />
           </Link>
         </motion.div>

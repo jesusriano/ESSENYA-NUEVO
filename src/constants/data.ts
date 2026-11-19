@@ -54,8 +54,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
   {
     id: 'masaje-sueco',
     title: 'Masaje Sueco',
-    shortDescription: 'Movimientos suaves y envolventes para liberar el estrés acumulado, activar la circulación y armonizar cuerpo y mente.',
-    fullDescription: 'El masaje relajante sueco de ESSENYA combina fricciones largas, amasamientos gentiles y presiones rítmicas con aceites botánicos tibios. Ideal para desconectar del ritmo acelerado de la ciudad, aliviar el insomnio y alcanzar un estado de serenidad absoluta en la calma de tu espacio.',
+    shortDescription: 'Técnica clásica de fricciones largas y amasamientos que favorece la circulación y deja el cuerpo ligero.',
+    fullDescription: 'El masaje sueco combina fricciones, amasamientos y presiones rítmicas en secuencias fluidas, con aceites botánicos tibios. Es la técnica clásica de bienestar y una gran opción si es tu primera vez con un masaje a domicilio.',
     category: 'relajante',
     tag: 'Más Solicitado',
     image: suecoImg,
@@ -82,10 +82,10 @@ export const MASSAGE_SERVICES: MassageService[] = [
   {
     id: 'masaje-relajante',
     title: 'Masaje Relajante',
-    shortDescription: 'Movimientos suaves y envolventes para liberar el estrés acumulado, activar la circulación y armonizar cuerpo y mente.',
-    fullDescription: 'El masaje relajante sueco de ESSENYA combina fricciones largas, amasamientos gentiles y presiones rítmicas con aceites botánicos tibios. Ideal para desconectar del ritmo acelerado de la ciudad, aliviar el insomnio y alcanzar un estado de serenidad absoluta en la calma de tu espacio.',
+    shortDescription: 'Una sesión suave y envolvente para desconectar del ritmo de la ciudad y recuperar la calma en tu propio espacio.',
+    fullDescription: 'Masaje relajante con movimientos lentos y constantes, aceites tibios y un ritmo pausado. Pensado para quien busca una pausa completa: presiones suaves, mucha calma y un ambiente de spa en casa.',
     category: 'relajante',
-    tag: 'Más Solicitado',
+    tag: 'Para Desconectar',
     image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80',
     prices: [
       { durationMinutes: 60, priceMXN: 1100 },
@@ -110,8 +110,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
   {
     id: 'masaje-descontracturante-profundo',
     title: 'Masaje Descontracturante',
-    shortDescription: 'Técnica de presión firme en capas musculares profundas para disolver nudos, contracturas severas y fatiga muscular en espalda y hombros.',
-    fullDescription: 'Diseñado específicamente para tratar la tensión crónica en espalda, cuello, hombros y zona lumbar. Utiliza nudillos, antebrazos y digitopresión enfocada para deshacer los nudos musculares acumulados por malas posturas o estrés elevado.',
+    shortDescription: 'Presión media y firme sobre espalda, cuello y hombros para aliviar la rigidez de las jornadas largas.',
+    fullDescription: 'Sesión enfocada en espalda, cuello, hombros y zona lumbar, con presiones progresivas según tu comodidad. Recomendada para quien pasa muchas horas sentado y siente rigidez en esas zonas.',
     category: 'terapeutico',
     tag: 'Recomendado Terapéutico',
     image: descontracturanteImg,
@@ -138,10 +138,10 @@ export const MASSAGE_SERVICES: MassageService[] = [
   {
     id: 'masaje-deep-tissue',
     title: 'Masaje Deep Tissue',
-    shortDescription: 'Técnica de presión firme en capas musculares profundas para disolver nudos, contracturas severas y fatiga muscular en espalda y hombros.',
-    fullDescription: 'Diseñado específicamente para tratar la tensión crónica en espalda, cuello, hombros y zona lumbar. Utiliza nudillos, antebrazos y digitopresión enfocada para deshacer los nudos musculares acumulados por malas posturas o estrés elevado.',
+    shortDescription: 'Presión firme y profunda por capas musculares, con trabajo lento sobre las zonas que más tensión acumulan.',
+    fullDescription: 'Técnica de presión profunda que trabaja por capas musculares, con ritmo lento y atención a cada zona. Pensada para quien prefiere una presión firme; el nivel se ajusta durante toda la sesión.',
     category: 'terapeutico',
-    tag: 'Recomendado Terapéutico',
+    tag: 'Presión Profunda',
     image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80',
     prices: [
       { durationMinutes: 60, priceMXN: 1300 },
@@ -278,8 +278,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
   {
     id: 'masaje-deportivo-recuperacion',
     title: 'Masaje Deportivo',
-    shortDescription: 'Estiramientos asistidos, movilización miofascial y percusiones rítmicas para optimizar la recuperación física y liberar fatiga atlética.',
-    fullDescription: 'Ideal para corredores, ciclistas, atletas o personas con alta exigencia física. Combina movilizaciones articulares asistidas y presión enfocada en grupos musculares para prevenir rigidez y restaurar la flexibilidad.',
+    shortDescription: 'Masaje de preparación y recuperación para deportistas, con enfoque en piernas, espalda y zonas de mayor carga.',
+    fullDescription: 'Combina técnicas de preparación y recuperación para deportistas y personas activas. Trabajamos piernas, espalda y zonas de mayor carga, con la presión ajustada a tu entrenamiento.',
     category: 'terapeutico',
     tag: 'Recuperación Física',
     image: sportsMassageImg,
@@ -306,10 +306,10 @@ export const MASSAGE_SERVICES: MassageService[] = [
   {
     id: 'masaje-descarga-muscular',
     title: 'Descarga Muscular',
-    shortDescription: 'Estiramientos asistidos, movilización miofascial y percusiones rítmicas para optimizar la recuperación física y liberar fatiga atlética.',
-    fullDescription: 'Ideal para corredores, ciclistas, atletas o personas con alta exigencia física. Combina movilizaciones articulares asistidas y presión enfocada en grupos musculares para prevenir rigidez y restaurar la flexibilidad.',
+    shortDescription: 'Sesión de recuperación después de entrenar o de una jornada de actividad física intensa.',
+    fullDescription: 'Trabajo de recuperación con estiramientos suaves y presión en piernas, glúteos, espalda y zonas de mayor uso físico. Ideal después de entrenar o competir.',
     category: 'terapeutico',
-    tag: 'Recuperación Física',
+    tag: 'Recuperación Deportiva',
     image: descargaMuscularImg,
     prices: [
       { durationMinutes: 60, priceMXN: 1300 },

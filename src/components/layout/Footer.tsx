@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, Shield, Sparkles, Heart, CheckCircle2, User } from 'lucide-react';
 import { COVERAGE_ZONES } from '../../constants/data';
-import essenyaLogo from '../../assets/images/regenerated_image_1785444805870.png';
+import essenyaLogo from '../../assets/images/regenerated_image_1785444805870.webp';
 
 export const Footer: React.FC = () => {
   return (
@@ -16,6 +16,7 @@ export const Footer: React.FC = () => {
               <img
                 src={essenyaLogo}
                 alt="ESSENYA Logo"
+                loading="lazy"
                 className="h-16 sm:h-20 w-auto object-contain rounded-sm border border-[#C5A059]/30 shadow-md"
               />
               <div>

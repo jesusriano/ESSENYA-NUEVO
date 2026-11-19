@@ -2,9 +2,9 @@ import React from 'react';
 import { Sparkles, ShieldCheck, Heart, Droplets, Volume2, ShieldAlert, CheckCircle2 } from 'lucide-react';
 import { AnimatedImage } from "../common/AnimatedImage";
 import { GUARANTEES } from '../../constants/data';
-import massageTableImg from '../../assets/images/portable_massage_table_1_1785444270806.jpg';
-import towelsSheetsImg from '../../assets/images/towels_and_sheets_1_1785444281810.jpg';
-import oilsImg from '../../assets/images/neutral_scented_oils_1_1785444292576.jpg';
+import massageTableImg from '../../assets/images/portable_massage_table_1_1785444270806.webp';
+import towelsSheetsImg from '../../assets/images/towels_and_sheets_1_1785444281810.webp';
+import oilsImg from '../../assets/images/neutral_scented_oils_1_1785444292576.webp';
 
 export const ExperienceSection: React.FC = () => {
   const equipmentFeatures = [

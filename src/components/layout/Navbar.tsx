@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, User } from 'lucide-react';
-import essenyaLogo from '../../assets/images/regenerated_image_1785444805870.png';
+import essenyaLogo from '../../assets/images/regenerated_image_1785444805870.webp';
 
 interface NavbarProps {
   onOpenBookingModal?: () => void;

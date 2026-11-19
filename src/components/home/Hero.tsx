@@ -2,11 +2,11 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Calendar, Sparkles, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import slide1 from '../../assets/images/hero_spa_slide_bright1_1785445052332.jpg';
-import slide2 from '../../assets/images/hero_spa_slide_bright2_1785445064253.jpg';
-import slide3 from '../../assets/images/portable_massage_table_1_1785444270806.jpg';
-import slide4 from '../../assets/images/couple_massage_spa_1785442759347.jpg';
-import slide5 from '../../assets/images/neutral_scented_oils_1_1785444292576.jpg';
+import slide1 from '../../assets/images/hero_spa_slide_bright1_1785445052332.webp';
+import slide2 from '../../assets/images/hero_spa_slide_bright2_1785445064253.webp';
+import slide3 from '../../assets/images/portable_massage_table_1_1785444270806.webp';
+import slide4 from '../../assets/images/couple_massage_spa_1785442759347.webp';
+import slide5 from '../../assets/images/neutral_scented_oils_1_1785444292576.webp';
 
 interface HeroProps {
   onOpenBookingModal: () => void;
@@ -99,6 +99,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
             <img
               src={slide.image}
               alt={slide.headlineHighlight}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
+              decoding="async"
               className="w-full h-full object-cover object-center transform transition-transform duration-10000 ease-linear scale-105"
             />
             {/* Overlays adjusted to be 20% lighter per user request */}
@@ -209,11 +212,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
           <div className="flex items-center gap-1.5">
             <span className="text-[#C5A059]">★</span>
             <span>TERAPEUTAS CERTIFICADAS</span>
-          </div>
-          <span className="hidden sm:inline-block text-white/20">•</span>
-          <div className="flex items-center gap-1.5">
-            <span className="text-[#C5A059]">★</span>
-            <span>+1,200 SESIONES EN CDMX</span>
           </div>
         </div>
 

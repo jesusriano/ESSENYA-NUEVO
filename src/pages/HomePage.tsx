@@ -4,15 +4,14 @@ import { ArrowRight, Sparkles, ShieldCheck, CheckCircle2, Clock, MapPin, Heart, 
 import { motion } from 'motion/react';
 import { AnimatedImage } from "../components/common/AnimatedImage";
 import { Hero } from '../components/home/Hero';
-import { Testimonials } from '../components/home/Testimonials';
 import { BookingModal } from '../components/modals/BookingModal';
 import { ServiceDetailModal } from '../components/modals/ServiceDetailModal';
 import { MASSAGE_SERVICES, COVERAGE_ZONES } from '../constants/data';
 import { MassageService } from '../types';
 
-import massageTableImg from '../assets/images/portable_massage_table_1_1785444270806.jpg';
-import towelsSheetsImg from '../assets/images/towels_and_sheets_1_1785444281810.jpg';
-import oilsImg from '../assets/images/neutral_scented_oils_1_1785444292576.jpg';
+import massageTableImg from '../assets/images/portable_massage_table_1_1785444270806.webp';
+import towelsSheetsImg from '../assets/images/towels_and_sheets_1_1785444281810.webp';
+import oilsImg from '../assets/images/neutral_scented_oils_1_1785444292576.webp';
 
 export const HomePage: React.FC = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -331,9 +330,6 @@ export const HomePage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* 5. Testimonials */}
-      <Testimonials />
 
       {/* 6. Page Navigation Cards Banner (FAQ, Gift Cards, Contact) */}
       <section className="bg-black py-16 px-4 sm:px-6 lg:px-8 border-t border-[#C5A059]/30">

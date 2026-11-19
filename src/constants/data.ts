@@ -1,9 +1,12 @@
 import { MassageService, AddOn, CoverageZone, Review, FAQItem } from '../types';
-import coupleMassageImg from '../assets/images/couple_massage_spa_1785442759347.jpg';
-import lymphaticMassageImg from '../assets/images/lymphatic_drainage_massage_1785443688048.jpg';
-import prenatalMassageImg from '../assets/images/prenatal_massage_mom_1785443757882.jpg';
-import reflexologyCraniofacialImg from '../assets/images/reflexology_craniofacial_fixed_1785443961160.jpg';
-import sportsMassageImg from '../assets/images/sports_massage_athletics_1785444051684.jpg';
+import coupleMassageImg from '../assets/images/couple_massage_spa_1785442759347.webp';
+import lymphaticMassageImg from '../assets/images/drenaje_free.webp';
+import prenatalMassageImg from '../assets/images/prenatal_massage_mom_1785443757882.webp';
+import sportsMassageImg from '../assets/images/deportivo_free.webp';
+import descargaMuscularImg from '../assets/images/sports_massage_athletics_1785444051684.webp';
+import suecoImg from '../assets/images/sueco_free.webp';
+import descontracturanteImg from '../assets/images/descontracturante_free.webp';
+import piedrasImg from '../assets/images/piedras_free.webp';
 
 export const WHATSAPP_NUMBER = '5215511318971'; // Official WhatsApp hotline
 export const WHATSAPP_DISPLAY = '+52 1 55 1131 8971';
@@ -38,22 +41,56 @@ export const ADD_ONS: AddOn[] = [
     name: 'Infusión de Aromaterapia Orgánica Esencial',
     description: 'Selección de aceites botánicos de grado terapéutico (Sándalo, Bergamota, Ylang Ylang).',
     price: 200,
+  },
+  {
+    id: 'addon-reflexologia',
+    name: 'Reflexología Podal & Craneofacial',
+    description: 'Complemento de 30 minutos. Se agrega a un masaje; no se reserva por separado.',
+    price: 500,
   }
 ];
 
 export const MASSAGE_SERVICES: MassageService[] = [
   {
-    id: 'masaje-relajante-sueco',
-    title: 'Masaje Relajante Sueco',
+    id: 'masaje-sueco',
+    title: 'Masaje Sueco',
+    shortDescription: 'Movimientos suaves y envolventes para liberar el estrés acumulado, activar la circulación y armonizar cuerpo y mente.',
+    fullDescription: 'El masaje relajante sueco de ESSENYA combina fricciones largas, amasamientos gentiles y presiones rítmicas con aceites botánicos tibios. Ideal para desconectar del ritmo acelerado de la ciudad, aliviar el insomnio y alcanzar un estado de serenidad absoluta en la calma de tu espacio.',
+    category: 'relajante',
+    tag: 'Más Solicitado',
+    image: suecoImg,
+    prices: [
+      { durationMinutes: 60, priceMXN: 1100 },
+      { durationMinutes: 90, priceMXN: 1100 },
+      { durationMinutes: 120, priceMXN: 1100 },
+    ],
+    benefits: [
+      'Reduce drásticamente los niveles de cortisol y estrés',
+      'Mejora la calidad del sueño y combate el insomnio',
+      'Activa la circulación sanguínea y linfática',
+      'Relaja el sistema nervioso central'
+    ],
+    recommendedFor: [
+      'Personas con carga laboral intensa',
+      'Primerizos en masajes a domicilio',
+      'Quienes buscan un espacio personal de desconexión'
+    ],
+    intensity: 2,
+    includedOils: ['Aceite de Almendras Dulces', 'Esencia Botánica de Lavanda Orgánica'],
+    durationOptions: [60, 90, 120]
+  },
+  {
+    id: 'masaje-relajante',
+    title: 'Masaje Relajante',
     shortDescription: 'Movimientos suaves y envolventes para liberar el estrés acumulado, activar la circulación y armonizar cuerpo y mente.',
     fullDescription: 'El masaje relajante sueco de ESSENYA combina fricciones largas, amasamientos gentiles y presiones rítmicas con aceites botánicos tibios. Ideal para desconectar del ritmo acelerado de la ciudad, aliviar el insomnio y alcanzar un estado de serenidad absoluta en la calma de tu espacio.',
     category: 'relajante',
     tag: 'Más Solicitado',
     image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80',
     prices: [
-      { durationMinutes: 60, priceMXN: 0 },
-      { durationMinutes: 90, priceMXN: 0 },
-      { durationMinutes: 120, priceMXN: 0 },
+      { durationMinutes: 60, priceMXN: 1100 },
+      { durationMinutes: 90, priceMXN: 1100 },
+      { durationMinutes: 120, priceMXN: 1100 },
     ],
     benefits: [
       'Reduce drásticamente los niveles de cortisol y estrés',
@@ -72,16 +109,44 @@ export const MASSAGE_SERVICES: MassageService[] = [
   },
   {
     id: 'masaje-descontracturante-profundo',
-    title: 'Masaje Descontracturante & Deep Tissue',
+    title: 'Masaje Descontracturante',
+    shortDescription: 'Técnica de presión firme en capas musculares profundas para disolver nudos, contracturas severas y fatiga muscular en espalda y hombros.',
+    fullDescription: 'Diseñado específicamente para tratar la tensión crónica en espalda, cuello, hombros y zona lumbar. Utiliza nudillos, antebrazos y digitopresión enfocada para deshacer los nudos musculares acumulados por malas posturas o estrés elevado.',
+    category: 'terapeutico',
+    tag: 'Recomendado Terapéutico',
+    image: descontracturanteImg,
+    prices: [
+      { durationMinutes: 60, priceMXN: 1200 },
+      { durationMinutes: 90, priceMXN: 1200 },
+      { durationMinutes: 120, priceMXN: 1200 },
+    ],
+    benefits: [
+      'Elimina contracturas musculares dolorosas',
+      'Restablece la movilidad articular y postura correcta',
+      'Libera toxinas atrapadas en las fibras musculares',
+      'Alivia dolores de cuello, escápula y zona baja de la espalda'
+    ],
+    recommendedFor: [
+      'Personas que pasan muchas horas frente a la computadora',
+      'Deportistas o personas con dolor muscular persistente',
+      'Quienes prefieren presiones moderadas a muy firmes'
+    ],
+    intensity: 4,
+    includedOils: ['Bálsamo Térmico de Árnica', 'Aceite Esencial de Eucalipto y Menta'],
+    durationOptions: [60, 90, 120]
+  },
+  {
+    id: 'masaje-deep-tissue',
+    title: 'Masaje Deep Tissue',
     shortDescription: 'Técnica de presión firme en capas musculares profundas para disolver nudos, contracturas severas y fatiga muscular en espalda y hombros.',
     fullDescription: 'Diseñado específicamente para tratar la tensión crónica en espalda, cuello, hombros y zona lumbar. Utiliza nudillos, antebrazos y digitopresión enfocada para deshacer los nudos musculares acumulados por malas posturas o estrés elevado.',
     category: 'terapeutico',
     tag: 'Recomendado Terapéutico',
     image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80',
     prices: [
-      { durationMinutes: 60, priceMXN: 0 },
-      { durationMinutes: 90, priceMXN: 0 },
-      { durationMinutes: 120, priceMXN: 0 },
+      { durationMinutes: 60, priceMXN: 1300 },
+      { durationMinutes: 90, priceMXN: 1300 },
+      { durationMinutes: 120, priceMXN: 1300 },
     ],
     benefits: [
       'Elimina contracturas musculares dolorosas',
@@ -105,11 +170,11 @@ export const MASSAGE_SERVICES: MassageService[] = [
     fullDescription: 'Las piedras volcánicas pulidas retienen el calor y se deslizan suavemente a lo largo de los meridianos energéticos del cuerpo. El calor radiante dilata los vasos sanguíneos y ablanda los músculos tensos proporcionando un alivio cálido y reconfortante.',
     category: 'especial',
     tag: 'Ritual Volcánico',
-    image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1200&q=80',
+    image: piedrasImg,
     prices: [
-      { durationMinutes: 60, priceMXN: 0 },
-      { durationMinutes: 90, priceMXN: 0 },
-      { durationMinutes: 120, priceMXN: 0 },
+      { durationMinutes: 60, priceMXN: 1300 },
+      { durationMinutes: 90, priceMXN: 1300 },
+      { durationMinutes: 120, priceMXN: 1300 },
     ],
     benefits: [
       'Penetración profunda de calor que desinflama los tejidos',
@@ -135,9 +200,9 @@ export const MASSAGE_SERVICES: MassageService[] = [
     tag: 'Sesión en Pareja',
     image: coupleMassageImg,
     prices: [
-      { durationMinutes: 60, priceMXN: 0 },
-      { durationMinutes: 90, priceMXN: 0 },
-      { durationMinutes: 120, priceMXN: 0 },
+      { durationMinutes: 60, priceMXN: 2400 },
+      { durationMinutes: 90, priceMXN: 2400 },
+      { durationMinutes: 120, priceMXN: 2400 },
     ],
     benefits: [
       'Dos terapeutas certificadas atendiendo simultáneamente',
@@ -163,9 +228,9 @@ export const MASSAGE_SERVICES: MassageService[] = [
     tag: 'Desinflamante',
     image: lymphaticMassageImg,
     prices: [
-      { durationMinutes: 60, priceMXN: 0 },
-      { durationMinutes: 90, priceMXN: 0 },
-      { durationMinutes: 120, priceMXN: 0 },
+      { durationMinutes: 60, priceMXN: 1200 },
+      { durationMinutes: 90, priceMXN: 1200 },
+      { durationMinutes: 120, priceMXN: 1200 },
     ],
     benefits: [
       'Desinflamación de piernas, tobillos y zonas con retención',
@@ -191,9 +256,9 @@ export const MASSAGE_SERVICES: MassageService[] = [
     tag: 'Futuras Mamás',
     image: prenatalMassageImg,
     prices: [
-      { durationMinutes: 60, priceMXN: 0 },
-      { durationMinutes: 90, priceMXN: 0 },
-      { durationMinutes: 120, priceMXN: 0 },
+      { durationMinutes: 60, priceMXN: 1100 },
+      { durationMinutes: 90, priceMXN: 1100 },
+      { durationMinutes: 120, priceMXN: 1100 },
     ],
     benefits: [
       'Alivio seguro del cansancio lumbar y molestia gestacional',
@@ -212,16 +277,16 @@ export const MASSAGE_SERVICES: MassageService[] = [
   },
   {
     id: 'masaje-deportivo-recuperacion',
-    title: 'Masaje Deportivo & Descarga Muscular',
+    title: 'Masaje Deportivo',
     shortDescription: 'Estiramientos asistidos, movilización miofascial y percusiones rítmicas para optimizar la recuperación física y liberar fatiga atlética.',
     fullDescription: 'Ideal para corredores, ciclistas, atletas o personas con alta exigencia física. Combina movilizaciones articulares asistidas y presión enfocada en grupos musculares para prevenir rigidez y restaurar la flexibilidad.',
     category: 'terapeutico',
     tag: 'Recuperación Física',
     image: sportsMassageImg,
     prices: [
-      { durationMinutes: 60, priceMXN: 0 },
-      { durationMinutes: 90, priceMXN: 0 },
-      { durationMinutes: 120, priceMXN: 0 },
+      { durationMinutes: 60, priceMXN: 1300 },
+      { durationMinutes: 90, priceMXN: 1300 },
+      { durationMinutes: 120, priceMXN: 1300 },
     ],
     benefits: [
       'Acelera la recuperación tras entrenamientos intensos',
@@ -239,33 +304,33 @@ export const MASSAGE_SERVICES: MassageService[] = [
     durationOptions: [60, 90, 120]
   },
   {
-    id: 'masaje-reflexologia-holistica',
-    title: 'Reflexología Podal & Craneofacial',
-    shortDescription: 'Estimulación en puntos reflejos de pies, manos y rostro para liberar la sobrecarga mental, tensión de mandíbula y fatiga general.',
-    fullDescription: 'Técnica enfocada en puntos de presión de las terminales nerviosas en la planta de los pies, manos y área craneofacial. Ayuda a calmar la mente agitada, aliviar cefaleas por tensión y proporcionar un descanso reparador.',
-    category: 'especial',
-    tag: 'Cuidado Integral',
-    image: reflexologyCraniofacialImg,
+    id: 'masaje-descarga-muscular',
+    title: 'Descarga Muscular',
+    shortDescription: 'Estiramientos asistidos, movilización miofascial y percusiones rítmicas para optimizar la recuperación física y liberar fatiga atlética.',
+    fullDescription: 'Ideal para corredores, ciclistas, atletas o personas con alta exigencia física. Combina movilizaciones articulares asistidas y presión enfocada en grupos musculares para prevenir rigidez y restaurar la flexibilidad.',
+    category: 'terapeutico',
+    tag: 'Recuperación Física',
+    image: descargaMuscularImg,
     prices: [
-      { durationMinutes: 60, priceMXN: 0 },
-      { durationMinutes: 90, priceMXN: 0 },
-      { durationMinutes: 120, priceMXN: 0 },
+      { durationMinutes: 60, priceMXN: 1300 },
+      { durationMinutes: 90, priceMXN: 1300 },
+      { durationMinutes: 120, priceMXN: 1300 },
     ],
     benefits: [
-      'Alivio directo de pesadez en pies y cansancio mental',
-      'Calma el sistema nervioso y promueve un sueño profundo',
-      'Liberación de tensión en sienes y rostro',
-      'Terapia altamente relajante e interactiva'
+      'Acelera la recuperación tras entrenamientos intensos',
+      'Aumenta la flexibilidad y rango de movimiento',
+      'Previene la rigidez muscular acumulada',
+      'Prepara la musculatura para nuevos retos físicos'
     ],
     recommendedFor: [
-      'Personas que permanecen mucho tiempo de pie o caminando',
-      'Quienes sufren agotamiento mental, migraña o estrés de oficina',
-      'Adultos que buscan una técnica suave y focalizada'
+      'Corredores, practicantes de gimnasio, ciclismo o deportes de alto impacto',
+      'Personas con fatiga muscular constante por ejercicio',
+      'Recuperación post-competencia'
     ],
-    intensity: 2,
-    includedOils: ['Esencia de Menta Silvestre y Lavanda'],
+    intensity: 5,
+    includedOils: ['Aceite Terapéutico de Árnica, Romero y Mentol'],
     durationOptions: [60, 90, 120]
-  }
+  },
 ];
 
 export const COVERAGE_ZONES: CoverageZone[] = [

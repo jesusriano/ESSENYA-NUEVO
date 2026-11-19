@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, ShieldCheck, CheckCircle2, Clock, MapPin, Heart, HelpCircle, Gift } from 'lucide-react';
 import { motion } from 'motion/react';
 import { AnimatedImage } from "../components/common/AnimatedImage";
+import { ScrollExpandImage } from '../components/common/ScrollExpandImage';
+import marcaEssenyaImg from '../assets/images/marca_essenya_expansion.webp';
 import { Hero } from '../components/home/Hero';
 import { BookingModal } from '../components/modals/BookingModal';
 import { ServiceDetailModal } from '../components/modals/ServiceDetailModal';
@@ -37,6 +39,9 @@ export const HomePage: React.FC = () => {
     <main className="min-h-screen bg-[#FDFBF7]">
       {/* 1. Hero Section */}
       <Hero onOpenBookingModal={handleOpenBookingModal} />
+
+      {/* 1b. Marca: imagen que se expande con el scroll (GSAP) */}
+      <ScrollExpandImage src={marcaEssenyaImg} alt="ESSENYA: Tu bienestar merece tiempo. Masaje de espalda a domicilio." width={941} height={1672} fit="contain" background="#1A1310" parallax={5} />
 
       {/* 2. Featured Services Preview Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -91,6 +96,9 @@ export const HomePage: React.FC = () => {
                   <h3 className="font-serif text-xl font-light text-white mb-2 group-hover:text-[#C5A059] transition-colors">
                     {service.title}
                   </h3>
+                  <p className="text-[#C5A059] text-sm font-serif tracking-wide">
+                    Desde ${Math.min(...service.prices.map((p) => p.priceMXN)).toLocaleString('es-MX')} MXN
+                  </p>
                   <p className="text-xs text-gray-300 leading-relaxed line-clamp-3">
                     {service.shortDescription}
                   </p>

@@ -4,7 +4,7 @@ import { ServicesCatalog } from '../components/home/ServicesCatalog';
 import { BookingModal } from '../components/modals/BookingModal';
 import { ServiceDetailModal } from '../components/modals/ServiceDetailModal';
 import { MassageService } from '../types';
-import { Sparkles, Calendar, ShieldCheck } from 'lucide-react';
+import headerImg from '../assets/images/hero_spa_slide_bright2_1785445064253.webp';
 
 export const ServicesPage: React.FC = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -17,23 +17,31 @@ export const ServicesPage: React.FC = () => {
   };
 
   return (
-    <main className="pt-28 pb-20 min-h-screen bg-[#FDFBF7]">
+    <main className="pb-20 min-h-screen bg-[#FDFBF7]">
       {/* Page Header */}
-      <div className="bg-[#2D2926] text-[#FDFBF7] py-16 px-4 sm:px-6 lg:px-8 text-center border-b border-white/10 relative overflow-hidden">
-        <motion.div 
+      <div className="relative isolate overflow-hidden bg-[#120E0D] px-4 pb-20 pt-40 text-center text-[#FDFBF7] sm:px-6 sm:pb-28 sm:pt-48 lg:px-8">
+        <img
+          src={headerImg}
+          alt=""
+          aria-hidden="true"
+          decoding="async"
+          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-45"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#120E0D]/75 via-[#120E0D]/45 to-[#120E0D]" />
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto space-y-3 relative z-10"
+          className="relative z-10 mx-auto max-w-4xl space-y-4"
         >
-          <span className="text-[#C5A059] text-[11px] uppercase tracking-widest-xl font-bold block">
+          <span className="block text-[11px] font-bold uppercase tracking-widest-xl text-[#C5A059]">
             Catálogo Terapéutico
           </span>
-          <h1 className="font-serif text-3xl sm:text-5xl font-light text-white">
+          <h1 className="font-serif text-4xl font-light text-white sm:text-6xl">
             Menú de Masajes a <i className="font-normal text-[#C5A059]">Domicilio</i>
           </h1>
-          <div className="w-12 h-[1px] bg-[#C5A059] mx-auto my-3"></div>
-          <p className="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal">
+          <div className="mx-auto my-3 h-[1px] w-12 bg-[#C5A059]"></div>
+          <p className="mx-auto max-w-2xl text-sm font-normal leading-relaxed text-gray-200 sm:text-base">
             Explora nuestras técnicas diseñadas por expertos para el alivio del dolor muscular, la reducción de tensión nerviosa, tratamientos prenatal y experiencias inolvidables en pareja.
           </p>
         </motion.div>

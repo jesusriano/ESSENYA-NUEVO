@@ -2,16 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, ShieldCheck, CheckCircle2, Clock, MapPin, Heart, HelpCircle, Gift } from 'lucide-react';
 import { motion } from 'motion/react';
-import { AnimatedImage } from "../components/common/AnimatedImage";
 import { Hero } from '../components/home/Hero';
+import { FeaturedServices } from '../components/home/FeaturedServices';
+import { EquipmentSection } from '../components/home/EquipmentSection';
 import { BookingModal } from '../components/modals/BookingModal';
 import { ServiceDetailModal } from '../components/modals/ServiceDetailModal';
 import { MASSAGE_SERVICES, COVERAGE_ZONES } from '../constants/data';
 import { MassageService } from '../types';
-
-import massageTableImg from '../assets/images/portable_massage_table_1_1785444270806.webp';
-import towelsSheetsImg from '../assets/images/towels_and_sheets_1_1785444281810.webp';
-import oilsImg from '../assets/images/neutral_scented_oils_1_1785444292576.webp';
 
 export const HomePage: React.FC = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -38,210 +35,15 @@ export const HomePage: React.FC = () => {
       {/* 1. Hero Section */}
       <Hero onOpenBookingModal={handleOpenBookingModal} />
 
-      {/* 2. Featured Services Preview Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto space-y-3 mb-12"
-        >
-          <span className="text-[#C5A059] text-[11px] uppercase tracking-widest-xl font-bold block">
-            Experiencia Terapéutica
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-light text-[#2D2926]">
-            Nuestros Masajes a <i className="font-normal text-[#C5A059]">Domicilio</i>
-          </h2>
-          <div className="w-12 h-[1px] bg-[#C5A059] mx-auto my-3"></div>
-          <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-            Llevamos todo el equipo profesional hasta tu residencia. Descubre una selección de nuestras terapias más solicitadas en la Ciudad de México.
-          </p>
-        </motion.div>
+      {/* 2. Servicios destacados */}
+      <FeaturedServices
+        services={featuredServices}
+        total={MASSAGE_SERVICES.length}
+        onSelectDetail={(service) => setSelectedServiceDetail(service)}
+      />
 
-        {/* 3 Featured Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {featuredServices.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gradient-to-b from-[#1A1614] via-[#120F0D] to-[#0A0807] border-2 border-[#C5A059]/80 hover:border-[#C5A059] overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.7)] transition-all flex flex-col group relative"
-            >
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent z-10" />
-              <div className="relative h-64 bg-black">
-                <AnimatedImage
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full"
-                  imageRounded="rounded-none"
-                  containerRounded="rounded-none"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0807] via-transparent to-transparent"></div>
-                  <span className="absolute top-4 left-4 bg-black/90 backdrop-blur-sm text-[#C5A059] border border-[#C5A059] text-[9px] uppercase tracking-widest font-bold px-3 py-1 shadow-md">
-                    {service.tag}
-                  </span>
-                </AnimatedImage>
-              </div>
-
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div>
-                  <h3 className="font-serif text-xl font-light text-white mb-2 group-hover:text-[#C5A059] transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-xs text-gray-300 leading-relaxed line-clamp-3">
-                    {service.shortDescription}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-[#C5A059]/30 flex items-center justify-between">
-                  <button
-                    onClick={() => setSelectedServiceDetail(service)}
-                    className="text-[10px] uppercase tracking-widest font-bold text-[#C5A059] hover:text-white transition-colors flex items-center gap-1"
-                  >
-                    Ver detalles <ArrowRight className="w-3 h-3" />
-                  </button>
-                  <a
-                    href="https://www.essenya.app/cliente"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-[#C5A059] text-black hover:bg-[#D8B46E] text-[10px] uppercase font-bold tracking-widest transition-colors rounded-sm inline-block"
-                  >
-                    Reservar
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* View All Services CTA */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-12 text-center"
-        >
-          <Link
-            to="/servicios"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#2D2926] hover:bg-[#C5A059] text-white font-bold text-xs uppercase tracking-[0.2em] transition-all shadow-md group"
-          >
-            <span>Ver Menú Completo de Servicios (8 Opciónes)</span>
-            <ArrowRight className="w-4 h-4 text-[#C5A059] group-hover:text-white transition-colors" />
-          </Link>
-        </motion.div>
-      </section>
-
-      {/* 3. The Experience Preview / Equipment */}
-      <section className="bg-[#2D2926] text-[#FDFBF7] py-20 px-4 sm:px-6 lg:px-8 border-y border-white/10">
-        <div className="max-w-7xl mx-auto space-y-12">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto space-y-3"
-          >
-            <span className="text-[#C5A059] text-[11px] uppercase tracking-widest-xl font-bold block">
-              Tu Espacio Convertido en Spa
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-light text-white">
-              Llevamos Todo el <i className="font-normal text-[#C5A059]">Equipo Necesario</i>
-            </h2>
-            <div className="w-12 h-[1px] bg-[#C5A059] mx-auto my-3"></div>
-            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-              Tú no necesitas preparar nada. Nuestras terapeutas llegan a tu domicilio con camilla profesional, blancos esterilizados y aceites de primera calidad.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/30 hover:border-[#C5A059]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group"
-            >
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent z-10" />
-              <AnimatedImage
-                src={massageTableImg}
-                alt="Camilla Portátil de Masaje"
-                className="w-full h-48"
-                imageClassName="opacity-90 group-hover:opacity-100"
-              />
-              <div className="relative z-10 space-y-2">
-                <h3 className="font-serif text-lg font-light text-white group-hover:text-[#C5A059] transition-colors">Camilla Portátil de Masaje</h3>
-                <p className="text-xs text-gray-300 leading-relaxed">
-                  Mesa de masaje profesional acolchada, fácil de instalar en cualquier espacio para tu máxima comodidad.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/30 hover:border-[#C5A059]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group"
-            >
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent z-10" />
-              <AnimatedImage
-                src={towelsSheetsImg}
-                alt="Toallas y Sábanas"
-                className="w-full h-48"
-                imageClassName="opacity-90 group-hover:opacity-100"
-              />
-              <div className="relative z-10 space-y-2">
-                <h3 className="font-serif text-lg font-light text-white group-hover:text-[#C5A059] transition-colors">Toallas y Sábanas</h3>
-                <p className="text-xs text-gray-300 leading-relaxed">
-                  Sábanas y toallas impecables, suaves al tacto y totalmente esterilizadas para una experiencia higiénica y confortable.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-gradient-to-b from-[#1C1815] via-[#120F0D] to-[#0A0807] p-6 border-2 border-[#C5A059]/30 hover:border-[#C5A059]/70 shadow-[0_4px_20px_rgba(0,0,0,0.6)] space-y-4 relative overflow-hidden group"
-            >
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent z-10" />
-              <AnimatedImage
-                src={oilsImg}
-                alt="Aceites Neutros y de Olor"
-                className="w-full h-48"
-                imageClassName="opacity-90 group-hover:opacity-100"
-              />
-              <div className="relative z-10 space-y-2">
-                <h3 className="font-serif text-lg font-light text-white group-hover:text-[#C5A059] transition-colors">Aceites Neutros y de Olor</h3>
-                <p className="text-xs text-gray-300 leading-relaxed">
-                  Selección de aceites neutros e hipoalergénicos para pieles delicadas, así como esencias aromáticas para aromaterapia.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center pt-4"
-          >
-            <Link
-              to="/nosotros"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] text-xs font-bold uppercase tracking-[0.2em] transition-all shadow-md"
-            >
-              <ShieldCheck className="w-4 h-4" />
-              <span>Conoce Más Sobre Terapeutas & Protocolos</span>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      {/* 3. Equipo que llevamos */}
+      <EquipmentSection />
 
       {/* 4. Coverage Summary Preview */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">

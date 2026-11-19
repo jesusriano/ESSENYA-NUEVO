@@ -1,0 +1,102 @@
+=== FUNCIONALES (36 pruebas)
+PASS  Salto de texto entre diapositivas (px, top de "Reservar Ahora" entre las 5): after  →  {"m390":14.8,"t768":11.4,"d1440":11.4}
+PASS  Enlaces del Hero idénticos (href/target/rel/texto)  →  12 enlaces
+PASS  Título H1 idéntico  →  Masajes Profesionales a Domicilio
+PASS  Textos de las 5 diapositivas idénticos (3 tamaños), salvo la errata corregida
+PASS  Errata corregida: "Camilla y Blancos Esterilizados" (y ya no existe "Sterilizados")
+PASS  Badge idéntico
+PASS  Salto de texto no empeora respecto al original  →  antes {"m390":14.8,"t768":11.4,"d1440":11.4} · después {"m390":14.8,"t768":11.4,"d1440":11.4}
+PASS  Reservar Ahora abre essenya.app/cliente (after)  →  https://www.essenya.app/cliente
+PASS  Evento Lead de Meta Pixel se dispara (after)  →  [["track","Lead",{"content_name":"Reservar Ahora"}]]
+PASS  Velocidad máxima del botón al cambiar de texto, px por 16.7 ms (after)  →  {"m390":0.81,"t768":0.68,"d1440":0.78} px · posiciones distintas (medio px) vistas: {"m390":24,"t768":19,"d1440":15}
+PASS  El brinco desaparece: movimiento progresivo ≤ 1.5 px por 16.7 ms (antes: 11–15 px de golpe)  →  antes {"m390":7.81,"t768":5.97,"d1440":5.76} · después {"m390":0.81,"t768":0.68,"d1440":0.78}
+PASS  Sin animaciones: todos los elementos del Hero visibles (opacidad 1, sin desplazamiento)  →  11 elementos, 0 ocultos, velo=0
+PASS  Clic en "Reservar Ahora" durante la entrada abre el enlace  →  clic a los ~179 ms de carga, 17 animaciones aún en curso
+PASS  Ningún control con pointer-events:none  →  25 controles
+PASS  Autoplay avanza cada 7 s (±200 ms)  →  cambios en [[41,0],[7001,1],[14000,2],[21000,3]] · intervalos [6960,6999,7000]
+PASS  Pausa: el botón cambia a "Reanudar" y no hay cambio de diapositiva en 8.5 s  →  idx=0
+PASS  Pausa explícita congela el asentamiento de la foto  →  ["paused"]
+PASS  Play: reanuda con un ciclo completo de ~7 s  →  7012 ms
+PASS  Tras "Siguiente" el autoplay queda detenido (8.5 s sin cambios)  →  idx=1
+PASS  Navegar a mano NO congela el asentamiento de la nueva foto (se está ejecutando)  →  ["running","running"]
+PASS  Flecha anterior y puntos funcionan
+PASS  Hover pausa el autoplay (8.5 s) y al salir reanuda ~7 s  →  idx hover=0, reanuda en 7012 ms
+PASS  Fuera de pantalla el autoplay no avanza (8.5 s)  →  idx=0
+PASS  Orden de Tab del Hero  →  ["Anterior imagen","Siguiente imagen","Portal Cliente","Reservar Ahora","Ver Servicios","Pausar carrusel","Ir a diapositiva 1","Ir a diapositiva 2","Ir a diapositiva 3","Ir a diapositiva 4","Ir a diapositiva 5"]
+PASS  Anillo de foco visible con teclado (2 px dorado)  →  ["solid","2px","rgb(197, 160, 89)","2px"]
+PASS  Flechas ←/→ cambian de diapositiva desde los controles  →  1,2,1
+PASS  Flechas NO actúan desde los enlaces (no se secuestra el teclado)
+PASS  Swipe izquierda → siguiente, derecha → anterior, corto → nada  →  1,0,0
+PASS  El swipe detiene el autoplay (botón en "Reanudar")
+PASS  Un gesto que empieza sobre un botón no cambia de diapositiva  →  idx=0
+PASS  Scroll vertical con el dedo sigue funcionando y no cambia la diapositiva  →  idx=0, scrollY 0→335
+PASS  7 clics rápidos: máx. 3 capas, queda 1, diapositiva final correcta y texto visible  →  máx capas=3, capas finales=1, idx=2, h2=""Camilla y Blancos Esterilizados"" opacidad=1
+PASS  Sin animaciones en marcha y contenido visible  →  animaciones=[]
+PASS  Autoplay empieza detenido (8 s sin cambios) con botón "Reanudar"
+PASS  La navegación manual funciona con fundidos cortos y el texto cambia  →  {"i":1,"op":"1","h2":"\"Técnicas Especializadas\""}
+PASS  Hover: sube 1 px y aparece el destello (gradiente) con barrido  →  reposo={"img":"none","tr":"none"} hover(300ms)={"img":"linear-gradient(105deg, rgba(240, 213, 1","pos":"18.7915% 0px","tr":"0px -1px"}
+==== after: 36/36 pruebas OK · errores de consola: ninguno
+
+=== EXTRA (pestaña oculta / foco de teclado)
+PASS Pestaña oculta: no avanza en 8.5 s; al volver reanuda con ciclo de 7011 ms (idx oculta = 0)
+PASS Foco de teclado en el carrusel ("Anterior imagen"): autoplay en pausa 8.5 s (idx = 0)
+PASS Al quitar el foco el autoplay reanuda tras 7017 ms
+
+=== DISPOSITIVOS EMULADOS (Chromium; no es Safari ni hardware real)
+PASS  iPhone SE (320×568)  (9/9)
+        controles <24 px: …, …, …, …, …
+PASS  iPhone 14 (390×664)  (9/9)
+        controles <24 px: …, …, …, …, …
+PASS  iPhone 14 Pro Max (430×740)  (9/9)
+        controles <24 px: …, …, …, …, …
+PASS  iPhone 14 horizontal (750×340)  (9/9)
+        controles <24 px: …, …, …, …, …
+PASS  Pixel 7 (412×839)  (9/9)
+        controles <24 px: …, …, …, …, …
+PASS  Pixel 7 horizontal (863×360)  (9/9)
+        controles <24 px: …, …, …, …, …
+PASS  Galaxy S9+ (320×658)  (9/9)
+        controles <24 px: …, …, …, …, …
+PASS  Galaxy S9+ horizontal (658×320)  (9/9)
+        controles <24 px: …, …, …, …, …
+PASS  Galaxy Z Fold plegado (280×653)  (9/9)
+        controles <24 px: …, …, …, …, …
+PASS  iPad Mini (768×1024)  (9/9)
+        controles <24 px: …, …, …, …, …
+PASS  iPad Pro 11 (834×1194)  (9/9)
+        controles <24 px: …, …, …, …, …
+PASS  iPad Pro 11 horizontal (1194×834)  (9/9)
+        controles <24 px: …, …, …, …, …
+108/108 comprobaciones OK en 12 dispositivos emulados
+
+=== RENDIMIENTO (móvil 390, CPU 4x, 4G lenta, 6 corridas)
+Móvil 390×844 · CPU 4× · 4G lenta · 6 corridas (mediana)
+métrica                                 antes    después
+LCP final (ms)                           3368       3448
+CLS                                         0          0
+Tareas largas totales (ms)                293        305
+Fotograma p95, 0–2.5 s tras pintar (ms)       16.8       16.8
+Fotograma máx, 0–2.5 s tras pintar (ms)      283.4      283.4
+Fotograma p95, 2.5–9.5 s (ms)            16.8       16.8
+Fotograma máx, 2.5–9.5 s (ms)            16.8       16.8
+Fotogramas >33 ms, 2.5–9.5 s                0          0
+Fotogramas medidos, 2.5–9.5 s             420        420
+LCP elemento: H1 → SPAN
+
+=== VISUAL: píxeles distintos vs original (máscaras: pausa · flechas en móvil · línea de la errata)
+archivo               px>0      px>8    px>32      %>8  bbox(>8)
+d1440_s1.png             4         0        0      0.0  None
+d1440_s2.png             0         0        0      0.0  None
+d1440_s3.png             0         0        0      0.0  None
+d1440_s4.png             0         0        0      0.0  None
+d1440_s5.png             0         0        0      0.0  None
+m390_s1.png          62096         0        0      0.0  None
+m390_s2.png          61864         0        0      0.0  None
+m390_s3.png          62096         0        0      0.0  None
+m390_s4.png          62096         0        0      0.0  None
+m390_s5.png          62096         0        0      0.0  None
+t768_s1.png              4         0        0      0.0  None
+t768_s2.png              0         0        0      0.0  None
+t768_s3.png              0         0        0      0.0  None
+t768_s4.png              0         0        0      0.0  None
+t768_s5.png              0         0        0      0.0  None

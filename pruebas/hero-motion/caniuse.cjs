@@ -1,0 +1,8 @@
+const base=require('path').resolve(__dirname,'../../node_modules/caniuse-lite');
+const feature=require(base+'/dist/unpacker/feature.js');
+const features=require(base+'/dist/unpacker/features.js').features;
+const pkg=require(base+'/package.json');
+const want=[['css-backdrop-filter','backdrop-filter (blur del panel, botones, flechas y badge)'],['css-clip-path','clip-path (máscara de las líneas del título)'],['css-animation','@keyframes / animation (entradas)'],['web-animation','Web Animations API · Element.animate (deslizamiento)'],['pointer','Pointer Events (swipe; hover solo mouse)'],['intersectionobserver','IntersectionObserver (pausa fuera de pantalla)'],['css-media-interaction','@media (hover: hover)'],['prefers-reduced-motion','prefers-reduced-motion'],['css-focus-visible',':focus-visible'],['css-touch-action','touch-action: pan-y pinch-zoom'],['css-variables','Custom properties var()'],['calc','calc()'],['css-individual-transform-properties','translate / scale individuales (Tailwind v4)'],['matchmedia','matchMedia()']];
+const min=(id,b)=>{const f=feature(features[id]);const st=f.stats[b];let full=null,part=null;for(const v of Object.keys(st)){if(!full&&/^y/.test(st[v]))full=v;if(!part&&/^a/.test(st[v]))part=v;}return full?full:(part?part+' (parcial)':'—');};
+console.log('caniuse-lite',pkg.version,'(base de datos que viene con el proyecto)');
+for(const [id,l] of want){ if(!features[id]){console.log('- '+l+' | id no encontrado: '+id);continue;} console.log('- '+l+' | iOS Safari ≥ '+min(id,'ios_saf')+' | Safari ≥ '+min(id,'safari')+' | Chrome Android ≥ '+min(id,'and_chr')+' | Firefox ≥ '+min(id,'firefox')); }

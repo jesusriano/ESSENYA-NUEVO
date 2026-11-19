@@ -61,8 +61,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     image: suecoImg,
     prices: [
       { durationMinutes: 60, priceMXN: 1100 },
-      { durationMinutes: 90, priceMXN: 1100 },
-      { durationMinutes: 120, priceMXN: 1100 },
+      { durationMinutes: 90, priceMXN: 1650 },
+      { durationMinutes: 120, priceMXN: 2200 },
     ],
     benefits: [
       'Reduce drásticamente los niveles de cortisol y estrés',
@@ -89,8 +89,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80',
     prices: [
       { durationMinutes: 60, priceMXN: 1100 },
-      { durationMinutes: 90, priceMXN: 1100 },
-      { durationMinutes: 120, priceMXN: 1100 },
+      { durationMinutes: 90, priceMXN: 1650 },
+      { durationMinutes: 120, priceMXN: 2200 },
     ],
     benefits: [
       'Reduce drásticamente los niveles de cortisol y estrés',
@@ -117,8 +117,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     image: descontracturanteImg,
     prices: [
       { durationMinutes: 60, priceMXN: 1200 },
-      { durationMinutes: 90, priceMXN: 1200 },
-      { durationMinutes: 120, priceMXN: 1200 },
+      { durationMinutes: 90, priceMXN: 1800 },
+      { durationMinutes: 120, priceMXN: 2400 },
     ],
     benefits: [
       'Elimina contracturas musculares dolorosas',
@@ -145,8 +145,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80',
     prices: [
       { durationMinutes: 60, priceMXN: 1300 },
-      { durationMinutes: 90, priceMXN: 1300 },
-      { durationMinutes: 120, priceMXN: 1300 },
+      { durationMinutes: 90, priceMXN: 1950 },
+      { durationMinutes: 120, priceMXN: 2600 },
     ],
     benefits: [
       'Elimina contracturas musculares dolorosas',
@@ -173,8 +173,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     image: piedrasImg,
     prices: [
       { durationMinutes: 60, priceMXN: 1300 },
-      { durationMinutes: 90, priceMXN: 1300 },
-      { durationMinutes: 120, priceMXN: 1300 },
+      { durationMinutes: 90, priceMXN: 1950 },
+      { durationMinutes: 120, priceMXN: 2600 },
     ],
     benefits: [
       'Penetración profunda de calor que desinflama los tejidos',
@@ -201,8 +201,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     image: coupleMassageImg,
     prices: [
       { durationMinutes: 60, priceMXN: 2400 },
-      { durationMinutes: 90, priceMXN: 2400 },
-      { durationMinutes: 120, priceMXN: 2400 },
+      { durationMinutes: 90, priceMXN: 3600 },
+      { durationMinutes: 120, priceMXN: 4800 },
     ],
     benefits: [
       'Dos terapeutas certificadas atendiendo simultáneamente',
@@ -229,8 +229,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     image: lymphaticMassageImg,
     prices: [
       { durationMinutes: 60, priceMXN: 1200 },
-      { durationMinutes: 90, priceMXN: 1200 },
-      { durationMinutes: 120, priceMXN: 1200 },
+      { durationMinutes: 90, priceMXN: 1800 },
+      { durationMinutes: 120, priceMXN: 2400 },
     ],
     benefits: [
       'Desinflamación de piernas, tobillos y zonas con retención',
@@ -257,8 +257,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     image: prenatalMassageImg,
     prices: [
       { durationMinutes: 60, priceMXN: 1100 },
-      { durationMinutes: 90, priceMXN: 1100 },
-      { durationMinutes: 120, priceMXN: 1100 },
+      { durationMinutes: 90, priceMXN: 1650 },
+      { durationMinutes: 120, priceMXN: 2200 },
     ],
     benefits: [
       'Alivio seguro del cansancio lumbar y molestia gestacional',
@@ -285,8 +285,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     image: sportsMassageImg,
     prices: [
       { durationMinutes: 60, priceMXN: 1300 },
-      { durationMinutes: 90, priceMXN: 1300 },
-      { durationMinutes: 120, priceMXN: 1300 },
+      { durationMinutes: 90, priceMXN: 1950 },
+      { durationMinutes: 120, priceMXN: 2600 },
     ],
     benefits: [
       'Acelera la recuperación tras entrenamientos intensos',
@@ -313,8 +313,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     image: descargaMuscularImg,
     prices: [
       { durationMinutes: 60, priceMXN: 1300 },
-      { durationMinutes: 90, priceMXN: 1300 },
-      { durationMinutes: 120, priceMXN: 1300 },
+      { durationMinutes: 90, priceMXN: 1950 },
+      { durationMinutes: 120, priceMXN: 2600 },
     ],
     benefits: [
       'Acelera la recuperación tras entrenamientos intensos',

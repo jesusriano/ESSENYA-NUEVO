@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { MassageService } from '../../types';
 import { Reveal } from '../common/Reveal';
+import { PriceList } from '../common/PriceList';
 
 const BOOKING_URL = 'https://www.essenya.app/cliente';
 const FOCUS_RING =
@@ -60,6 +61,7 @@ const ServiceTile: React.FC<TileProps> = ({ service, onSelectDetail, featured = 
         >
           {service.shortDescription}
         </p>
+        <PriceList prices={service.prices} variant="dark" className={featured ? 'max-w-md' : 'max-w-sm'} />
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-1">
           <a
             href={BOOKING_URL}
@@ -119,13 +121,13 @@ export const FeaturedServices: React.FC<FeaturedServicesProps> = ({ services, on
                 service={main}
                 onSelectDetail={onSelectDetail}
                 featured
-                className="h-full min-h-[460px] lg:min-h-[600px]"
+                className="h-full min-h-[520px] lg:min-h-[640px]"
               />
             </Reveal>
           )}
           {rest.map((service, i) => (
             <Reveal key={service.id} delay={0.12 * (i + 1)} className="lg:col-span-5">
-              <ServiceTile service={service} onSelectDetail={onSelectDetail} className="h-full min-h-[340px]" />
+              <ServiceTile service={service} onSelectDetail={onSelectDetail} className="h-full min-h-[400px]" />
             </Reveal>
           ))}
         </div>

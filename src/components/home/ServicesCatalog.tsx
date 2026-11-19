@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Clock, ArrowRight, Calendar, Check } from 'lucide-react';
+import { ArrowRight, Calendar, Check } from 'lucide-react';
 import { MASSAGE_SERVICES } from '../../constants/data';
 import { MassageService } from '../../types';
 import { Reveal } from '../common/Reveal';
+import { PriceList } from '../common/PriceList';
 
 const BOOKING_URL = 'https://www.essenya.app/cliente';
 const FOCUS_RING =
@@ -95,10 +96,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                       {service.tag}
                     </span>
                   )}
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2 text-white">
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-[#120E0D]/65 px-3 py-1 font-mono text-[10px] uppercase tracking-wider">
-                      <Clock className="h-3 w-3 text-[#C5A059]" aria-hidden="true" /> 60 / 90 / 120 min
-                    </span>
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-start gap-2 text-white">
                     <span className="rounded-full bg-[#120E0D]/65 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#E3C27E]">
                       A Domicilio
                     </span>
@@ -127,8 +125,9 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                     ))}
                   </ul>
 
-                  {/* Botones siempre al fondo de la tarjeta */}
-                  <div className="mt-auto grid grid-cols-2 gap-3 pt-2">
+                  {/* Precios y botones siempre al fondo de la tarjeta */}
+                  <PriceList prices={service.prices} className="mt-auto" />
+                  <div className="grid grid-cols-2 gap-3">
                     <button
                       type="button"
                       onClick={() => onSelectServiceDetail(service)}

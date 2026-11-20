@@ -5,6 +5,7 @@ import prenatalMassageImg from '../assets/images/prenatal_massage_mom_1785443757
 import sportsMassageImg from '../assets/images/deportivo_free.webp';
 import descargaMuscularImg from '../assets/images/sports_massage_athletics_1785444051684.webp';
 import suecoImg from '../assets/images/sueco_poster.webp';
+import relajanteImg from '../assets/images/relajante_poster.webp';
 import descontracturanteImg from '../assets/images/descontracturante_free.webp';
 import piedrasImg from '../assets/images/piedras_free.webp';
 
@@ -87,7 +88,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     fullDescription: 'El masaje relajante sueco de ESSENYA combina fricciones largas, amasamientos gentiles y presiones rítmicas con aceites botánicos tibios. Ideal para desconectar del ritmo acelerado de la ciudad, aliviar el insomnio y alcanzar un estado de serenidad absoluta en la calma de tu espacio.',
     category: 'relajante',
     tag: 'Más Solicitado',
-    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80',
+    image: relajanteImg,
+    imageFit: 'contain',
     prices: [
       { durationMinutes: 60, priceMXN: 1100 },
       { durationMinutes: 90, priceMXN: 1650 },

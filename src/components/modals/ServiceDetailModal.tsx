@@ -21,7 +21,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
       <div className="relative w-full max-w-3xl bg-[#FDFBF7] shadow-2xl overflow-hidden border border-subtle max-h-[90vh] flex flex-col">
         
         {/* Banner Image & Close */}
-        <div className="relative h-64 sm:h-72 w-full shrink-0">
+        <div className={`relative w-full shrink-0 ${service.imageFit === 'contain' ? 'h-[380px]' : 'h-64 sm:h-72'}`}>
           <AnimatedImage
             src={service.image}
             alt={service.title}

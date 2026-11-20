@@ -82,7 +82,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
             <Reveal key={`${service.id}-${activeTab}`} delay={(index % 3) * 0.1} y={30} className="h-full">
               <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_10px_40px_-22px_rgba(45,41,38,0.4)] ring-1 ring-black/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_28px_60px_-28px_rgba(45,41,38,0.5)] hover:ring-[#C5A059]/50">
                 {/* Foto */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#120E0D]">
+                <div className="relative aspect-[4/5] overflow-hidden bg-[#120E0D]">
                   <img
                     src={service.image}
                     alt={service.title}

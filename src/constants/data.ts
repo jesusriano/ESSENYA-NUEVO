@@ -4,7 +4,7 @@ import lymphaticMassageImg from '../assets/images/drenaje_free.webp';
 import prenatalMassageImg from '../assets/images/prenatal_massage_mom_1785443757882.webp';
 import sportsMassageImg from '../assets/images/deportivo_free.webp';
 import descargaMuscularImg from '../assets/images/sports_massage_athletics_1785444051684.webp';
-import suecoImg from '../assets/images/sueco_free.webp';
+import suecoImg from '../assets/images/sueco_poster.webp';
 import descontracturanteImg from '../assets/images/descontracturante_free.webp';
 import piedrasImg from '../assets/images/piedras_free.webp';
 

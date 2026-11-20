@@ -6,6 +6,7 @@ import drenajePosterImg from '../assets/images/drenaje_poster.webp';
 import prenatalMassageImg from '../assets/images/prenatal_massage_mom_1785443757882.webp';
 import prenatalPosterImg from '../assets/images/prenatal_poster.webp';
 import sportsMassageImg from '../assets/images/deportivo_free.webp';
+import deportivoPosterImg from '../assets/images/deportivo_poster.webp';
 import tailandesPosterImg from '../assets/images/tailandes_poster.webp';
 import suecoImg from '../assets/images/sueco_poster.webp';
 import relajanteImg from '../assets/images/relajante_poster.webp';
@@ -297,7 +298,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     fullDescription: 'Ideal para corredores, ciclistas, atletas o personas con alta exigencia física. Combina movilizaciones articulares asistidas y presión enfocada en grupos musculares para prevenir rigidez y restaurar la flexibilidad.',
     category: 'terapeutico',
     tag: 'Recuperación Física',
-    image: sportsMassageImg,
+    image: deportivoPosterImg,
+    imageFit: 'contain',
     prices: [
       { durationMinutes: 60, priceMXN: 1300 },
       { durationMinutes: 90, priceMXN: 1950 },

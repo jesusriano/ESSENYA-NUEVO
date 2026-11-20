@@ -26,6 +26,7 @@ interface TileProps {
 /** Tarjeta con la foto de fondo recortada para llenar la tarjeta y el texto encima, sobre un degradado oscuro. */
 const CoverTile: React.FC<TileProps> = ({ service, onSelectDetail, featured = false, className = '' }) => (
   <article
+    data-service={service.id}
     className={`group relative isolate flex overflow-hidden rounded-3xl bg-[#120E0D] ring-1 ring-[#C5A059]/25 transition-all duration-500 hover:-translate-y-1 hover:ring-[#C5A059]/70 hover:shadow-[0_30px_70px_-30px_rgba(18,14,13,0.85)] ${className}`}
   >
     <img
@@ -93,6 +94,7 @@ const CoverTile: React.FC<TileProps> = ({ service, onSelectDetail, featured = fa
 /** Afiche: se muestra completo (sin recortar) arriba y el texto va debajo, sobre fondo oscuro. */
 const PosterTile: React.FC<TileProps> = ({ service, onSelectDetail, featured = false, className = '' }) => (
   <article
+    data-service={service.id}
     className={`group flex flex-col overflow-hidden rounded-3xl bg-[#120E0D] ring-1 ring-[#C5A059]/25 transition-all duration-500 hover:-translate-y-1 hover:ring-[#C5A059]/70 hover:shadow-[0_30px_70px_-30px_rgba(18,14,13,0.85)] ${className}`}
   >
     <div className="relative flex flex-1 items-center justify-center overflow-hidden bg-[#120E0D] p-4 sm:p-6">

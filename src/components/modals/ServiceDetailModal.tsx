@@ -25,7 +25,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
   if (!service) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#2D2926]/70 backdrop-blur-xs animate-in fade-in duration-200">
+    <div data-service={service.id} className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#2D2926]/70 backdrop-blur-xs animate-in fade-in duration-200">
       <div className="relative w-full max-w-3xl bg-[#FDFBF7] shadow-2xl overflow-hidden border border-subtle max-h-[90vh] flex flex-col">
         
         {/* Banner Image & Close */}

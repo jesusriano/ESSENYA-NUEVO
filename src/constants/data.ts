@@ -6,6 +6,7 @@ import sportsMassageImg from '../assets/images/deportivo_free.webp';
 import descargaMuscularImg from '../assets/images/sports_massage_athletics_1785444051684.webp';
 import suecoImg from '../assets/images/sueco_poster.webp';
 import descontracturanteImg from '../assets/images/descontracturante_free.webp';
+import descontracturantePosterImg from '../assets/images/descontracturante_poster.webp';
 import piedrasImg from '../assets/images/piedras_free.webp';
 
 export const WHATSAPP_NUMBER = '5215511318971'; // Official WhatsApp hotline
@@ -115,7 +116,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     fullDescription: 'Diseñado específicamente para tratar la tensión crónica en espalda, cuello, hombros y zona lumbar. Utiliza nudillos, antebrazos y digitopresión enfocada para deshacer los nudos musculares acumulados por malas posturas o estrés elevado.',
     category: 'terapeutico',
     tag: 'Recomendado Terapéutico',
-    image: descontracturanteImg,
+    image: descontracturantePosterImg,
+    imageFit: 'contain',
     prices: [
       { durationMinutes: 60, priceMXN: 1200 },
       { durationMinutes: 90, priceMXN: 1800 },

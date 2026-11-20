@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { BookingModal } from './components/modals/BookingModal';
+import { RouteTracker } from './components/common/RouteTracker';
 
 import { HomePage } from './pages/HomePage';
 import { ServicesPage } from './pages/ServicesPage';
@@ -37,6 +38,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
+      <RouteTracker />
       <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#1E2923] font-sans antialiased">
         <Navbar onOpenBookingModal={() => setIsBookingOpen(true)} />
 

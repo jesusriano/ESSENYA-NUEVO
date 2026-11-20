@@ -66,6 +66,7 @@ export const MassageFinder: React.FC<MassageFinderProps> = ({
                   <button
                     key={serv.id}
                     type="button"
+                    data-track="buscador_masaje" data-track-label={serv.title}
                     onClick={() => setSelectedServiceId(serv.id)}
                     className={`p-3.5 border text-left transition-all ${
                       selectedServiceId === serv.id
@@ -101,6 +102,7 @@ export const MassageFinder: React.FC<MassageFinderProps> = ({
                     <button
                       key={dur}
                       type="button"
+                      data-track="buscador_masaje" data-track-label={`${dur} min`}
                       onClick={() => setSelectedDuration(dur)}
                       className={`p-4 border text-center transition-all ${
                         selectedDuration === dur
@@ -131,6 +133,7 @@ export const MassageFinder: React.FC<MassageFinderProps> = ({
                   return (
                     <div
                       key={addon.id}
+                      data-track="buscador_masaje" data-track-label={addon.name}
                       onClick={() => toggleAddOn(addon.id)}
                       className={`p-3 border flex items-center justify-between cursor-pointer transition-all ${
                         isSelected

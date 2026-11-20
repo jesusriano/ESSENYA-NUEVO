@@ -64,6 +64,7 @@ export const CoverageSection: React.FC = () => {
               filteredZones.map((z, idx) => (
                 <Reveal key={z.id} delay={Math.min(idx, 6) * 0.06} y={16}>
                 <button
+                  data-track="seleccion_zona" data-track-label={z.name}
                   onClick={() => setSelectedZoneId(z.id)}
                   className={`w-full p-4 border text-left transition-all flex items-center justify-between ${
                     selectedZoneId === z.id

@@ -2,7 +2,7 @@ import { PageHeader } from '../components/common/PageHeader';
 import React, { useState } from 'react';
 import { Phone, Mail, Clock, MapPin, Send, ShieldCheck, Check, User, Calendar } from 'lucide-react';
 import { Reveal } from '../components/common/Reveal';
-import { trackGa, trackMeta } from '../utils/tracking';
+import { trackEvent } from '../utils/tracking';
 
 export const ContactPage: React.FC = () => {
   const [name, setName] = useState('');
@@ -13,8 +13,7 @@ export const ContactPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    trackMeta('Contact', { content_name: 'formulario de contacto', content_category: 'formulario' });
-    trackGa('generate_lead', { channel: 'formulario' });
+    trackEvent('formulario', { label: 'formulario de contacto' });
     setSubmitted(true);
   };
 

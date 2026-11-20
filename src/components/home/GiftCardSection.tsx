@@ -85,6 +85,7 @@ export const GiftCardSection: React.FC = () => {
                             key={p.durationMinutes}
                             type="button"
                             aria-pressed={on}
+                            data-track="seleccion_regalo" data-track-label={`${s.title} ${p.durationMinutes} min`}
                             onClick={() => setSelection({ serviceId: s.id, minutes: p.durationMinutes })}
                             className={`rounded-2xl border px-2 py-3 text-center transition-[background-color,border-color,color] ${FOCUS_RING} ${
                               on

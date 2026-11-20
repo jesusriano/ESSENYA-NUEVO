@@ -64,6 +64,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
               key={cat.id}
               type="button"
               aria-pressed={activeTab === cat.id}
+              data-track="filtro_categoria" data-track-label={cat.label}
               onClick={() => setActiveTab(cat.id)}
               className={`rounded-full px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] transition-[background-color,color,box-shadow] ${FOCUS_RING} ${
                 activeTab === cat.id
@@ -130,6 +131,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       type="button"
+                      data-track="detalle_servicio" data-track-label={service.title}
                       onClick={() => onSelectServiceDetail(service)}
                       className={`group/link inline-flex items-center justify-center gap-2 rounded-full border border-[#2D2926]/15 bg-white px-4 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-[#2D2926] transition-[background-color,border-color,color] hover:border-[#C5A059] hover:text-[#8A6A24] ${FOCUS_RING}`}
                     >

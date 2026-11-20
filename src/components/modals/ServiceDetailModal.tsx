@@ -3,7 +3,7 @@ import { X, CheckCircle2, Sparkles, Clock, Flame, Shield, Calendar, Droplets, Us
 import { MassageService } from '../../types';
 import { AnimatedImage } from "../common/AnimatedImage";
 import { useEffect } from 'react';
-import { trackGa, trackMeta } from '../../utils/tracking';
+import { trackEvent } from '../../utils/tracking';
 
 interface ServiceDetailModalProps {
   service: MassageService | null;
@@ -19,8 +19,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
   // Ver el detalle de un masaje (ViewContent), una vez por cada masaje abierto.
   useEffect(() => {
     if (!service) return;
-    trackMeta('ViewContent', { content_name: service.title, content_category: service.category });
-    trackGa('view_item', { item_name: service.title, item_category: service.category });
+    trackEvent('ver_masaje', { label: service.title, category: service.category });
   }, [service]);
 
   if (!service) return null;

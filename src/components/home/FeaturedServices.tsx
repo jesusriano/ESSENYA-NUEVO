@@ -74,6 +74,7 @@ const CoverTile: React.FC<TileProps> = ({ service, onSelectDetail, featured = fa
           </a>
           <button
             type="button"
+            data-track="detalle_servicio" data-track-label={service.title}
             onClick={() => onSelectDetail(service)}
             className={`group/link inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90 transition-[background-color,border-color,color] hover:text-[#E3C27E] ${FOCUS_RING}`}
           >
@@ -121,7 +122,8 @@ const PosterTile: React.FC<TileProps> = ({ service, onSelectDetail, featured = f
         </a>
         <button
           type="button"
-          onClick={() => onSelectDetail(service)}
+          data-track="detalle_servicio" data-track-label={service.title}
+            onClick={() => onSelectDetail(service)}
           className={`group/link inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90 transition-colors hover:text-[#E3C27E] ${FOCUS_RING}`}
         >
           Ver detalles

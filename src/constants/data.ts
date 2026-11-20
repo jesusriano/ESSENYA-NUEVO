@@ -2,7 +2,9 @@ import { MassageService, AddOn, CoverageZone, Review, FAQItem } from '../types';
 import coupleMassageImg from '../assets/images/couple_massage_spa_1785442759347.webp';
 import parejaPosterImg from '../assets/images/pareja_poster.webp';
 import lymphaticMassageImg from '../assets/images/drenaje_free.webp';
+import drenajePosterImg from '../assets/images/drenaje_poster.webp';
 import prenatalMassageImg from '../assets/images/prenatal_massage_mom_1785443757882.webp';
+import prenatalPosterImg from '../assets/images/prenatal_poster.webp';
 import sportsMassageImg from '../assets/images/deportivo_free.webp';
 import descargaMuscularImg from '../assets/images/sports_massage_athletics_1785444051684.webp';
 import suecoImg from '../assets/images/sueco_poster.webp';
@@ -237,7 +239,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     fullDescription: 'Especialmente indicado para personas con piernas cansadas, retención de líquidos, edemas o recomendaciones específicas de bienestar. Los movimientos rítmicos y muy suaves favorecen la eliminación natural de líquidos y la desinflamación corporal.',
     category: 'terapeutico',
     tag: 'Desinflamante',
-    image: lymphaticMassageImg,
+    image: drenajePosterImg,
+    imageFit: 'contain',
     prices: [
       { durationMinutes: 60, priceMXN: 1200 },
       { durationMinutes: 90, priceMXN: 1800 },
@@ -265,7 +268,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     fullDescription: 'Técnica delicada diseñada específicamente para futuras mamás a partir de la semana 13 de gestación. Ayuda a liberar la tensión en espalda baja, caderas, piernas y pies hinchados, promoviendo un espacio de calma segura para la madre y su bebé.',
     category: 'prenatal',
     tag: 'Futuras Mamás',
-    image: prenatalMassageImg,
+    image: prenatalPosterImg,
+    imageFit: 'contain',
     prices: [
       { durationMinutes: 60, priceMXN: 1100 },
       { durationMinutes: 90, priceMXN: 1650 },

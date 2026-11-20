@@ -88,7 +88,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                     alt={service.title}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
+                    className={`h-full w-full transition-transform duration-[1400ms] ease-out group-hover:scale-105 ${service.imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
                   />
                   <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#120E0D]/70 to-transparent" />
                   {service.tag && (

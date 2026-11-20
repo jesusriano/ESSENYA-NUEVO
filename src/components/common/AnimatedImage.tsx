@@ -9,6 +9,8 @@ interface AnimatedImageProps {
   imageRounded?: string;
   maskClassName?: string;
   children?: React.ReactNode;
+  /** 'contain' muestra la foto completa sin recortarla. */
+  fit?: 'cover' | 'contain';
 }
 
 export const AnimatedImage: React.FC<AnimatedImageProps> = ({
@@ -19,7 +21,8 @@ export const AnimatedImage: React.FC<AnimatedImageProps> = ({
   containerRounded = 'rounded-sm',
   imageRounded = 'rounded-sm',
   maskClassName = 'bg-[#120E0D]',
-  children
+  children,
+  fit = 'cover'
 }) => {
   return (
     <div className={`relative overflow-hidden group ${containerRounded} ${className}`}>
@@ -33,7 +36,7 @@ export const AnimatedImage: React.FC<AnimatedImageProps> = ({
           alt={alt}
           loading="lazy"
 decoding="async"
-          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${imageClassName}`}
+          className={`w-full h-full ${fit === 'contain' ? 'object-contain' : 'object-cover'} transition-transform duration-700 group-hover:scale-110 ${imageClassName}`}
         />
         {children}
       </div>

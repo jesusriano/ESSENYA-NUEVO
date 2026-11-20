@@ -69,7 +69,7 @@ export const GiftCardSection: React.FC = () => {
                         aria-hidden="true"
                         loading="lazy"
                         decoding="async"
-                        className="h-16 w-16 shrink-0 rounded-2xl object-cover"
+                        className={`h-16 w-16 shrink-0 rounded-2xl ${s.imageFit === 'contain' ? 'object-contain bg-[#120E0D]' : 'object-cover'}`}
                       />
                       <h3 className="font-serif text-xl font-light leading-snug text-[#2D2926]">{s.title}</h3>
                     </div>

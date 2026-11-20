@@ -19,6 +19,8 @@ export interface MassageService {
   category: 'relajante' | 'terapeutico' | 'especial' | 'parejas' | 'prenatal';
   tag?: string; // e.g. "Más Popular", "Recomendado", "Exclusivo"
   image: string;
+  /** 'contain' muestra la imagen completa (afiches); por defecto se recorta para llenar el espacio. */
+  imageFit?: 'cover' | 'contain';
   prices: ServicePrice[];
   benefits: string[];
   recommendedFor: string[];

@@ -59,6 +59,7 @@ export const MASSAGE_SERVICES: MassageService[] = [
     category: 'relajante',
     tag: 'Más Solicitado',
     image: suecoImg,
+    imageFit: 'contain',
     prices: [
       { durationMinutes: 60, priceMXN: 1100 },
       { durationMinutes: 90, priceMXN: 1650 },

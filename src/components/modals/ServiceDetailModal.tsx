@@ -25,6 +25,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           <AnimatedImage
             src={service.image}
             alt={service.title}
+            fit={service.imageFit}
             className="w-full h-full"
             imageRounded="rounded-none"
             containerRounded="rounded-none"

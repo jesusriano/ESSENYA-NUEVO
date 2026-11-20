@@ -23,8 +23,8 @@ interface TileProps {
   className?: string;
 }
 
-/** Tarjeta con la foto de fondo completa y el texto encima, sobre un degradado oscuro (legible siempre, también en móvil). */
-const ServiceTile: React.FC<TileProps> = ({ service, onSelectDetail, featured = false, className = '' }) => (
+/** Tarjeta con la foto de fondo recortada para llenar la tarjeta y el texto encima, sobre un degradado oscuro. */
+const CoverTile: React.FC<TileProps> = ({ service, onSelectDetail, featured = false, className = '' }) => (
   <article
     className={`group relative isolate flex overflow-hidden rounded-3xl bg-[#120E0D] ring-1 ring-[#C5A059]/25 transition-all duration-500 hover:-translate-y-1 hover:ring-[#C5A059]/70 hover:shadow-[0_30px_70px_-30px_rgba(18,14,13,0.85)] ${className}`}
   >
@@ -88,6 +88,53 @@ const ServiceTile: React.FC<TileProps> = ({ service, onSelectDetail, featured = 
     </div>
   </article>
 );
+
+/** Afiche: se muestra completo (sin recortar) arriba y el texto va debajo, sobre fondo oscuro. */
+const PosterTile: React.FC<TileProps> = ({ service, onSelectDetail, featured = false, className = '' }) => (
+  <article
+    className={`group flex flex-col overflow-hidden rounded-3xl bg-[#120E0D] ring-1 ring-[#C5A059]/25 transition-all duration-500 hover:-translate-y-1 hover:ring-[#C5A059]/70 hover:shadow-[0_30px_70px_-30px_rgba(18,14,13,0.85)] ${className}`}
+  >
+    <div className="relative flex flex-1 items-center justify-center overflow-hidden bg-[#120E0D] p-4 sm:p-6">
+      <img
+        src={service.image}
+        alt={service.title}
+        loading="lazy"
+        decoding="async"
+        className="max-h-full w-auto max-w-full object-contain transition-transform duration-[1400ms] ease-out group-hover:scale-[1.02]"
+        style={{ maxHeight: featured ? '460px' : '320px' }}
+      />
+    </div>
+    <div className="space-y-4 border-t border-[#C5A059]/20 bg-[#120E0D] p-6 sm:p-7">
+      <h3 className={`font-serif font-light leading-tight text-white ${featured ? 'text-3xl' : 'text-2xl'}`}>
+        {service.title}
+      </h3>
+      <PriceList prices={service.prices} variant="dark" className="max-w-md" />
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-1">
+        <a
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center gap-2 rounded-full bg-[#C5A059] px-6 py-3 text-[11px] font-bold uppercase tracking-[0.18em] text-[#120E0D] transition-colors hover:bg-[#D8B46E] ${FOCUS_RING}`}
+        >
+          <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
+          Reservar
+        </a>
+        <button
+          type="button"
+          onClick={() => onSelectDetail(service)}
+          className={`group/link inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90 transition-colors hover:text-[#E3C27E] ${FOCUS_RING}`}
+        >
+          Ver detalles
+          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" aria-hidden="true" />
+        </button>
+      </div>
+    </div>
+  </article>
+);
+
+/** Despacha: afiches se muestran completos; el resto, con la foto de fondo recortada. */
+const ServiceTile: React.FC<TileProps> = (props) =>
+  props.service.imageFit === 'contain' ? <PosterTile {...props} /> : <CoverTile {...props} />;
 
 export const FeaturedServices: React.FC<FeaturedServicesProps> = ({ services, onSelectDetail, total }) => {
   const [main, ...rest] = services;

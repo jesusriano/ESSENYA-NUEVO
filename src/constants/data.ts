@@ -7,6 +7,7 @@ import descargaMuscularImg from '../assets/images/sports_massage_athletics_17854
 import suecoImg from '../assets/images/sueco_poster.webp';
 import descontracturanteImg from '../assets/images/descontracturante_free.webp';
 import piedrasImg from '../assets/images/piedras_free.webp';
+import piedrasPosterImg from '../assets/images/piedras_poster.webp';
 
 export const WHATSAPP_NUMBER = '5215511318971'; // Official WhatsApp hotline
 export const WHATSAPP_DISPLAY = '+52 1 55 1131 8971';
@@ -171,7 +172,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     fullDescription: 'Las piedras volcánicas pulidas retienen el calor y se deslizan suavemente a lo largo de los meridianos energéticos del cuerpo. El calor radiante dilata los vasos sanguíneos y ablanda los músculos tensos proporcionando un alivio cálido y reconfortante.',
     category: 'especial',
     tag: 'Ritual Volcánico',
-    image: piedrasImg,
+    image: piedrasPosterImg,
+    imageFit: 'contain',
     prices: [
       { durationMinutes: 60, priceMXN: 1300 },
       { durationMinutes: 90, priceMXN: 1950 },

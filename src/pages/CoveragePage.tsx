@@ -16,7 +16,7 @@ export const CoveragePage: React.FC = () => {
           </h1>
           <div className="w-12 h-[1px] bg-[#C5A059] mx-auto my-3"></div>
           <p className="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Llegamos puntualmente a residencias y departamentos privados en Polanco, Lomas, Condesa, Roma, Santa Fe, Interlomas, Coyoacán, San Ángel y Pedregal.
+            Tenemos cobertura en la Ciudad de México y su área metropolitana. Llegamos puntualmente a residencias y departamentos privados en Polanco, Lomas, Condesa, Roma, Santa Fe, Interlomas, Coyoacán, San Ángel, Pedregal y Atizapán de Zaragoza (Condado de Sayavedra y Esmeralda).
           </p>
         </div>
       </div>

@@ -27,11 +27,11 @@ export const CoverageSection: React.FC = () => {
             Cobertura Residencial CDMX
           </span>
           <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#2D2926]">
-            Llegamos a las <i className="font-normal text-[#C5A059]">Mejores Zonas</i>
+            Cobertura en <i className="font-normal text-[#C5A059]">Ciudad de México</i> y Área Metropolitana
           </h2>
           <div className="w-12 h-[1px] bg-[#C5A059] mx-auto my-3"></div>
           <p className="text-sm text-gray-600 leading-relaxed max-w-xl mx-auto">
-            Servicio puntual de spa y masaje profesional directo a tu residencia o espacio privado en las mejores zonas de la Ciudad de México.
+            Servicio puntual de spa y masaje profesional directo a tu residencia o espacio privado, con cobertura en la Ciudad de México y su área metropolitana.
           </p>
         </div>
 
@@ -73,7 +73,7 @@ export const CoverageSection: React.FC = () => {
                   <div>
                     <h4 className="font-serif font-light text-base">{z.name}</h4>
                     <p className={`text-[10px] uppercase tracking-wider mt-0.5 ${selectedZoneId === z.id ? 'text-[#C5A059]' : 'text-gray-500'}`}>
-                      {z.areaGroup} • Llegada {z.estimatedArrival}
+                      {z.areaGroup}{z.estimatedArrival ? ` • Llegada ${z.estimatedArrival}` : ''}
                     </p>
                   </div>
                   <ArrowRight className={`w-4 h-4 ${selectedZoneId === z.id ? 'text-[#C5A059]' : 'text-gray-400'}`} />
@@ -115,11 +115,13 @@ export const CoverageSection: React.FC = () => {
             </div>
 
             <div className="space-y-4 text-xs text-[#2D2926]">
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-[#C5A059] shrink-0" />
-                <span className="font-medium">Tiempo medio de llegada:</span>
-                <span className="font-bold text-[#2D2926] uppercase">{activeZone.estimatedArrival}</span>
-              </div>
+              {activeZone.estimatedArrival && (
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-[#C5A059] shrink-0" />
+                  <span className="font-medium">Tiempo medio de llegada:</span>
+                  <span className="font-bold text-[#2D2926] uppercase">{activeZone.estimatedArrival}</span>
+                </div>
+              )}
 
               <div>
                 <span className="font-bold text-[10px] uppercase tracking-widest text-[#C5A059] block mb-2">
@@ -138,19 +140,24 @@ export const CoverageSection: React.FC = () => {
                 </div>
               </div>
 
-              <div>
-                <span className="font-bold text-[10px] uppercase tracking-widest text-[#C5A059] block mb-1">
-                  Códigos Postales Principales:
-                </span>
-                <p className="text-xs text-gray-500 font-mono">
-                  {activeZone.zipCodes.join(', ')}
-                </p>
-              </div>
+              {activeZone.zipCodes.length > 0 && (
+                <div>
+                  <span className="font-bold text-[10px] uppercase tracking-widest text-[#C5A059] block mb-1">
+                    Códigos Postales Principales:
+                  </span>
+                  <p className="text-xs text-gray-500 font-mono">
+                    {activeZone.zipCodes.join(', ')}
+                  </p>
+                </div>
+              )}
 
-              <div className="bg-[#F9F6F2] p-4 border border-subtle flex items-center justify-between text-xs text-[#2D2926]">
-                <span>Cargo por traslado en esta zona:</span>
-                <span className="font-bold text-[#C5A059] text-xs uppercase tracking-wider">¡INCLUIDO!</span>
-              </div>
+              {/* Solo en zonas con datos confirmados (las que tienen tiempo de llegada) */}
+              {activeZone.estimatedArrival && (
+                <div className="bg-[#F9F6F2] p-4 border border-subtle flex items-center justify-between text-xs text-[#2D2926]">
+                  <span>Cargo por traslado en esta zona:</span>
+                  <span className="font-bold text-[#C5A059] text-xs uppercase tracking-wider">¡INCLUIDO!</span>
+                </div>
+              )}
             </div>
 
             <div className="pt-2">

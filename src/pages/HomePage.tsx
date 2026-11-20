@@ -62,7 +62,7 @@ export const HomePage: React.FC = () => {
               Atención a Domicilio en las <i className="font-normal text-[#C5A059]">Principales Colonias</i>
             </h2>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-              Llegamos puntualmente a casas, departamentos y condominios residenciales en las mejores zonas de la Ciudad de México y área metropolitana.
+              Tenemos cobertura en la Ciudad de México y su área metropolitana: llegamos puntualmente a casas, departamentos y condominios residenciales, incluyendo Atizapán de Zaragoza, Interlomas y Santa Fe.
             </p>
 
             <div className="grid grid-cols-2 gap-3 text-xs text-[#2D2926]">

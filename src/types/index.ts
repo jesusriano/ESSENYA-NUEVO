@@ -32,7 +32,7 @@ export interface CoverageZone {
   name: string;
   areaGroup: 'Poniente' | 'Centro-Sur' | 'Interlomas & Edomex' | 'Oeste';
   zipCodes: string[];
-  estimatedArrival: string;
+  estimatedArrival?: string; // si falta, no se muestra (zona sin tiempo de llegada confirmado)
   deliveryFee: number; // 0 for standard zones
   popularNeighborhoods: string[];
 }

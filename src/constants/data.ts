@@ -380,6 +380,15 @@ export const COVERAGE_ZONES: CoverageZone[] = [
     popularNeighborhoods: ['Interlomas', 'Lomas de Tecamachalco', 'Bosque de las Palmas', 'La Enramada', 'Jesús del Monte']
   },
   {
+    // Sin códigos postales ni tiempo de llegada confirmados: la página no los muestra para esta zona.
+    id: 'zone-atizapan',
+    name: 'Atizapán de Zaragoza, Condado de Sayavedra & Esmeralda',
+    areaGroup: 'Interlomas & Edomex',
+    zipCodes: [],
+    deliveryFee: 0,
+    popularNeighborhoods: ['Atizapán de Zaragoza', 'Condado de Sayavedra', 'Esmeralda']
+  },
+  {
     id: 'zone-coyoacan-san-angel',
     name: 'San Ángel, Coyoacán & Del Valle',
     areaGroup: 'Centro-Sur',
@@ -497,7 +506,7 @@ export const GUARANTEES = [
   },
   {
     title: 'Atención Personalizada en CDMX',
-    description: 'Cobertura directa en las mejores zonas residenciales de la Ciudad de México y área metropolitana.',
+    description: 'Cobertura en la Ciudad de México y su área metropolitana, incluyendo Atizapán de Zaragoza, Interlomas y Santa Fe.',
     icon: 'MapPin'
   }
 ];

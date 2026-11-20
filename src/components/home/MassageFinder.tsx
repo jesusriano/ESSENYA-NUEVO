@@ -167,7 +167,7 @@ export const MassageFinder: React.FC<MassageFinderProps> = ({
               >
                 {COVERAGE_ZONES.map((z) => (
                   <option key={z.id} value={z.id}>
-                    {z.name} — Llegada estimada {z.estimatedArrival}
+                    {z.name}{z.estimatedArrival ? ` — Llegada estimada ${z.estimatedArrival}` : ''}
                   </option>
                 ))}
               </select>

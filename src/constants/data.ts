@@ -12,8 +12,8 @@ import deepTissuePosterImg from '../assets/images/deep_tissue_poster.webp';
 import piedrasImg from '../assets/images/piedras_free.webp';
 import piedrasPosterImg from '../assets/images/piedras_poster.webp';
 
-export const WHATSAPP_NUMBER = '5215511318971'; // Official WhatsApp hotline
-export const WHATSAPP_DISPLAY = '+52 1 55 1131 8971';
+export const WHATSAPP_NUMBER = '525520415069'; // WhatsApp oficial (+52 55 2041 5069)
+export const WHATSAPP_DISPLAY = '+52 55 2041 5069';
 
 export const ADD_ONS: AddOn[] = [
   {

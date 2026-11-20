@@ -117,7 +117,8 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             </div>
           </div>
 
-          {/* Included Oils */}
+          {/* Included Oils (solo si el servicio los incluye) */}
+          {service.includedOils.length > 0 && (
           <div>
             <h3 className="font-serif text-base font-light text-[#2D2926] mb-2 flex items-center gap-2">
               <Droplets className="w-4 h-4 text-[#C5A059]" />
@@ -134,6 +135,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
               ))}
             </div>
           </div>
+          )}
 
           {/* Recommended Profiles */}
           <div>

@@ -6,7 +6,7 @@ import drenajePosterImg from '../assets/images/drenaje_poster.webp';
 import prenatalMassageImg from '../assets/images/prenatal_massage_mom_1785443757882.webp';
 import prenatalPosterImg from '../assets/images/prenatal_poster.webp';
 import sportsMassageImg from '../assets/images/deportivo_free.webp';
-import descargaMuscularImg from '../assets/images/sports_massage_athletics_1785444051684.webp';
+import tailandesPosterImg from '../assets/images/tailandes_poster.webp';
 import suecoImg from '../assets/images/sueco_poster.webp';
 import relajanteImg from '../assets/images/relajante_poster.webp';
 import descontracturanteImg from '../assets/images/descontracturante_free.webp';
@@ -319,31 +319,32 @@ export const MASSAGE_SERVICES: MassageService[] = [
     durationOptions: [60, 90, 120]
   },
   {
-    id: 'masaje-descarga-muscular',
-    title: 'Descarga Muscular',
-    shortDescription: 'Estiramientos asistidos, movilización miofascial y percusiones rítmicas para optimizar la recuperación física y liberar fatiga atlética.',
-    fullDescription: 'Ideal para corredores, ciclistas, atletas o personas con alta exigencia física. Combina movilizaciones articulares asistidas y presión enfocada en grupos musculares para prevenir rigidez y restaurar la flexibilidad.',
-    category: 'terapeutico',
-    tag: 'Recuperación Física',
-    image: descargaMuscularImg,
+    id: 'masaje-tailandes',
+    title: 'Masaje Tailandés',
+    shortDescription: 'Estiramientos suaves y movimientos rítmicos sobre la camilla para armonizar cuerpo y mente, mejorar la flexibilidad y recuperar el equilibrio.',
+    fullDescription: 'El masaje tailandés combina presiones con los dedos y las palmas, estiramientos asistidos y movimientos fluidos que llevan el cuerpo a un estado de calma y movilidad. Es ideal para quienes buscan equilibrio entre cuerpo y mente y una sensación de energía renovada.',
+    category: 'especial',
+    tag: 'Equilibrio y Energía',
+    image: tailandesPosterImg,
+    imageFit: 'contain',
     prices: [
       { durationMinutes: 60, priceMXN: 1300 },
       { durationMinutes: 90, priceMXN: 1950 },
       { durationMinutes: 120, priceMXN: 2600 },
     ],
     benefits: [
-      'Acelera la recuperación tras entrenamientos intensos',
-      'Aumenta la flexibilidad y rango de movimiento',
-      'Previene la rigidez muscular acumulada',
-      'Prepara la musculatura para nuevos retos físicos'
+      'Armoniza cuerpo y mente',
+      'Mejora la flexibilidad',
+      'Libera bloqueos de energía',
+      'Reduce el estrés'
     ],
     recommendedFor: [
-      'Corredores, practicantes de gimnasio, ciclismo o deportes de alto impacto',
-      'Personas con fatiga muscular constante por ejercicio',
-      'Recuperación post-competencia'
+      'Personas que buscan equilibrio entre cuerpo y mente',
+      'Quienes quieren mejorar su flexibilidad y movilidad',
+      'Quienes sienten tensión o estrés acumulado'
     ],
-    intensity: 5,
-    includedOils: ['Aceite Terapéutico de Árnica, Romero y Mentol'],
+    intensity: 3,
+    includedOils: [],
     durationOptions: [60, 90, 120]
   },
 ];

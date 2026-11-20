@@ -1,5 +1,6 @@
 import { MassageService, AddOn, CoverageZone, Review, FAQItem } from '../types';
 import coupleMassageImg from '../assets/images/couple_massage_spa_1785442759347.webp';
+import parejaPosterImg from '../assets/images/pareja_poster.webp';
 import lymphaticMassageImg from '../assets/images/drenaje_free.webp';
 import prenatalMassageImg from '../assets/images/prenatal_massage_mom_1785443757882.webp';
 import sportsMassageImg from '../assets/images/deportivo_free.webp';
@@ -207,7 +208,8 @@ export const MASSAGE_SERVICES: MassageService[] = [
     fullDescription: 'Crea un ambiente de paz y reconexión en tu residencia o espacio privado. Incluye dos camillas de masaje profesionales instaladas lado a lado, música coordinada, aromaterapia botánica y atención totalmente personalizada para cada integrante de la pareja.',
     category: 'parejas',
     tag: 'Sesión en Pareja',
-    image: coupleMassageImg,
+    image: parejaPosterImg,
+    imageFit: 'contain',
     prices: [
       { durationMinutes: 60, priceMXN: 2400 },
       { durationMinutes: 90, priceMXN: 3600 },

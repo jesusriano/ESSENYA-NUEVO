@@ -54,13 +54,11 @@ export const FAQSection: React.FC = () => {
 
         {/* Accordions List */}
         <div className="space-y-3">
-          {filteredFaqs.map((faq) => {
+          {filteredFaqs.map((faq, idx) => {
             const isOpen = openId === faq.id;
             return (
-              <div
-                key={faq.id}
-                className="bg-white border border-subtle overflow-hidden transition-all"
-              >
+              <Reveal key={faq.id} delay={Math.min(idx, 6) * 0.05} y={16}>
+              <div className="bg-white border border-subtle overflow-hidden transition-all">
                 <button
                   type="button"
                   onClick={() => toggleAccordion(faq.id)}
@@ -80,6 +78,7 @@ export const FAQSection: React.FC = () => {
                   </div>
                 )}
               </div>
+              </Reveal>
             );
           })}
         </div>

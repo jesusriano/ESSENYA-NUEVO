@@ -51,6 +51,7 @@ export const AboutPage: React.FC = () => {
             Nuestros 4 Pilares de <i className="font-normal text-[#C5A059]">Excelencia</i>
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <Reveal delay={0.0} className="h-full">
             <div className="flex items-start gap-3 bg-[#FAF3E0] p-4 border border-[#E5D2A0] group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#C5A059] cursor-default">
               <ShieldCheck className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
               <div>
@@ -60,7 +61,9 @@ export const AboutPage: React.FC = () => {
                 </p>
               </div>
             </div>
+            </Reveal>
 
+            <Reveal delay={0.08} className="h-full">
             <div className="flex items-start gap-3 bg-[#FAF3E0] p-4 border border-[#E5D2A0] group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#C5A059] cursor-default">
               <Award className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
               <div>
@@ -70,7 +73,9 @@ export const AboutPage: React.FC = () => {
                 </p>
               </div>
             </div>
+            </Reveal>
 
+            <Reveal delay={0.16} className="h-full">
             <div className="flex items-start gap-3 bg-[#FAF3E0] p-4 border border-[#E5D2A0] group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#C5A059] cursor-default">
               <Sparkles className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
               <div>
@@ -80,7 +85,9 @@ export const AboutPage: React.FC = () => {
                 </p>
               </div>
             </div>
+            </Reveal>
 
+            <Reveal delay={0.24} className="h-full">
             <div className="flex items-start gap-3 bg-[#FAF3E0] p-4 border border-[#E5D2A0] group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#C5A059] cursor-default">
               <Heart className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
               <div>
@@ -90,6 +97,7 @@ export const AboutPage: React.FC = () => {
                 </p>
               </div>
             </div>
+            </Reveal>
           </div>
         </Reveal>
 

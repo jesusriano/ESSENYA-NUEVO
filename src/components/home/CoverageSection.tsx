@@ -61,9 +61,9 @@ export const CoverageSection: React.FC = () => {
           {/* Left Zone Buttons */}
           <div className="lg:col-span-5 space-y-3">
             {filteredZones.length > 0 ? (
-              filteredZones.map((z) => (
+              filteredZones.map((z, idx) => (
+                <Reveal key={z.id} delay={Math.min(idx, 6) * 0.06} y={16}>
                 <button
-                  key={z.id}
                   onClick={() => setSelectedZoneId(z.id)}
                   className={`w-full p-4 border text-left transition-all flex items-center justify-between ${
                     selectedZoneId === z.id
@@ -79,6 +79,7 @@ export const CoverageSection: React.FC = () => {
                   </div>
                   <ArrowRight className={`w-4 h-4 ${selectedZoneId === z.id ? 'text-[#C5A059]' : 'text-gray-400'}`} />
                 </button>
+                </Reveal>
               ))
             ) : (
               <div className="bg-[#F9F6F2] p-6 border border-subtle text-center space-y-3">

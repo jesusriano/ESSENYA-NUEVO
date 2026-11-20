@@ -1,5 +1,7 @@
+import { PageHeader } from '../components/common/PageHeader';
 import React, { useState } from 'react';
 import { Phone, Mail, Clock, MapPin, Send, ShieldCheck, Check, User, Calendar } from 'lucide-react';
+import { Reveal } from '../components/common/Reveal';
 
 export const ContactPage: React.FC = () => {
   const [name, setName] = useState('');
@@ -14,28 +16,18 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <main className="pt-28 pb-20 min-h-screen bg-[#FDFBF7]">
-      {/* Header */}
-      <div className="bg-[#2D2926] text-[#FDFBF7] py-16 px-4 sm:px-6 lg:px-8 text-center border-b border-white/10">
-        <div className="max-w-4xl mx-auto space-y-3">
-          <span className="text-[#C5A059] text-[11px] uppercase tracking-widest-xl font-bold block">
-            Contacto Directo
-          </span>
-          <h1 className="font-serif text-3xl sm:text-5xl font-light text-white">
-            Estamos Listos para <i className="font-normal text-[#C5A059]">Atenderte</i>
-          </h1>
-          <div className="w-12 h-[1px] bg-[#C5A059] mx-auto my-3"></div>
-          <p className="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Ponte en contacto con nuestro equipo de coordinadoras para dudas, eventos corporativos, masajes en grupo o reservas especiales.
-          </p>
-        </div>
-      </div>
+    <main className="pb-20 min-h-screen bg-[#FDFBF7]">
+      <PageHeader
+        eyebrow="Contacto Directo"
+        title={<>Estamos Listos para <i className="font-normal text-[#C5A059]">Atenderte</i></>}
+        text="Ponte en contacto con nuestro equipo de coordinadoras para dudas, eventos corporativos, masajes en grupo o reservas especiales."
+      />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
           {/* Info Side */}
-          <div className="lg:col-span-5 space-y-6">
+          <Reveal className="lg:col-span-5 space-y-6">
             <div className="bg-white p-6 border border-subtle shadow-sm space-y-6">
               <h3 className="font-serif font-light text-xl text-[#2D2926] border-b border-subtle pb-3 italic">
                 Información de Contacto
@@ -84,7 +76,7 @@ export const ContactPage: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Form Side */}
           <div className="lg:col-span-7 bg-white p-8 border border-subtle shadow-md space-y-6">

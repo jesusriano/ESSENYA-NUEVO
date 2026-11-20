@@ -1,31 +1,23 @@
+import { PageHeader } from '../components/common/PageHeader';
 import React from 'react';
 import { ShieldCheck, Award, Heart, CheckCircle2, Sparkles, Users } from 'lucide-react';
 import { ExperienceSection } from '../components/home/ExperienceSection';
 import { AnimatedImage } from "../components/common/AnimatedImage";
+import { Reveal } from '../components/common/Reveal';
 
 export const AboutPage: React.FC = () => {
   return (
-    <main className="pt-28 pb-20 min-h-screen bg-[#FAF4E8]">
-      {/* Header */}
-      <div className="bg-[#2D2926] text-[#FDFBF7] py-16 px-4 sm:px-6 lg:px-8 text-center border-b border-white/10">
-        <div className="max-w-4xl mx-auto space-y-3">
-          <span className="text-[#C5A059] text-[11px] uppercase tracking-widest-xl font-bold block">
-            Nuestra Filosofía
-          </span>
-          <h1 className="font-serif text-3xl sm:text-5xl font-light text-white">
-            Sobre <span className="text-white font-normal">ESSENYA</span> <i className="font-normal text-[#C5A059]">Masajes a Domicilio</i>
-          </h1>
-          <div className="w-12 h-[1px] bg-[#C5A059] mx-auto my-3"></div>
-          <p className="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Redefiniendo el estándar de la terapia corporal en México a través de la puntualidad, elegancia, higiene rigurosa y calidez humana.
-          </p>
-        </div>
-      </div>
+    <main className="pb-20 min-h-screen bg-[#FAF4E8]">
+      <PageHeader
+        eyebrow="Nuestra Filosofía"
+        title={<>Sobre <span className="text-white font-normal">ESSENYA</span> <i className="font-normal text-[#C5A059]">Masajes a Domicilio</i></>}
+        text="Redefiniendo el estándar de la terapia corporal en México a través de la puntualidad, elegancia, higiene rigurosa y calidez humana."
+      />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8 space-y-16">
         
         {/* Story */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="space-y-4">
             <span className="text-[10px] font-bold text-[#C5A059] uppercase tracking-widest">
               Nuestra Historia
@@ -51,10 +43,10 @@ export const AboutPage: React.FC = () => {
               maskClassName="bg-[#FFFDF9]"
             />
           </div>
-        </div>
+        </Reveal>
 
         {/* Pillars */}
-        <div className="bg-[#FFFDF9] p-8 sm:p-10 border border-[#E5D2A0] shadow-xs space-y-6">
+        <Reveal delay={0.1} className="bg-[#FFFDF9] p-8 sm:p-10 border border-[#E5D2A0] shadow-xs space-y-6">
           <h3 className="font-serif text-2xl font-light text-[#2D2926] text-center">
             Nuestros 4 Pilares de <i className="font-normal text-[#C5A059]">Excelencia</i>
           </h3>
@@ -99,7 +91,7 @@ export const AboutPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
       </div>
 

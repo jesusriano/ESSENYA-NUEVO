@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Search, CheckCircle2, Clock, ShieldCheck, ArrowRight, User, Calendar } from 'lucide-react';
 import { COVERAGE_ZONES } from '../../constants/data';
+import { Reveal } from '../common/Reveal';
 
 export const CoverageSection: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,7 +23,7 @@ export const CoverageSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <Reveal className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="text-[#C5A059] text-[11px] uppercase tracking-widest-xl font-bold block">
             Cobertura Residencial CDMX
           </span>
@@ -33,7 +34,7 @@ export const CoverageSection: React.FC = () => {
           <p className="text-sm text-gray-600 leading-relaxed max-w-xl mx-auto">
             Servicio puntual de spa y masaje profesional directo a tu residencia o espacio privado, con cobertura en la Ciudad de México y su área metropolitana.
           </p>
-        </div>
+        </Reveal>
 
         {/* Search Input Box */}
         <div className="max-w-xl mx-auto mb-10">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HelpCircle, ChevronDown, Sparkles, User } from 'lucide-react';
 import { FAQS } from '../../constants/data';
+import { Reveal } from '../common/Reveal';
 
 export const FAQSection: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>(FAQS[0].id);
@@ -21,7 +22,7 @@ export const FAQSection: React.FC = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <Reveal className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="text-[#C5A059] text-[11px] uppercase tracking-widest-xl font-bold block">
             Dudas Frecuentes
           </span>
@@ -32,7 +33,7 @@ export const FAQSection: React.FC = () => {
           <p className="text-sm text-gray-600 leading-relaxed max-w-xl mx-auto">
             Queremos que te sientas totalmente tranquilo y cómodo antes de tu primera sesión a domicilio.
           </p>
-        </div>
+        </Reveal>
 
         {/* Category Selector */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">

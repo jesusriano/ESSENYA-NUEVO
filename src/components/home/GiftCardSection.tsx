@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircle2, Gift, User } from 'lucide-react';
-import { MASSAGE_SERVICES, WHATSAPP_NUMBER } from '../../constants/data';
+import { MASSAGE_SERVICES, GIFT_WHATSAPP_NUMBER } from '../../constants/data';
 import { formatMXN } from '../common/PriceList';
 import { Reveal } from '../common/Reveal';
 import { WhatsAppIcon } from '../common/WhatsAppIcon';
@@ -32,7 +32,7 @@ export const GiftCardSection: React.FC = () => {
   ]
     .filter(Boolean)
     .join('\n');
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText)}`;
+  const whatsappUrl = `https://wa.me/${GIFT_WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText)}`;
 
   return (
     <section id="regalos" className="relative border-b border-subtle bg-[#FDFBF7] py-20">

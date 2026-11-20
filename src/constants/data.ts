@@ -9,6 +9,8 @@ import descontracturanteImg from '../assets/images/descontracturante_free.webp';
 import piedrasImg from '../assets/images/piedras_free.webp';
 
 export const WHATSAPP_NUMBER = '5215511318971'; // Official WhatsApp hotline
+// WhatsApp al que llegan los pedidos de tarjetas de regalo: +52 55 2041 5069
+export const GIFT_WHATSAPP_NUMBER = '525520415069';
 export const WHATSAPP_DISPLAY = '+52 1 55 1131 8971';
 
 export const ADD_ONS: AddOn[] = [

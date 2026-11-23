@@ -21,41 +21,29 @@ export const WHATSAPP_DISPLAY = '+52 55 2041 5069';
 
 export const ADD_ONS: AddOn[] = [
   {
-    id: 'addon-exfoliacion',
-    name: 'Exfoliación Orgánica Espalda o Pies',
-    description: 'Elimina células muertas con sales marinas y aceites esenciales de lavanda y almendras.',
-    price: 350,
+    id: 'addon-reflexologia-podal-15',
+    name: 'Reflexología Podal · 15 min',
+    description: 'Reflexología en pies de 15 minutos. Se agrega a un masaje; no se reserva por separado.',
+    price: 300,
   },
   {
-    id: 'addon-antifaz',
-    name: 'Antifaz Térmico de Semillas & Lavanda',
-    description: 'Compresa tibia aromática sobre los ojos para aliviar fatiga ocular y migraña.',
-    price: 250,
-  },
-  {
-    id: 'addon-facial',
-    name: 'Facial Hidratante Exprés con Ácido Hialurónico',
-    description: 'Limpieza profunda con suero iluminador y masaje facial con rodillo de cuarzo rosa.',
+    id: 'addon-reflexologia-podal-30',
+    name: 'Reflexología Podal · 30 min',
+    description: 'Reflexología en pies de 30 minutos. Se agrega a un masaje; no se reserva por separado.',
     price: 550,
   },
   {
-    id: 'addon-piedras-extra',
-    name: 'Piedras Volcánicas Calientes Focalizadas',
-    description: 'Aplicación de piedras basálticas de origen volcánico en zona de mayor tensión.',
-    price: 400,
+    id: 'addon-craneofacial-15',
+    name: 'Reflexología Craneofacial · 15 min',
+    description: 'Reflexología craneofacial de 15 minutos. Se agrega a un masaje; no se reserva por separado.',
+    price: 300,
   },
   {
-    id: 'addon-aromaterapia-oro',
-    name: 'Infusión de Aromaterapia Orgánica Esencial',
-    description: 'Selección de aceites botánicos de grado terapéutico (Sándalo, Bergamota, Ylang Ylang).',
-    price: 200,
+    id: 'addon-craneofacial-30',
+    name: 'Reflexología Craneofacial · 30 min',
+    description: 'Reflexología craneofacial de 30 minutos. Se agrega a un masaje; no se reserva por separado.',
+    price: 550,
   },
-  {
-    id: 'addon-reflexologia',
-    name: 'Reflexología Podal & Craneofacial',
-    description: 'Complemento de 30 minutos. Se agrega a un masaje; no se reserva por separado.',
-    price: 500,
-  }
 ];
 
 export const MASSAGE_SERVICES: MassageService[] = [
@@ -455,8 +443,8 @@ export const REVIEWS: Review[] = [
     neighborhood: 'Santa Fe',
     rating: 5,
     date: 'Hace 2 semanas',
-    comment: 'Sufro de migraña tensional grave por las largas jornadas de cirugía. La terapeuta de ESSENYA aplicó digitopresión precisa y el antifaz térmico. Salí flotando. Totalmente recomendable.',
-    serviceUsed: 'Masaje Terapéutico + Antifaz Térmico',
+    comment: 'Sufro de migraña tensional grave por las largas jornadas de cirugía. La terapeuta de ESSENYA aplicó digitopresión precisa y reflexología podal. Salí flotando. Totalmente recomendable.',
+    serviceUsed: 'Masaje Terapéutico + Reflexología Podal',
     verified: true,
     avatarImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80'
   },

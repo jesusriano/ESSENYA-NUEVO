@@ -168,6 +168,8 @@ export const CoverageSection: React.FC = () => {
                 href="https://www.essenya.app/cliente"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-reservar
+                data-zone={activeZone.id}
                 className="w-full py-3.5 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 rounded-sm"
               >
                 <Calendar className="w-4 h-4 text-[#120E0D]" />

@@ -144,6 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
             href="https://www.essenya.app/cliente"
             target="_blank"
             rel="noopener noreferrer"
+            data-reservar
             className="px-5 py-2 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] text-[10px] font-bold uppercase tracking-[0.18em] rounded-full shadow-md transition-all cursor-pointer transform hover:scale-105 inline-flex items-center justify-center font-bold"
           >
             RESERVAR AHORA
@@ -218,6 +219,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
               href="https://www.essenya.app/cliente"
               target="_blank"
               rel="noopener noreferrer"
+              data-reservar
               className="w-full mt-2 py-3 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] text-[#120E0D] font-bold text-xs uppercase tracking-widest text-center shadow-md rounded-full inline-block"
             >
               RESERVAR AHORA

@@ -28,7 +28,9 @@ export const MassageFinder: React.FC<MassageFinderProps> = ({
     if (selectedAddOns.includes(id)) {
       setSelectedAddOns(selectedAddOns.filter((a) => a !== id));
     } else {
-      setSelectedAddOns([...selectedAddOns, id]);
+      // Los extras de 15 y 30 min del mismo tipo no se pueden juntar: se elige uno u otro
+      const grupo = (x: string) => x.replace(/-(15|30)$/, '');
+      setSelectedAddOns([...selectedAddOns.filter((a) => grupo(a) !== grupo(id)), id]);
     }
   };
 
@@ -248,6 +250,11 @@ export const MassageFinder: React.FC<MassageFinderProps> = ({
                 href="https://www.essenya.app/cliente"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-reservar
+                data-service-id={selectedServiceId}
+                data-duration={selectedDuration}
+                data-addons={selectedAddOns.join(',')}
+                data-zone={selectedZoneId}
                 className="w-full py-3.5 px-6 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 rounded-sm"
               >
                 <Calendar className="w-4 h-4" />

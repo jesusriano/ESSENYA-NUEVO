@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { ServicesCatalog } from '../components/home/ServicesCatalog';
-import { BookingModal } from '../components/modals/BookingModal';
+import { abrirReserva } from '../utils/booking';
 import { ServiceDetailModal } from '../components/modals/ServiceDetailModal';
 import { MassageService } from '../types';
 import headerImg from '../assets/images/hero_spa_slide_bright2_1785445064253.webp';
 
 export const ServicesPage: React.FC = () => {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [preselectedServiceId, setPreselectedServiceId] = useState<string | undefined>(undefined);
   const [selectedServiceDetail, setSelectedServiceDetail] = useState<MassageService | null>(null);
 
-  const handleOpenBookingModalWithService = (serviceId: string) => {
-    setPreselectedServiceId(serviceId);
-    setIsBookingOpen(true);
-  };
+  const handleOpenBookingModalWithService = (serviceId: string) => abrirReserva({ serviceId });
 
   return (
     <main className="pb-20 min-h-screen bg-[#FDFBF7]">
@@ -53,13 +48,7 @@ export const ServicesPage: React.FC = () => {
         onOpenBookingModalWithService={(id) => handleOpenBookingModalWithService(id)}
       />
 
-      {/* Modals */}
-      <BookingModal
-        isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
-        initialServiceId={preselectedServiceId}
-      />
-
+      {/* Detalle del masaje (el modal de reserva es único y vive en App) */}
       <ServiceDetailModal
         service={selectedServiceDetail}
         onClose={() => setSelectedServiceDetail(null)}

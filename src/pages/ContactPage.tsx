@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Phone, Mail, Clock, MapPin, Send, ShieldCheck, Check, User, Calendar } from 'lucide-react';
 import { Reveal } from '../components/common/Reveal';
 import { trackEvent } from '../utils/tracking';
+import { buildContactUrl } from '../utils/whatsapp';
+import { WhatsAppIcon } from '../components/common/WhatsAppIcon';
 
 export const ContactPage: React.FC = () => {
   const [name, setName] = useState('');
@@ -11,9 +13,15 @@ export const ContactPage: React.FC = () => {
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
+  const [whatsappUrl, setWhatsappUrl] = useState('');
+
+  // El mensaje se envía de verdad: se abre WhatsApp con todo ya escrito y el cliente solo presiona "Enviar".
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const url = buildContactUrl({ name: name.trim(), phone: phone.trim(), neighborhood: neighborhood.trim(), message: message.trim() });
     trackEvent('formulario', { label: 'formulario de contacto' });
+    setWhatsappUrl(url);
+    window.open(url, '_blank', 'noopener,noreferrer');
     setSubmitted(true);
   };
 
@@ -89,19 +97,30 @@ export const ContactPage: React.FC = () => {
             {submitted ? (
               <div className="bg-[#F9F6F2] p-6 border border-subtle text-center space-y-4">
                 <Check className="w-8 h-8 text-[#C5A059] mx-auto" />
-                <h4 className="font-serif font-light text-lg text-[#2D2926]">¡Mensaje Recibido!</h4>
+                <h4 className="font-serif font-light text-lg text-[#2D2926]">Abrimos WhatsApp con tu mensaje</h4>
                 <p className="text-xs text-gray-600">
-                  Hemos registrado tus datos. También puedes agendar o gestionar tu cita directamente en nuestro Portal Cliente.
+                  <strong>Solo presiona “Enviar” en WhatsApp</strong> para que lo recibamos. Si no se abrió, toca el botón verde.
+                  También puedes reservar tu masaje directamente aquí o en el Portal Cliente.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
                   <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto px-6 py-2.5 bg-[#25D366] hover:bg-[#1FB457] text-white text-[10px] font-bold uppercase tracking-[0.2em] inline-flex items-center justify-center gap-2"
+                  >
+                    <WhatsAppIcon className="w-4 h-4" />
+                    Abrir WhatsApp
+                  </a>
+                  <a
                     href="https://www.essenya.app/cliente"
+                    data-reservar
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto px-6 py-2.5 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] text-[10px] font-bold uppercase tracking-[0.2em] inline-flex items-center justify-center gap-2"
                   >
                     <User className="w-4 h-4 text-[#120E0D]" />
-                    Ir al Portal Cliente
+                    Reservar un Masaje
                   </a>
                   <button
                     onClick={() => setSubmitted(false)}
@@ -174,17 +193,18 @@ export const ContactPage: React.FC = () => {
                     className="w-full py-3.5 px-6 bg-[#2D2926] hover:bg-[#C5A059] text-white font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-4 h-4 text-[#C5A059]" />
-                    Enviar Consulta
+                    Enviar Consulta por WhatsApp
                   </button>
 
                   <a
                     href="https://www.essenya.app/cliente"
+                    data-reservar
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-3 px-6 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] font-bold text-[10px] uppercase tracking-[0.2em] transition-all shadow-md flex items-center justify-center gap-2 rounded-sm"
                   >
                     <User className="w-4 h-4 text-[#120E0D]" />
-                    Portal Cliente (Reservar Cita)
+                    Reservar un Masaje
                   </a>
                 </div>
               </form>

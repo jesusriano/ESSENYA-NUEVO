@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { BookingModal } from './components/modals/BookingModal';
 import { RouteTracker } from './components/common/RouteTracker';
+import { abrirReserva } from './utils/booking';
 
 import { HomePage } from './pages/HomePage';
 import { ServicesPage } from './pages/ServicesPage';
@@ -33,14 +34,12 @@ function ScrollToTop() {
 }
 
 export default function App() {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-
   return (
     <Router>
       <ScrollToTop />
       <RouteTracker />
       <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#1E2923] font-sans antialiased">
-        <Navbar onOpenBookingModal={() => setIsBookingOpen(true)} />
+        <Navbar onOpenBookingModal={() => abrirReserva()} />
 
         <div className="flex-1">
           <Routes>
@@ -58,11 +57,8 @@ export default function App() {
 
         <Footer />
 
-        {/* Global Quick Booking Modal */}
-        <BookingModal
-          isOpen={isBookingOpen}
-          onClose={() => setIsBookingOpen(false)}
-        />
+        {/* Único modal de reserva del sitio: lo abre cualquier botón "Reservar" */}
+        <BookingModal />
       </div>
     </Router>
   );

@@ -1,34 +1,24 @@
 import React, { useState } from 'react';
+import { abrirReserva } from '../utils/booking';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, ShieldCheck, CheckCircle2, Clock, MapPin, Heart, HelpCircle, Gift } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Hero } from '../components/home/Hero';
 import { FeaturedServices } from '../components/home/FeaturedServices';
 import { EquipmentSection } from '../components/home/EquipmentSection';
-import { BookingModal } from '../components/modals/BookingModal';
 import { ServiceDetailModal } from '../components/modals/ServiceDetailModal';
 import { MASSAGE_SERVICES, COVERAGE_ZONES } from '../constants/data';
 import { MassageService } from '../types';
 
 export const HomePage: React.FC = () => {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [preselectedServiceId, setPreselectedServiceId] = useState<string | undefined>(undefined);
-  const [preselectedDuration, setPreselectedDuration] = useState<number>(90);
-
   const [selectedServiceDetail, setSelectedServiceDetail] = useState<MassageService | null>(null);
 
   const featuredServices = MASSAGE_SERVICES.slice(0, 3); // Relajante, Descontracturante, Piedras Calientes/Pareja
 
-  const handleOpenBookingModal = () => {
-    setPreselectedServiceId(undefined);
-    setIsBookingOpen(true);
-  };
+  const handleOpenBookingModal = () => abrirReserva();
 
-  const handleOpenBookingModalWithService = (serviceId: string, duration = 90) => {
-    setPreselectedServiceId(serviceId);
-    setPreselectedDuration(duration);
-    setIsBookingOpen(true);
-  };
+  const handleOpenBookingModalWithService = (serviceId: string, duration = 90) =>
+    abrirReserva({ serviceId, duration });
 
   return (
     <main className="min-h-screen bg-[#FDFBF7]">
@@ -125,6 +115,7 @@ export const HomePage: React.FC = () => {
               href="https://www.essenya.app/cliente"
               target="_blank"
               rel="noopener noreferrer"
+              data-reservar
               className="w-full py-3.5 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] text-[11px] font-bold uppercase tracking-[0.2em] transition-all shadow-lg rounded-sm cursor-pointer text-center inline-block"
             >
               Agendar Cita en Mi Colonia
@@ -204,14 +195,7 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Modals */}
-      <BookingModal
-        isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
-        initialServiceId={preselectedServiceId}
-        initialDuration={preselectedDuration}
-      />
-
+      {/* Detalle del masaje (el modal de reserva es único y vive en App) */}
       <ServiceDetailModal
         service={selectedServiceDetail}
         onClose={() => setSelectedServiceDetail(null)}

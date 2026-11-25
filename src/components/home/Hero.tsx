@@ -276,6 +276,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
             href="https://www.essenya.app/cliente"
             target="_blank"
             rel="noopener noreferrer"
+            data-reservar
             style={motionVars(600, 400, 12)}
             className={`group hero-rise hero-cta w-full sm:w-auto px-6 py-2.5 bg-[#C5A059] hover:bg-[#D8B46E] text-[#120E0D] font-bold text-[11px] sm:text-xs tracking-widest uppercase transition-[background-color,border-color,color,translate,scale] hover:-translate-y-px active:scale-[0.98] shadow-lg flex items-center justify-center gap-2 rounded-full ${FOCUS_RING}`}
           >

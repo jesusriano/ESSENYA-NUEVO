@@ -65,6 +65,7 @@ const CoverTile: React.FC<TileProps> = ({ service, onSelectDetail, featured = fa
         <PriceList prices={service.prices} variant="dark" className={featured ? 'max-w-md' : 'max-w-sm'} />
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-1">
           <a
+            data-reservar
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -114,7 +115,8 @@ const PosterTile: React.FC<TileProps> = ({ service, onSelectDetail, featured = f
       <PriceList prices={service.prices} variant="dark" className="max-w-md" />
       <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-1">
         <a
-          href={BOOKING_URL}
+          data-reservar
+            href={BOOKING_URL}
           target="_blank"
           rel="noopener noreferrer"
           className={`inline-flex items-center gap-2 rounded-full bg-[#C5A059] px-6 py-3 text-[11px] font-bold uppercase tracking-[0.18em] text-[#120E0D] transition-colors hover:bg-[#D8B46E] ${FOCUS_RING}`}

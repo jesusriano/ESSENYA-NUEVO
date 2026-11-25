@@ -11,6 +11,7 @@
  */
 
 import { captureAttribution, decorateUrl } from './attribution';
+import { abrirReserva } from './booking';
 
 type Params = Record<string, string | number | boolean | undefined>;
 
@@ -31,6 +32,8 @@ interface EventDef {
 /** Catálogo de eventos: la única lista que hay que tocar para agregar uno nuevo. */
 export const EVENTS = {
   pageview:          { meta: 'PageView', ga: { name: 'page_view' } },
+  abrir_reserva:     { metaCustom: 'AbrirReserva', ga: { name: 'select_content', params: { content_type: 'reserva' } } },
+  reserva_whatsapp:  { meta: 'Lead', ga: { name: 'generate_lead', params: { channel: 'whatsapp_reserva' } } },
   clic_reservar:     { meta: 'Lead', ga: { name: 'clic_reservar' } },
   contacto_whatsapp: { meta: 'Contact', ga: { name: 'contact_click', params: { channel: 'whatsapp' } } },
   contacto_telefono: { meta: 'Contact', ga: { name: 'contact_click', params: { channel: 'telefono' } } },
@@ -94,6 +97,24 @@ export function initTracking(): void {
   document.addEventListener('click', (event) => {
     const target = event.target as HTMLElement | null;
     if (!target?.closest) return;
+    // Si otro código ya detuvo la acción (por ejemplo, falta aceptar las políticas), no cuenta como evento.
+    if (event.defaultPrevented) return;
+
+    // Botones "Reservar": abren el flujo de reserva (masaje → WhatsApp o portal) en lugar de ir directo al portal.
+    // Con Ctrl/Cmd/Shift se respeta el enlace normal (abrir el portal en otra pestaña).
+    const reservar = target.closest<HTMLElement>('[data-reservar]');
+    if (reservar && !(event.metaKey || event.ctrlKey || event.shiftKey)) {
+      event.preventDefault();
+      const duracion = Number(reservar.dataset.duration);
+      abrirReserva({
+        serviceId: reservar.dataset.serviceId || reservar.closest<HTMLElement>('[data-service]')?.dataset.service,
+        duration: [60, 90, 120].includes(duracion) ? duracion : undefined,
+        addOnIds: reservar.dataset.addons ? reservar.dataset.addons.split(',').filter(Boolean) : undefined,
+        zoneId: reservar.dataset.zone || undefined,
+      });
+      trackEvent('abrir_reserva', { label: reservar.dataset.trackLabel || reservar.textContent || 'reservar' });
+      return;
+    }
 
     const marked = target.closest<HTMLElement>('[data-track]');
     if (marked && marked.dataset.track && marked.dataset.track in EVENTS) {

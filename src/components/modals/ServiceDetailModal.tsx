@@ -183,6 +183,8 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
               href="https://www.essenya.app/cliente"
               target="_blank"
               rel="noopener noreferrer"
+              data-reservar
+              onClick={onClose}
               className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-[#C5A059] to-[#E3C27E] hover:from-[#D8B46E] hover:to-[#F0D597] text-[#120E0D] text-[10px] font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 rounded-sm"
             >
               <Calendar className="w-4 h-4 text-[#120E0D]" />

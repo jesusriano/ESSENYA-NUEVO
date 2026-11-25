@@ -142,6 +142,7 @@ export const ServicesCatalog: React.FC<ServicesCatalogProps> = ({ onSelectServic
                       />
                     </button>
                     <a
+                      data-reservar
                       href={BOOKING_URL}
                       target="_blank"
                       rel="noopener noreferrer"

@@ -58,7 +58,7 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <a href="/#calculador" className="hover:text-[#C5A059] transition-colors">
+                <a href="https://www.essenya.app/cliente" data-reservar className="hover:text-[#C5A059] transition-colors">
                   Cotizador Personalizado
                 </a>
               </li>

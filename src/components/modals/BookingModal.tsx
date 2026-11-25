@@ -161,8 +161,12 @@ const BookingFlow: React.FC<BookingFlowProps> = ({ request, onClose }) => {
     ess_duracion: String(selectedDuration),
     ess_extras: selectedAddOns.join(','),
     ess_fecha: date,
-    ess_hora: timeSlot,
-    ess_zona: currentZone.id,
+    // Hora en 24 h (HH:mm) y zona por nombre: es el formato que lee el portal. Nunca se envían nombre, teléfono ni dirección.
+    ess_hora: (() => {
+      const t = parseBookingDateTime(date, timeSlot);
+      return `${String(t.getHours()).padStart(2, '0')}:${String(t.getMinutes()).padStart(2, '0')}`;
+    })(),
+    ess_zona: currentZone.name,
   });
 
   const goNext = () => {

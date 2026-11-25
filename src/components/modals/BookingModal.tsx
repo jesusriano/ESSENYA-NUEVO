@@ -1,4 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { ALCALDIAS_COBERTURA, coloniasDeAlcaldia, zoneIdDeAlcaldia, leerDireccionWeb, guardarDireccionWeb } from '../../constants/direcciones';
+
 import { X, Calendar, Clock, MapPin, User, Check, Sparkles, ShieldCheck, ArrowRight, ArrowLeft, AlertCircle } from 'lucide-react';
 import { MASSAGE_SERVICES, ADD_ONS, COVERAGE_ZONES } from '../../constants/data';
 import { BOOKING_EVENT, BookingRequest } from '../../utils/booking';
@@ -80,10 +82,19 @@ const BookingFlow: React.FC<BookingFlowProps> = ({ request, onClose }) => {
   );
   const [date, setDate] = useState<string>(initialValues.date);
   const [timeSlot, setTimeSlot] = useState<string>(initialValues.timeSlot);
-  const [selectedZoneId, setSelectedZoneId] = useState<string>(
-    COVERAGE_ZONES.some((z) => z.id === request.zoneId) ? (request.zoneId as string) : COVERAGE_ZONES[0].id
+  // Dirección: primero alcaldía, luego colonia de esa alcaldía y la calle. Se recuerda la última usada.
+  const [direccionInicial] = useState(() => leerDireccionWeb());
+  const [alcaldia, setAlcaldia] = useState<string>(() => {
+    if (ALCALDIAS_COBERTURA.some((a) => a.alcaldia === direccionInicial.alcaldia)) return direccionInicial.alcaldia;
+    return ALCALDIAS_COBERTURA.find((a) => a.zoneId === request.zoneId)?.alcaldia ?? ALCALDIAS_COBERTURA[0].alcaldia;
+  });
+  const [colonia, setColonia] = useState<string>(direccionInicial.colonia);
+  const [escribiendoColonia, setEscribiendoColonia] = useState<boolean>(
+    () => direccionInicial.colonia !== '' && !coloniasDeAlcaldia(alcaldia).includes(direccionInicial.colonia)
   );
-  const [neighborhood, setNeighborhood] = useState<string>('');
+  const [calle, setCalle] = useState<string>(direccionInicial.calle);
+  const selectedZoneId = zoneIdDeAlcaldia(alcaldia);
+  const neighborhood = [calle.trim(), colonia.trim() ? `Col. ${colonia.trim()}` : '', alcaldia].filter(Boolean).join(', ');
   const [clientName, setClientName] = useState<string>('');
   const [clientPhone, setClientPhone] = useState<string>('');
   const [notes, setNotes] = useState<string>('');
@@ -118,6 +129,12 @@ const BookingFlow: React.FC<BookingFlowProps> = ({ request, onClose }) => {
     .filter((a): a is (typeof ADD_ONS)[number] => Boolean(a));
   const grandTotal = servicePrice + chosenAddOns.reduce((sum, a) => sum + a.price, 0);
   const currentZone = COVERAGE_ZONES.find((z) => z.id === selectedZoneId) || COVERAGE_ZONES[0];
+
+  const cambiarAlcaldia = (nueva: string) => {
+    setAlcaldia(nueva);
+    setColonia('');
+    setEscribiendoColonia(false);
+  };
 
   const toggleAddOn = (id: string) => {
     if (selectedAddOns.includes(id)) {
@@ -171,8 +188,8 @@ const BookingFlow: React.FC<BookingFlowProps> = ({ request, onClose }) => {
 
   const goNext = () => {
     if (step === 2) {
-      if (!clientName.trim() || !clientPhone.trim() || !neighborhood.trim()) {
-        setErrorMsg('Por favor ingresa tu Nombre, Teléfono y Colonia para continuar.');
+      if (!clientName.trim() || !clientPhone.trim() || !calle.trim() || !colonia.trim()) {
+        setErrorMsg('Por favor ingresa tu Nombre, Teléfono, Colonia y Calle para continuar.');
         return;
       }
       if (clientPhone.replace(/\D/g, '').length < 10) {
@@ -184,6 +201,7 @@ const BookingFlow: React.FC<BookingFlowProps> = ({ request, onClose }) => {
         return;
       }
     }
+    guardarDireccionWeb({ alcaldia, colonia: colonia.trim(), calle: calle.trim() });
     setErrorMsg('');
     setStep((step + 1) as 2 | 3);
   };
@@ -449,18 +467,35 @@ const BookingFlow: React.FC<BookingFlowProps> = ({ request, onClose }) => {
 
                   <div>
                     <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[#C5A059] mb-1.5 flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-[#C5A059]" /> Zona de Servicio:
+                      <MapPin className="w-3.5 h-3.5 text-[#C5A059]" /> Alcaldía / Municipio:
                     </label>
-                    <select value={selectedZoneId} onChange={(e) => setSelectedZoneId(e.target.value)} className="w-full p-3 border border-subtle bg-white text-xs text-[#2D2926] font-semibold focus:outline-none uppercase tracking-wider">
-                      {COVERAGE_ZONES.map((z) => (
-                        <option key={z.id} value={z.id}>{z.name}</option>
+                    <select id="booking-alcaldia" name="address-level2" autoComplete="address-level2" value={alcaldia} onChange={(e) => cambiarAlcaldia(e.target.value)} className="w-full p-3 border border-subtle bg-white text-xs text-[#2D2926] focus:outline-none font-semibold">
+                      {ALCALDIAS_COBERTURA.map((a) => (
+                        <option key={a.alcaldia} value={a.alcaldia}>{a.alcaldia}</option>
                       ))}
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[#C5A059] mb-1.5">Colonia / Dirección:</label>
-                    <input type="text" placeholder="Ej. Polanco III Sección, Av. Horacio 1200, Apto 4B" value={neighborhood} onChange={(e) => setNeighborhood(e.target.value)} className="w-full p-3 border border-subtle bg-white text-xs text-[#2D2926] focus:outline-none" />
+                    <label htmlFor="booking-colonia" className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[#C5A059] mb-1.5">Colonia:</label>
+                    <select id="booking-colonia" value={escribiendoColonia ? '__otra__' : colonia} onChange={(e) => {
+                      if (e.target.value === '__otra__') { setEscribiendoColonia(true); setColonia(''); }
+                      else { setEscribiendoColonia(false); setColonia(e.target.value); }
+                    }} className="w-full p-3 border border-subtle bg-white text-xs text-[#2D2926] focus:outline-none">
+                      <option value="">Elige una colonia</option>
+                      {coloniasDeAlcaldia(alcaldia).map((c) => (
+                        <option key={c} value={c}>{c}</option>
+                      ))}
+                      <option value="__otra__">Mi colonia no aparece</option>
+                    </select>
+                    {escribiendoColonia && (
+                      <input type="text" name="address-level3" autoComplete="address-level3" placeholder="Escribe tu colonia" value={colonia} onChange={(e) => setColonia(e.target.value)} className="w-full p-3 border border-subtle bg-white text-xs text-[#2D2926] focus:outline-none mt-2" />
+                    )}
+                  </div>
+
+                  <div>
+                    <label htmlFor="booking-calle" className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[#C5A059] mb-1.5">Calle, número y referencias:</label>
+                    <input id="booking-calle" type="text" name="address-line1" autoComplete="address-line1" placeholder="Ej. Av. Horacio 1200, Apto 4B" value={calle} onChange={(e) => setCalle(e.target.value)} className="w-full p-3 border border-subtle bg-white text-xs text-[#2D2926] focus:outline-none" />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
